@@ -17,10 +17,10 @@
                 <input type="text" placeholder="Search By UserName" id=" uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
                 <button><span class="icon fa-search"></span></button>
 
-</li>
+            </li>
 
 
-</ul>
+        </ul>
         <ul class="nav nav-tabs">
             <!--<li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Form</a></li> -->
             <li><a data-toggle="tab" href="#menu1" style="color: gray;">Invoices List</a></li>
@@ -151,6 +151,70 @@
 
 
 
+                <script>
+                    $(document).ready(function () {
+
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://localhost:52257/api/Invoice",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+
+                                var str = " ";
+                                for (var i = 0; i < data.length; i++) {
+                                    str += "<tr>";
+                                    str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].UserName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].AmountOfMedicine + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].PricePerOne + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].TotalPrice + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Date + "</td>";
+                                    str += "<td>";
+                                    str += "<div class='dropdown'>";
+                                    str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
+                                    str += "<ul class ='dropdown-menu'>";
+                                    str += "<li><a id = 'update'  href='#'>Update</a></li>";
+                                    str += "<li><a id = 'deleteApi' href='#'>Delete</a></li>";
+                                    str += "</ul>";
+                                    str += "</div>";
+                                    str += "</td>";
+                                    str += "</tr>";
+                                }
+                                $('#invo').html(str);
+                            },
+
+                            error: function (msg) { alert(msg); }
+                        });
+
+                    });
+
+                </script>
+                <script>
+
+
+                    $(document).ready(function () {
+                        // code to read selected table row cell data (values).
+                        $("#invo").on('click', '#deleteApi', function () {
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                            var data = id;
+
+                            $.ajax({
+                                url: "http://localhost:52257/api/Invoice/" + data,
+                                type: "Delete",
+                                success: function (data) {
+
+                                },
+                                error: function (msg) { alert(msg); }
+                            });
+                            location.reload();
+                        });
+                    });
+                </script>
+
 
 
                 <div id="menu1" class="tab-pane fade in active">
@@ -169,47 +233,10 @@
                                             <th>Date</th>
                                             <th>Operation</th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>zeshan</td>
-                                            <td>panadoll</td>
-                                            <td>2</td>
-                                            <td>10 RS</td>
-                                            <td>20Rs</td>
-                                            <td>2-1-16</td>
-                                            <td class="dropdown">
-                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                                    Option
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                                    <li><a class=" md-trigger" data-modal="modal-31" href="#" style="color:white"> Update</a></li>
-                                                    <li><a href="#" style="color:white">Delete</a></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>zeshan</td>
-                                            <td>panadoll</td>
-                                            <td>2</td>
-                                            <td>10 RS</td>
-                                            <td>20Rs</td>
-                                            <td>2-1-16</td>
-                                            <td class="dropdown">
-                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                                    Option
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                                    <li><a class=" md-trigger" data-modal="modal-31" href="#" style="color:white"> Update</a></li>
-                                                    <li><a href="#" style="color:white">Delete</a></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
+
 
                                     </thead>
-                                    <tbody></tbody>
+                                    <tbody id="invo"></tbody>
                                 </table>
                             </div>
                         </div>

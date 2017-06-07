@@ -16,7 +16,7 @@
                 <button><span class="icon fa-search"></span></button>
             </li>
         </ul>
-         <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Emergency List</a></li>
             <!-- <li><a data-toggle="tab" href="#menu1" style="color: gray;">Data</a></li>-->
         </ul>
@@ -162,7 +162,77 @@
                         </div>
 
                 -->
+                <script>
 
+
+                    $(document).ready(function () {
+
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://localhost:52257/api/Emergency",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+
+                                var str = " ";
+                                for (var i = 0; i < data.length; i++) {
+                                    str += "<tr>";
+                                    str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].D_O_B + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].ContactNo + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].AltNo + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Amount + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Medicines + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Status + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Gender + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Password + "</td>";
+                                    str += "<td>";
+                                    str += "<div class='dropdown'>";
+                                    str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
+                                    str += "<ul class ='dropdown-menu'>";
+                                    str += "<li><a id = 'update'  href='#'>Update</a></li>";
+                                    str += "<li><a id = 'deleteApi' href='#'>Delete</a></li>";
+                                    str += "</ul>";
+                                    str += "</div>";
+                                    str += "</td>";
+                                    str += "</tr>";
+                                }
+                                $('#emer').html(str);
+                            },
+
+                            error: function (msg) { alert(msg); }
+                        });
+
+                    });
+
+                </script>
+                <script>
+
+
+                    $(document).ready(function () {
+                        // code to read selected table row cell data (values).
+                        $("#emer").on('click', '#deleteApi', function () {
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                            var data = id;
+
+                            $.ajax({
+                                url: "http://localhost:52257/api/Emergency/" + data,
+                                type: "Delete",
+                                success: function (data) {
+
+                                },
+                                error: function (msg) { alert(msg); }
+                            });
+                            location.reload();
+                        });
+                    });
+                </script>
                 <div id="home" class="tab-pane fade in active">
                     <div style="overflow:scroll; width:87%; height:250px; ">
                         <div class="row">
@@ -174,41 +244,21 @@
                                             <th>First Name</th>
                                             <th>Last Name</th>
                                             <th>E-mail</th>
-                                            <th>Order Number</th>
+                                            <th>D.O.B</th>
                                             <th>Contact No</th>
-                                            <th>Alt No</th>
-                                            <th>Amount</th>
-                                            <th>Medicines</th>
+                                            <th>Alt NO</th>
+                                            <th>Amount Of Medicine</th>
+                                            <th>Medicine Name</th>
                                             <th>Address</th>
                                             <th>Status</th>
+                                            <th>Gender</th>
+                                            <th>Password</th>
                                             <th>Operation</th>
                                         </tr>
+
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Hina</td>
-                                            <td>Rashid</td>
-                                            <td>hinarashid@gmail.com</td>
-                                            <td>1</td>
-                                            <td>Chuburji</td>
-                                            <td>0900-78601</td>
-                                            <td>0900-78601</td>
-                                            <td>Panadol</td>
-                                            <td>1 Tablet</td>
-                                            <td>recieved</td>
-                                            <td class="dropdown">
-                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                                    Option
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                                    <li><a class=" md-trigger" data-modal="modal-20" href="#" style="color:white"> Update</a></li>
-                                                    <li><a href="#" style="color:white">Delete</a></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="emer"></tbody>
+
                                 </table>
                             </div>
                         </div>
@@ -217,4 +267,3 @@
             </div>
         </div>
     </div>
-

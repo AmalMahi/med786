@@ -13,170 +13,218 @@
             <li style="color: rgba(49, 50, 49, 0.97)">
                 <input type="text" placeholder="Search By UserName" id="uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
                 <button><span class="icon fa-search"></span></button>
-                </li>
-            </ul>
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">UserStore List</a></li>
-                    <!--<li><a data-toggle="tab" href="#menu1" style="color: gray;">Data</a></li>-->
-                </ul>
-                <div class="container">
-                    <div class="tab-content">
-                        <!-- <div id="home"  class="tab-pane fade in active ">
-                            <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top:10px;background-color:black;width:86%;">
-                                <fieldset>
+            </li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">UserStore List</a></li>
+            <!--<li><a data-toggle="tab" href="#menu1" style="color: gray;">Data</a></li>-->
+        </ul>
+        <div class="container">
+            <div class="tab-content">
+                <!-- <div id="home"  class="tab-pane fade in active ">
+                    <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top:10px;background-color:black;width:86%;">
+                        <fieldset>
 
 
 
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="text" class="form-control" name="Location" placeholder="Location Of User"
-                                                   data-fv-row=".col-sm-4"
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="Location" placeholder="Location Of User"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Location is required" />
+                                </div>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="orderno" placeholder="No Of Order"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The No Of Order is required" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="store" placeholder="Store Name"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Store Name is required"
+                                           data-fv-emailaddress="true"
+                                           data-fv-emailaddress-message="The input is not a valid email address" />
+                                </div>
+                                <div class="col-sm-4" style="margin-top:3px; ">
+                                    <select name="status" class="control" style="background-color:#333;">
+                                        <option value=" ">Availability Of Medicicnes</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <select name="status" class="control" style="background-color:#333;">
+                                        <option value=" ">Status:</option>
+                                        <option>Pending</option>
+                                        <option>Delivered</option>
+                                        <option>Cancel</option>
+                                    </select>
+                                </div>
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <textarea class="form-control" name="message" id="message" placeholder="Send Message to User" rows="4" style="background-color:#333;"
+                                              data-fv-notempty="true"
+                                              data-fv-notempty-message="The is required"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-3" style="margin-top:-6%;">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="agree" value="agree"
                                                    data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Location is required" />
-                                        </div>
-
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="text" class="form-control" name="orderno" placeholder="No Of Order"
-                                                   data-fv-row=".col-sm-4"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The No Of Order is required" />
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="text" class="form-control" name="store" placeholder="Store Name"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Store Name is required"
-                                                   data-fv-emailaddress="true"
-                                                   data-fv-emailaddress-message="The input is not a valid email address" />
-                                        </div>
-                                        <div class="col-sm-4" style="margin-top:3px; ">
-                                            <select name="status" class="control" style="background-color:#333;">
-                                                <option value=" ">Availability Of Medicicnes</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <select name="status" class="control" style="background-color:#333;">
-                                                <option value=" ">Status:</option>
-                                                <option>Pending</option>
-                                                <option>Delivered</option>
-                                                <option>Cancel</option>
-                                            </select>
-                                        </div>
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <textarea class="form-control" name="message" id="message" placeholder="Send Message to User" rows="4" style="background-color:#333;"
-                                                      data-fv-notempty="true"
-                                                      data-fv-notempty-message="The is required"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-6 col-sm-offset-3" style="margin-top:-6%;">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" name="agree" value="agree"
-                                                           data-fv-notempty="true"
-                                                           data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-xs-9 col-xs-offset-3" style="padding-left:50%;">
-                                            <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
-                                        </div>
-                                    </div>
-
-
-                                    <script>
-                                        // Check the captcha
-                                        function checkCaptcha(value, validator, $field) {
-                                            var items = $('#captchaOperation').html().split(' '),
-                                                sum = parseInt(items[0]) + parseInt(items[2]);
-                                            return value == sum;
-                                        }
-
-                                        $(document).ready(function () {
-                                            // Generate a simple captcha
-                                            function randomNumber(min, max) {
-                                                return Math.floor(Math.random() * (max - min + 1) + min);
-                                            }
-                                            $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
-
-                                            $('#basicBootstrapForm').formValidation();
-                                        });
-                                    </script>
-
-                                </fieldset>
-                            </form>
-                        </div>
-                           -->
-
-
-                        <div id="home" class="tab-pane fade in active ">
-                            <div style="overflow:scroll; width:87%; height:250px; ">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <table class="table table-fixed" style="margin-top: 10px; width: 1500px; height: auto; background-color: black">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>First Name</th>
-                                                    <th>Last Name</th>
-                                                    <th>E-mail</th>
-                                                    <th>Order Number</th>
-                                                    <th>Address</th>
-                                                    <th>Contact No</th>
-                                                    <th>Alt No</th>
-                                                    <th>Medicine</th>
-                                                    <th>Amount</th>
-                                                    <th>Status</th>
-                                                    <th>Operation</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Hina</td>
-                                                    <td>Rashid</td>
-                                                    <td>hinarashid@gmail.com</td>
-                                                    <td>1</td>
-                                                    <td>Chuburji</td>
-                                                    <td>0900-78601</td>
-                                                    <td>0900-78601</td>
-                                                    <td>Panadol</td>
-                                                    <td>1 Tablet</td>
-                                                    <td>recieved</td>
-                                                    <td class="dropdown">
-                                                        <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                                            Option
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                                            <li><a class=" md-trigger" data-modal="modal-19" href="#" style="color:white"> Update</a></li>
-                                                            <li><a href="#" style="color:white">Delete</a></li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
+                                                   data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+                                        </label>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-9 col-xs-offset-3" style="padding-left:50%;">
+                                    <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                                </div>
+                            </div>
+
+
+                            <script>
+                                // Check the captcha
+                                function checkCaptcha(value, validator, $field) {
+                                    var items = $('#captchaOperation').html().split(' '),
+                                        sum = parseInt(items[0]) + parseInt(items[2]);
+                                    return value == sum;
+                                }
+
+                                $(document).ready(function () {
+                                    // Generate a simple captcha
+                                    function randomNumber(min, max) {
+                                        return Math.floor(Math.random() * (max - min + 1) + min);
+                                    }
+                                    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+                                    $('#basicBootstrapForm').formValidation();
+                                });
+                            </script>
+
+                        </fieldset>
+                    </form>
+                </div>
+                   -->
+
+                <script>
+
+
+                    $(document).ready(function () {
+
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://localhost:52257/api/Order",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+
+                                var str = " ";
+                                for (var i = 0; i < data.length; i++) {
+                                    str += "<tr>";
+                                    str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].UserName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].ContactNo + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].AltNo + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].AmountOfMedicicne + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Amount + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].OrderNumber + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].MedicalStoreName + "</td>";
+                                    str += "<td>";
+                                    str += "<div class='dropdown'>";
+                                    str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
+                                    str += "<ul class ='dropdown-menu'>";
+                                    str += "<li><a id = 'update'  href='#'>Update</a></li>";
+                                    str += "<li><a id = 'deleteApi' href='#'>Delete</a></li>";
+                                    str += "</ul>";
+                                    str += "</div>";
+                                    str += "</td>";
+                                    str += "</tr>";
+                                }
+                                $('#emer').html(str);
+                            },
+
+                            error: function (msg) { alert(msg); }
+                        });
+
+                    });
+                </script>
+                <script>
+
+
+                    $(document).ready(function () {
+                        // code to read selected table row cell data (values).
+                        $("#emer").on('click', '#deleteApi', function () {
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                            var data = id;
+
+                            $.ajax({
+                                url: "http://localhost:52257/api/Order/" + data,
+                                type: "Delete",
+                                success: function (data) {
+
+                                },
+                                error: function (msg) { alert(msg); }
+                            });
+                            location.reload();
+                        });
+                    });
+                </script>
+                <div id="home" class="tab-pane fade in active ">
+                    <div style="overflow:scroll; width:87%; height:250px; ">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table table-fixed" style="margin-top: 10px; width: 1500px; height: auto; background-color: black">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>User Name</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Medicine Name</th>
+                                            <th>E-mail</th>
+                                            <th>Address</th>
+                                            <th>Contact No</th>
+                                            <th>Alt NO</th>
+                                            <th>Amount Of Medicicne</th>
+                                            <th>Order Number</th>
+                                            <th>MedicalStoreName</th>
+                                            <th>Operation</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="emer"></tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
 </div>
+Tahreem Naeem
+Tahreem

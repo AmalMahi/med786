@@ -171,6 +171,78 @@
                  </div>
                  -->
 
+                <script>
+
+
+                    $(document).ready(function () {
+
+                        $.ajax({
+                            type: 'GET',
+                            url: "http://localhost:52257/api/Order",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+
+                                var str = " ";
+                                for (var i = 0; i < data.length; i++) {
+                                    str += "<tr>";
+                                    str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+
+                                    str += "<td id='r" + i + "'>" + data[i].UserName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].ContactNo + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].AltNo + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].AmountOfMedicicne + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Amount + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].OrderNumber + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].MedicalStoreName + "</td>";
+                                    str += "<td>";
+                                    str += "<div class='dropdown'>";
+                                    str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
+                                    str += "<ul class ='dropdown-menu'>";
+                                    str += "<li><a id = 'update'  href='#'>Update</a></li>";
+                                    str += "<li><a id = 'deleteApi' href='#'>Delete</a></li>";
+                                    str += "</ul>";
+                                    str += "</div>";
+                                    str += "</td>";
+                                    str += "</tr>";
+                                }
+                                $('#emer').html(str);
+                            },
+
+                            error: function (msg) { alert(msg); }
+                        });
+
+                    });
+
+                </script>
+                <script>
+
+
+                    $(document).ready(function () {
+                        // code to read selected table row cell data (values).
+                        $("#emer").on('click', '#deleteApi', function () {
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                            var data = id;
+
+                            $.ajax({
+                                url: "http://localhost:52257/api/Order/" + data,
+                                type: "Delete",
+                                success: function (data) {
+
+                                },
+                                error: function (msg) { alert(msg); }
+                            });
+                            location.reload();
+                        });
+                    });
+                </script>
 
                 <div id="menu1" class="tab-pane fade in active">
                     <div style="overflow:scroll; width:87%; height:250px;">
@@ -183,67 +255,18 @@
                                             <th>User Name</th>
                                             <th>First Name</th>
                                             <th>Last Name</th>
+                                            <th>Medicine Name</th>
                                             <th>E-mail</th>
-                                            <th>Order Number</th>
                                             <th>Address</th>
                                             <th>Contact No</th>
                                             <th>Alt NO</th>
-                                            <th>Medicicne</th>
-                                            <th>Amount</th>
-
+                                            <th>Amount Of Medicicne</th>
+                                            <th>Order Number</th>
+                                            <th>MedicalStoreName</th>
                                             <th>Operation</th>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Aq.mahi</td>
-                                            <td>Mahleqa</td>
-                                            <td>Tahir</td>
-                                            <td>mtaamal12@gmail.com</td>
-                                            <td>3</td>
-                                            <td>technobird, lahore</td>
-                                            <td>033333333</td>
-                                            <td>03344345434</td>
-                                            <td>Panadol</td>
-                                            <td>19</td>
-
-                                            <td class="dropdown">
-                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                                    Option
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                                    <li><a class=" md-trigger" data-modal="modal-30" href="#" style="color:white"> Update</a></li>
-                                                    <li><a href="#" style="color:white">Delete</a></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Aq.mahi</td>
-                                            <td>Mahleqa</td>
-                                            <td>Tahir</td>
-                                            <td>mtaamal12@gmail.com</td>
-                                            <td>3</td>
-                                            <td>technobird, lahore</td>
-                                            <td>033333333</td>
-                                            <td>03344345434</td>
-                                            <td>Panadol</td>
-                                            <td>19</td>
-
-
-                                            <td class="dropdown">
-                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                                    Option
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                                    <li><a class=" md-trigger" data-modal="modal-30" href="#" style="color:white"> Update</a></li>
-                                                    <li><a href="#" style="color:white">Delete</a></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
                                     </thead>
-                                    <tbody></tbody>
+                                    <tbody id="emer"></tbody>
                                 </table>
                             </div>
                         </div>

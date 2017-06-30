@@ -16,7 +16,7 @@
                 <button><span class="icon fa-search"></span></button>
             </li>
         </ul>
-         <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs">
             <!--<li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Form</a></li> -->
             <li><a data-toggle="tab" href="#menu1" style="color: gray;">Invoice List</a></li>
         </ul>
@@ -169,7 +169,8 @@
                                     str += "<div class='dropdown'>";
                                     str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
                                     str += "<ul class ='dropdown-menu'>";
-                                    str += "<a id = 'deleteApi' class='btn btn-block dropdown-toggle' type='button' href='#'>Delete</a>";
+                                    str += "<li><a id = 'update'  href='#'>Update</a></li>";
+                                    str += "<li><a id = 'deleteApi' href='#'>Delete</a></li>";
                                     str += "</ul>";
                                     str += "</div>";
                                     str += "</td>";
@@ -195,7 +196,7 @@
                             var currentRow = $(this).closest("tr");
                             var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
                             var data = id;
-                            
+
                             $.ajax({
                                 url: "http://localhost:52257/api/Invoice/" + data,
                                 type: "Delete",
@@ -239,4 +240,4 @@
 
         </div>
     </div>
-
+    Mah

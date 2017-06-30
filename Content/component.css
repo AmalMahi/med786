@@ -1,3 +1,4 @@
+
 /* General styles for the modal */
 
 /* 
@@ -93,7 +94,7 @@ perspective effects (not including the modals and the overlay).
             margin-top: 5%;
 }
 
-.md-content4 {
+/*.md-content4 {
 	color: #fff;
 	border-radius: 3px;
 	 position: fixed;
@@ -105,14 +106,14 @@ perspective effects (not including the modals and the overlay).
             margin-left: 5%;
             top: -270px;
             margin-top: 5%;
-}
+}*/
 
 .md-content5 {
 	color: #fff;
 	border-radius: 3px;
 	 position: fixed;
-            width: auto;
-            height:auto;
+            width: 100%;
+            height:200%;
             border: 2px solid black;
             border-radius: 5px;
             background-color: rgba(0,0,0,1);
@@ -404,8 +405,8 @@ perspective effects (not including the modals and the overlay).
 }
 
 
-
-/* Effect 17: 3D slit */
+   
+/* Effect 17: 3D slit 
 .md-effect-17.md-modal {
 	-webkit-perspective: 1300px;
 	-moz-perspective: 1300px;
@@ -444,7 +445,7 @@ perspective effects (not including the modals and the overlay).
 	100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
 }
 
-
+    */
 
 /* Effect 18: 3D slit */
 .md-effect-18.md-modal {
@@ -792,3 +793,4 @@ perspective effects (not including the modals and the overlay).
 	50% { transform: translateZ(-250px) rotateY(89deg); opacity: 1; animation-timing-function: ease-in;}
 	100% { transform: translateZ(0) rotateY(0deg); opacity: 1; }
 }
+

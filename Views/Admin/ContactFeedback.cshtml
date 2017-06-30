@@ -15,15 +15,15 @@
             <li style="color: black">
                 <input type="text" placeholder="Search By Name" id="name" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
                 <button><span class="icon fa-search"></span></button>
-</li>
-</ul>
+            </li>
+        </ul>
         <ul class="nav nav-tabs">
             <!--<li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Form</a></li>-->
             <li><a data-toggle="tab" href="#menu1" style="color: gray;">FeedBack List</a></li>
         </ul>
         <script>
             $(document).ready(function () {
-              
+
                 $.ajax({
                     type: 'GET',
                     url: "http://localhost:52257/api/Services",
@@ -38,12 +38,12 @@
                             str += "<td id='r" + i + "'>" + data[i].Name + "</td>";
                             str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
                             str += "<td id='r" + i + "'>" + data[i].Message + "</td>";
-                            
+
                             str += "<td>";
-                            
-                            
+
+
                             str += "<a id = 'deleteApi' class='btn btn-block dropdown-toggle' type='button' href='#'>Delete</a>";
-                           
+
                             str += "</td>";
                             str += "</tr>";
                         }
@@ -56,31 +56,31 @@
             });
 
         </script>
-       
 
 
-            <script>
+
+        <script>
 
 
-                $(document).ready(function () {
-                    // code to read selected table row cell data (values).
-                    $("#feedback").on('click', '#deleteApi', function () {
-                        // get the current row
-                        var currentRow = $(this).closest("tr");
-                        var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-                        var data = id;
+            $(document).ready(function () {
+                // code to read selected table row cell data (values).
+                $("#feedback").on('click', '#deleteApi', function () {
+                    // get the current row
+                    var currentRow = $(this).closest("tr");
+                    var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                    var data = id;
 
-                        $.ajax({
-                            url: "http://localhost:52257/api/Services/" + data,
-                            type: "Delete",
-                            success: function (data) {
+                    $.ajax({
+                        url: "http://localhost:52257/api/Services/" + data,
+                        type: "Delete",
+                        success: function (data) {
 
-                            },
-                            error: function (msg) { alert(msg); }
-                        });
-                        location.reload();
+                        },
+                        error: function (msg) { alert(msg); }
                     });
+                    location.reload();
                 });
+            });
         </script>
 
         <div class="container">
@@ -98,13 +98,10 @@
                                             <th>Message</th>
                                             <th>Operation</th>
                                         </tr>
-                                      
-                                      
+
+
                                     </thead>
-                                    <tbody id="feedback">
-
-
-                                    </tbody>
+                                    <tbody id="feedback"></tbody>
                                 </table>
                             </div>
                         </div>

@@ -13,218 +13,325 @@
             <li style="color: rgba(49, 50, 49, 0.97)">
                 <input type="text" placeholder="Search By UserName" id="uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
                 <button><span class="icon fa-search"></span></button>
-            </li>
-        </ul>
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">UserStore List</a></li>
-            <!--<li><a data-toggle="tab" href="#menu1" style="color: gray;">Data</a></li>-->
-        </ul>
-        <div class="container">
-            <div class="tab-content">
-                <!-- <div id="home"  class="tab-pane fade in active ">
-                    <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top:10px;background-color:black;width:86%;">
-                        <fieldset>
+                </li>
+            </ul>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">UserStore List</a></li>
+                    <!--<li><a data-toggle="tab" href="#menu1" style="color: gray;">Data</a></li>-->
+                </ul>
+                <div class="container">
+                    <div class="tab-content">
+                        <!-- <div id="home"  class="tab-pane fade in active ">
+                            <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top:10px;background-color:black;width:86%;">
+                                <fieldset>
 
 
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label"></label>
-                                <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="Location" placeholder="Location Of User"
-                                           data-fv-row=".col-sm-4"
-                                           data-fv-notempty="true"
-                                           data-fv-notempty-message="The Location is required" />
-                                </div>
-
-                                <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="orderno" placeholder="No Of Order"
-                                           data-fv-row=".col-sm-4"
-                                           data-fv-notempty="true"
-                                           data-fv-notempty-message="The No Of Order is required" />
-                                </div>
-                            </div>
-
-
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label"></label>
-                                <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="store" placeholder="Store Name"
-                                           data-fv-notempty="true"
-                                           data-fv-notempty-message="The Store Name is required"
-                                           data-fv-emailaddress="true"
-                                           data-fv-emailaddress-message="The input is not a valid email address" />
-                                </div>
-                                <div class="col-sm-4" style="margin-top:3px; ">
-                                    <select name="status" class="control" style="background-color:#333;">
-                                        <option value=" ">Availability Of Medicicnes</option>
-                                        <option>Yes</option>
-                                        <option>No</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label"></label>
-                                <div class="col-sm-4" style="margin-top:3px;">
-                                    <select name="status" class="control" style="background-color:#333;">
-                                        <option value=" ">Status:</option>
-                                        <option>Pending</option>
-                                        <option>Delivered</option>
-                                        <option>Cancel</option>
-                                    </select>
-                                </div>
-                                <label class="col-sm-3 control-label"></label>
-                                <div class="col-sm-4" style="margin-top:3px;">
-                                    <textarea class="form-control" name="message" id="message" placeholder="Send Message to User" rows="4" style="background-color:#333;"
-                                              data-fv-notempty="true"
-                                              data-fv-notempty-message="The is required"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-6 col-sm-offset-3" style="margin-top:-6%;">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="agree" value="agree"
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-4" style="margin-top:3px;">
+                                            <input type="text" class="form-control" name="Location" placeholder="Location Of User"
+                                                   data-fv-row=".col-sm-4"
                                                    data-fv-notempty="true"
-                                                   data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
-                                        </label>
+                                                   data-fv-notempty-message="The Location is required" />
+                                        </div>
+
+                                        <div class="col-sm-4" style="margin-top:3px;">
+                                            <input type="text" class="form-control" name="orderno" placeholder="No Of Order"
+                                                   data-fv-row=".col-sm-4"
+                                                   data-fv-notempty="true"
+                                                   data-fv-notempty-message="The No Of Order is required" />
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-xs-9 col-xs-offset-3" style="padding-left:50%;">
-                                    <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
-                                </div>
-                            </div>
 
 
-                            <script>
-                                // Check the captcha
-                                function checkCaptcha(value, validator, $field) {
-                                    var items = $('#captchaOperation').html().split(' '),
-                                        sum = parseInt(items[0]) + parseInt(items[2]);
-                                    return value == sum;
-                                }
 
-                                $(document).ready(function () {
-                                    // Generate a simple captcha
-                                    function randomNumber(min, max) {
-                                        return Math.floor(Math.random() * (max - min + 1) + min);
-                                    }
-                                    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-4" style="margin-top:3px;">
+                                            <input type="text" class="form-control" name="store" placeholder="Store Name"
+                                                   data-fv-notempty="true"
+                                                   data-fv-notempty-message="The Store Name is required"
+                                                   data-fv-emailaddress="true"
+                                                   data-fv-emailaddress-message="The input is not a valid email address" />
+                                        </div>
+                                        <div class="col-sm-4" style="margin-top:3px; ">
+                                            <select name="status" class="control" style="background-color:#333;">
+                                                <option value=" ">Availability Of Medicicnes</option>
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-4" style="margin-top:3px;">
+                                            <select name="status" class="control" style="background-color:#333;">
+                                                <option value=" ">Status:</option>
+                                                <option>Pending</option>
+                                                <option>Delivered</option>
+                                                <option>Cancel</option>
+                                            </select>
+                                        </div>
+                                        <label class="col-sm-3 control-label"></label>
+                                        <div class="col-sm-4" style="margin-top:3px;">
+                                            <textarea class="form-control" name="message" id="message" placeholder="Send Message to User" rows="4" style="background-color:#333;"
+                                                      data-fv-notempty="true"
+                                                      data-fv-notempty-message="The is required"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6 col-sm-offset-3" style="margin-top:-6%;">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="agree" value="agree"
+                                                           data-fv-notempty="true"
+                                                           data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    $('#basicBootstrapForm').formValidation();
+                                    <div class="form-group">
+                                        <div class="col-xs-9 col-xs-offset-3" style="padding-left:50%;">
+                                            <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                                        </div>
+                                    </div>
+
+
+                                    <script>
+                                        // Check the captcha
+                                        function checkCaptcha(value, validator, $field) {
+                                            var items = $('#captchaOperation').html().split(' '),
+                                                sum = parseInt(items[0]) + parseInt(items[2]);
+                                            return value == sum;
+                                        }
+
+                                        $(document).ready(function () {
+                                            // Generate a simple captcha
+                                            function randomNumber(min, max) {
+                                                return Math.floor(Math.random() * (max - min + 1) + min);
+                                            }
+                                            $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+                                            $('#basicBootstrapForm').formValidation();
+                                        });
+                                    </script>
+
+                                </fieldset>
+                            </form>
+                        </div>
+                           -->
+
+                        <script>
+
+
+                            $(document).ready(function () {
+
+                                $.ajax({
+                                    type: 'GET',
+                                    url: "http://localhost:52257/api/Order",
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        console.log(data);
+
+                                        var str = " ";
+                                        for (var i = 0; i < data.length; i++) {
+                                            str += "<tr>";
+                                            str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
+
+                                            str += "<td id='r" + i + "'>" + data[i].UserName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].ContactNo + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].AltNo + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].AmountOfMedicicne + "</td>";
+                                           
+                                            str += "<td id='r" + i + "'>" + data[i].OrderNumber + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].MedicalStoreName + "</td>";
+                                            str += "<td id='r" + i + "'>" + data[i].Status + "</td>";
+                                            str += "<td>";
+                                            str += "<div class='dropdown'>";
+                                            str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
+                                            str += "<ul class ='dropdown-menu'>";
+                                            str += "<li><a id = 'update'  href='#'>Update</a></li>";
+                                            str += "<li><a id = 'deleteApi' href='#'>Delete</a></li>";
+                                            str += "</ul>";
+                                            str += "</div>";
+                                            str += "</td>";
+                                            str += "</tr>";
+                                        }
+                                        $('#emer').html(str);
+                                    },
+
+                                    error: function (msg) { alert(msg); }
                                 });
-                            </script>
 
-                        </fieldset>
-                    </form>
-                </div>
-                   -->
-
-                <script>
-
-
-                    $(document).ready(function () {
-
-                        $.ajax({
-                            type: 'GET',
-                            url: "http://localhost:52257/api/Order",
-                            dataType: 'json',
-                            success: function (data) {
-                                console.log(data);
-
-                                var str = " ";
-                                for (var i = 0; i < data.length; i++) {
-                                    str += "<tr>";
-                                    str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
-
-                                    str += "<td id='r" + i + "'>" + data[i].UserName + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].ContactNo + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].AltNo + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].AmountOfMedicicne + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].Amount + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].OrderNumber + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].MedicalStoreName + "</td>";
-                                    str += "<td>";
-                                    str += "<div class='dropdown'>";
-                                    str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
-                                    str += "<ul class ='dropdown-menu'>";
-                                    str += "<li><a id = 'update'  href='#'>Update</a></li>";
-                                    str += "<li><a id = 'deleteApi' href='#'>Delete</a></li>";
-                                    str += "</ul>";
-                                    str += "</div>";
-                                    str += "</td>";
-                                    str += "</tr>";
-                                }
-                                $('#emer').html(str);
-                            },
-
-                            error: function (msg) { alert(msg); }
-                        });
-
-                    });
-                </script>
-                <script>
-
-
-                    $(document).ready(function () {
-                        // code to read selected table row cell data (values).
-                        $("#emer").on('click', '#deleteApi', function () {
-                            // get the current row
-                            var currentRow = $(this).closest("tr");
-                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-                            var data = id;
-
-                            $.ajax({
-                                url: "http://localhost:52257/api/Order/" + data,
-                                type: "Delete",
-                                success: function (data) {
-
-                                },
-                                error: function (msg) { alert(msg); }
                             });
-                            location.reload();
-                        });
-                    });
-                </script>
-                <div id="home" class="tab-pane fade in active ">
-                    <div style="overflow:scroll; width:87%; height:250px; ">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <table class="table table-fixed" style="margin-top: 10px; width: 1500px; height: auto; background-color: black">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>User Name</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Medicine Name</th>
-                                            <th>E-mail</th>
-                                            <th>Address</th>
-                                            <th>Contact No</th>
-                                            <th>Alt NO</th>
-                                            <th>Amount Of Medicicne</th>
-                                            <th>Order Number</th>
-                                            <th>MedicalStoreName</th>
-                                            <th>Operation</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="emer"></tbody>
-                                </table>
+                            </script>
+                        <script>
+                            $(document).ready(function () {
+
+                                // code to read selected table row cell data (values).
+                                $("#emer").on('click', '#update', function () {
+                                    $('#we').hide();
+                                    // get the current row
+                                    var currentRow = $(this).closest("tr");
+
+                                    var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                                    var data = id;
+
+
+
+                                    $.ajax({
+                                        type: 'GET',
+                                        url: "http://localhost:52257/api/Order/" + data,
+                                        dataType: 'json',
+                                        success: function (data) {
+                                            console.log(data);
+
+
+                                            var str = "";
+
+                                            // str += "<div class='md-modal md-effect-20' id='modal-20'>";
+                                            //str += "<div class='md-contentt7'>";
+                                            //str += "<h1 style='color: white; font-family: 'Adobe Kaiti Std'; margin-left: 37%; font-size: 200%'>Status</h1>"
+                                            str += "<form action='#' method='post'>";
+                                            str += "<input type='int' id='o' disabled  value='" + data.Id + "' />"
+                                            str += "<input type='text' id='u' disabled   value='" + data.UserName + "'/>"
+                                            str += "<input type='text' id='a' disabled   value='" + data.FirstName + "'/>"
+                                            str += "<input type='text' id='b' disabled  value='" + data.LastName + "'/>"
+                                            str += "<input type='text' id='h' disabled  value='" + data.MedicineName + "'/>"
+                                            str += "<input type='email' id='c' disabled value='" + data.E_mail + "'/>"
+                                            str += "<input type='text' id='i' disabled   value='" + data.Address + "'/>"
+                                            str += "<input type='tel' id='e' disabled value='" + data.ContactNo + "'/>"
+                                            str += "<input type='tel' id='f' disabled  value='" + data.AltNo + "'/>"
+                                            str += "<input type='int' id='g' disabled   value='" + data.AmountOfMedicicne + "'/>"
+                                           
+                                           
+                                            str += "<input type='text' id='j' disabled value='" + data.OrderNumber + "'/>"
+                                            str += "<input type='password' id='k' disabled  value='" + data.MedicalStoreName + "'/>"
+                                            str += "<select id='s'>"
+                                            str += " <option >Status</option>"
+                                            str += " <option>Pendding</option>"
+                                            str += " <option>Recieved</option>"
+                                            str += " <option>Cancel</option>"
+                                            str += "</select>";
+
+                                            str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
+                                            str += "<a href='/MeddicalStore/UserStore' type='button' class='btn btn-lg ' type='button' value='Back'/>"
+                                            str += "</form>";
+                                            // str += "<div class='md-close' id='close_popup_div'><p>x</p></div>";
+
+                                            // str += "</div>";
+                                            // str += "</div>";
+                                            //
+
+
+                                            $('#int').html(str);
+                                        },
+
+                                        error: function (msg) { alert(msg); }
+
+
+                                    });
+                                });
+                            });
+
+
+
+                        </script>
+
+                        <script>
+
+                            function azc() {
+                                // debugger;
+                                alert("ok");
+                                var id = $("#o").val();
+                                var uname = $("#u").val();
+                                var fname = $("#a").val();
+                                var lname = $("#b").val();
+                                var email = $("#c").val();
+                                var contact = $("#e").val();
+                                var alt = $("#f").val();
+                                var amount = $("#g").val();
+                                var med = $("#h").val();
+                                var add = $("#i").val();
+                                var orderno = $("#j").val();
+                                var medname = $("#k").val();
+                                var status = $("#s").val();
+                               
+                                $.ajax({
+                                    url: "http://localhost:52257/api/Order/" + id,
+                                    type: "Put",
+                                    data: JSON.stringify({Id:id, AmountOfMedicicne:amount , MedicineName:med, UserName: uname, Status:status,FirstName:fname, LastName:lname, E_mail:email,ContactNo:contact, AltNo:alt, OrderNumber :orderno,MedicalStoreName:medname ,Address:add}),
+                                    contentType: 'application/json; charset=utf-8',
+                                    success: function (data) {
+                                        window.location.href = "/MedicalStore/UserStore";
+                                    },
+                                    error: function (msg) { alert(msg); }
+                                });
+                            };
+
+                        </script>
+                        <script>
+
+
+                            $(document).ready(function () {
+                                // code to read selected table row cell data (values).
+                                $("#emer").on('click', '#deleteApi', function () {
+                                    // get the current row
+                                    var currentRow = $(this).closest("tr");
+                                    var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                                    var data = id;
+
+                                    $.ajax({
+                                        url: "http://localhost:52257/api/Order/" + data,
+                                        type: "Delete",
+                                        success: function (data) {
+
+                                        },
+                                        error: function (msg) { alert(msg); }
+                                    });
+                                    location.reload();
+                                });
+                            });
+                        </script>
+                            <div id="home" class="tab-pane fade in active ">
+                                <div style="overflow:scroll; width:87%; height:250px; ">
+                                    <div class="row" id="we">
+                                        <div class="col-xs-12">
+                                            <table class="table table-fixed" style="margin-top: 10px; width: 1500px; height: auto; background-color: black">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>User Name</th>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Medicine Name</th>
+                                                        <th>E-mail</th>
+                                                        <th>Address</th>
+                                                        <th>Contact No</th>
+                                                        <th>Alt NO</th>
+                                                        <th>Amount Of Medicicne</th>
+                                                        <th>Order Number</th>
+                                                        <th>MedicalStoreName</th>
+                                                        <th>Status</th>
+                                                        <th>Operation</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="emer"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="int"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
-    </div>
 </div>
-Tahreem Naeem
-Tahreem

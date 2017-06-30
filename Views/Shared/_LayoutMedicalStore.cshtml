@@ -468,20 +468,42 @@
                         <h2>Feed Back</h2>
                         <form method="post" action="#">
                             <div class="field half first">
-                                <input type="text" name="name" id="name" placeholder="Name" />
+                                <input type="text" name="name" id="namef" required placeholder="Name" />
                             </div>
                             <div class="field half">
-                                <input type="text" name="email" id="email" placeholder="Email" />
+                                <input type="text" name="email" id="emailf" required placeholder="Email" />
                             </div>
                             <div class="field">
-                                <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
+                                <textarea name="message" id="messagef" required rows="4" placeholder="Message"></textarea>
                             </div>
                             <ul class="actions">
-                                <li><input type="submit" value="Send" class="special" /></li>
+                                <li><input type="submit" id="fb" value="Send" class="special" /></li>
                                 <li><input type="reset" value="Reset" /></li>
                             </ul>
                         </form>
                     </section>
+                    <script>
+                        $(document).ready(function () {
+                            $("#fb").click(function () {
+                                var a = $("#namef").val();
+                                var b = $("#emailf").val();
+                                var c = $("#messagef").val();
+
+                                $.ajax({
+                                    url: "http://localhost:52257/api/Services",
+                                    type: "Post",
+                                    data: JSON.stringify({ Name: a, E_mail: b, Message: c }),
+
+                                    contentType: 'application/json; charset=utf-8',
+                                    success: function (data) {
+                                        alert();
+                                    },
+                                    error: function () { alert('error'); }
+                                });
+                            });
+                        });
+                    </script>
+
                 </div>
             </div>
         </footer>
@@ -517,21 +539,21 @@
 
 
 
-    <div class="md-modal md-effect-20" id="modal-20">
-        <div class="md-contentt7">
+<!--<div class="md-modal md-effect-20" id="modal-20">
+      <div class="md-contentt7">
             <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 37%; font-size: 200%">Status</h1>
 
-            <select style="width:300px;margin-top:30px;margin-left:10px;margin-right:10px;">
+              <select style="width:300px;margin-top:30px;margin-left:10px;margin-right:10px;">
                 <option>Status</option>
                 <option>Pendding</option>
                 <option>Recieved</option>
             </select>
             <br /><br />
             <button class="btn btn-lg " type="button" style=" margin-left: 34%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std'; font-size: 130%; margin-bottom: 20px;">Save</button>
-            <div class="md-close" id="close_popup_div"><p>x</p></div>
+            
 
         </div>
-    </div>
+    </div>-->
 
     <script src="~/Scripts/classie.js"></script>
     <script src="~/Scripts/modalEffects.js"></script>

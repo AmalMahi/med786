@@ -88,44 +88,44 @@
         }
 
         #section3 {
-            padding-top: 120px;
-            height:auto;
+            padding-top: 200px;
+            height:400px;
             color: #fafafa;
             width:100%;
             background-color: black;
         }
 
         #section4 {
-            padding-top: 100px;
-            height: auto;
+            padding-top: 200px;
+            height:400px;
             color: #fafafa;
             background-color: black;
         }
 
         #section5 {
-            padding-top: 100px;
-            height: auto;
+            padding-top: 200px;
+            height: 400px;
             width: 100%;
             color: #fafafa;
             background-color: black;
         }
         #section6 {
-            padding-top: 100px;
-            height: auto;
+            padding-top: 200px;
+            height: 400px;
             width: 100%;
             color: #fafafa;
             background-color: black;
         }
         #section7 {
-            padding-top: 100px;
-            height: auto;
+            padding-top: 200px;
+            height: 400px;
             width: 100%;
             color: #fafafa;
             background-color: black;
         }
         #section8 {
-            padding-top: 100px;
-            height: auto;
+            padding-top: 200px;
+            height: 600px;
             width: 100%;
             color: #fafafa;
             background-color: black;
@@ -656,21 +656,43 @@
                         <h2>Feed Back</h2>
                         <form method="post" action="#">
                             <div class="field half first">
-                                <input type="text" name="name" id="name" placeholder="Name" />
+                                <input type="text" name="name" id="namef" required placeholder="Name" />
                             </div>
                             <div class="field half">
-                                <input type="text" name="email" id="email" placeholder="Email" />
+                                <input type="text" name="email" id="emailf" required placeholder="Email" />
                             </div>
                             <div class="field">
-                                <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
+                                <textarea name="message" id="messagef" rows="4" required placeholder="Message"></textarea>
                             </div>
                             <ul class="actions">
-                                <li><input type="submit" value="Send" class="special" /></li>
+                                <li><input type="submit" id="fb" value="Send" class="special" /></li>
                                 <li><input type="reset" value="Reset" /></li>
                             </ul>
                         </form>
 
                     </section>
+                    <script>
+                        $(document).ready(function () {
+                            $("#fb").click(function () {
+                                var a = $("#namef").val();
+                                var b = $("#emailf").val();
+                                var c = $("#messagef").val();
+
+                                $.ajax({
+                                    url: "http://localhost:52257/api/Services",
+                                    type: "Post",
+                                    data: JSON.stringify({ Name: a, E_mail: b, Message: c }),
+
+                                    contentType: 'application/json; charset=utf-8',
+                                    success: function (data) {
+                                        alert();
+                                    },
+                                    error: function () { alert('error'); }
+                                });
+                            });
+                        });
+                    </script>
+
                 </div>
             </div>
         </footer>
@@ -683,49 +705,73 @@
         <div class="md-contenteo">
 
             <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 30%; font-size: 200%;"><b>Emergency Order</b></h1>
-
-            <input type="text" placeholder="First Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-            <input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
-            <input type="tel" placeholder="Phone Number" id="num1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-            <input type="tel" placeholder="Alt Phone Number" id="num2" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-            <input type="email" placeholder=" Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
-            <input type="password" placeholder="Password" id="pass" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
-            <input type="password" placeholder="E-mail Adress" id="repass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-            <input type="text" placeholder="Amount" id="amount" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-            <select name="status" class="control" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;">
+            <form action="#">
+                <input type="text" id="fname" placeholder="First Name" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="text" id="lname" placeholder="Last Name" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+                <input type="tel" id="num1" placeholder="Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="tel" id="num2" placeholder="Alt Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                <input type="email" id="mail" placeholder=" E-mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+                <input type="password" id="pass" placeholder="Password" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+                <input type="password" id="repass" placeholder="Re-enter Pass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                <select id="med" typeof="text" name="status" class="control" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
                 <option value=" ">Medicine Name</option>
                 <option>Panadol</option>
                 <option>Dispirine</option>
                 <option>Antibiotics</option>
-
-            </select>
-            <input type="date" placeholder="date" id="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-            <br />
-            <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
-                <label>
-                    <input type="radio" name="gender" value="male" /> Male
-                </label>
-
-                <label>
-                    <input type="radio" name="gender" value="female" /> Female
-                </label>
-            </div>
-
-            <button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Send</button>
-            <div class="md-close" id="close_popup_div"><p>x</p></div>
-
+  </select>
+ <input type="number" id="amount" placeholder="Amount" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; " />
+                <input type="text" id="add" placeholder=" Address" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+                <input type="date" id="date" placeholder="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <br />
+                <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                    <label>
+                        <input type="radio" id="gender" name="gender" value="male" /> Male
+                    </label>
+                    <label>
+                        <input type="radio" id="gender" name="gender" value="female" /> Female
+                    </label>
+                </div>
+                <input type="button" class="btn btn-lg  " value="Send" id="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
+            </form>
+              <div class="md-close" id="close_popup_div"><p>x</p></div>
         </div>
     </div>
 
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                var a = $("#fname").val();
+                var b = $("#lname").val();
+                var c = $("#num1").val();
+                var d = $("#num2").val();
+                var e = $("#mail").val();
+                var f = $("#pass").val();
+                var g = $("#amount").val();
+                var h = $("#date").val();
+                var i = $("#gender").val();
+                var j = $("#med").val();
+                var k = $("#add").val();
+                
+                $.ajax({
+                    url: "http://localhost:52257/api/Emergency",
+                    type: "Post",
+                    data: JSON.stringify({ FirstName: a, LastName: b, E_mail: e, D_O_B: h, ContactNo: c, AltNo: d, Amount: g, Medicines: j, Address: k, Gender: i, Password: f }),
+
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        alert();
+                    },
+                    error: function () { alert('error'); }
+                });
+            });
+        });
+    </script>
+
     <script src="~/Scripts/classie.js"></script>
     <script src="~/Scripts/modalEffects.js"></script>
-
-
     <script>
         // this is important for IEs
         var polyfilter_scriptpath = '/js/';
     </script>
 </body>
 </html>
-
-

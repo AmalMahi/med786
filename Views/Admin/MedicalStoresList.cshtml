@@ -37,14 +37,14 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="storename" placeholder="Store Name"
+                                    <input type="text" id="sn" class="form-control" name="storename" placeholder="Store Name"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Store Name is required" />
                                 </div>
 
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="ownername" placeholder="Owner name"
+                                    <input type="text" id="on" class="form-control" name="ownername" placeholder="Owner name"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Owner Name is required" />
@@ -53,14 +53,14 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="licenseno" placeholder="License Number"
+                                    <input type="text" id="ln" class="form-control" name="licenseno" placeholder="License Number"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Store Name is required" />
                                 </div>
 
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="license" placeholder="License Owner name"
+                                    <input type="text" id="lon" class="form-control" name="license" placeholder="License Owner name"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Owner Name is required" />
@@ -69,14 +69,14 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="email" placeholder="E-mail"
+                                    <input type="text" id="email" class="form-control" name="email" placeholder="E-mail"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The email address is required"
                                            data-fv-emailaddress="true"
                                            data-fv-emailaddress-message="The input is not a valid email address" />
                                 </div>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="availability" placeholder=" Time Availability"
+                                    <input type="text" id="ta" class="form-control" name="availability" placeholder=" Time Availability"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Time Availabilityis required" />
                                 </div>
@@ -84,13 +84,13 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="num" placeholder="Contact Number"
+                                    <input type="text" id="cn" class="form-control" name="num" placeholder="Contact Number"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Contact Number is required" />
                                 </div>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="num" placeholder="Order Duration"
+                                    <input type="text" id="od" class="form-control" name="num" placeholder="Order Duration"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Order Duration is required" />
@@ -100,14 +100,14 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <textarea class="form-control" name="slocation" id="message" placeholder="Store Location" rows="3" style="background-color:#333;"
+                                    <textarea class="form-control" name="slocation" id="message1" placeholder="Store Location" rows="3" style="background-color:#333;"
                                               data-fv-notempty="true"
                                               data-fv-notempty-message="The Address is required"></textarea>
 
                                 </div>
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <textarea class="form-control" name="dlocation" id="message" placeholder="Delivery Location" rows="3" style="background-color:#333;"
+                                    <textarea class="form-control" name="dlocation" id="message2" placeholder="Delivery Location" rows="3" style="background-color:#333;"
                                               data-fv-notempty="true"
                                               data-fv-notempty-message="The Address is required"></textarea>
 
@@ -131,7 +131,7 @@
 
                             <div class="form-group">
                                 <div class="col-xs-9 col-xs-offset-3" style="margin-left:50%;">
-                                    <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                                    <input type="button" class="btn btn-lg  " value="Save" id="submit1" style="background-color:rgba(49, 50, 49, 0.66)" />
                                 </div>
                             </div>
 
@@ -140,6 +140,36 @@
 
                         </fieldset>
                     </form>
+                    <script>
+                        $(document).ready(function () {
+                            $("#submit1").click(function () {
+                                var a = $("#sn").val();
+                                var b = $("#on").val();
+                                var u = $("#ln").val();
+                                var o = $("#lon").val();
+                                var c = $("#email").val();
+                                var d = $("#ta").val();
+                                var e = $("#cn").val();
+                                var f = $("#od").val();
+                                var g = $("#message1").val();
+                                var i = $("#message2").val();
+
+
+                                $.ajax({
+                                    url: "http://localhost:52257/api/MedList",
+                                    type: "Post",
+                                    data: JSON.stringify({ StoreNames: a, OwnerName: b, LicenseNumber: u, ContactNo: e, LicenseOwnerName: o, E_mail: c, TimeAvailability: d, DeliveryLocation: i, StoreLocation: g, OrderDuration: f }),
+
+                                    contentType: 'application/json; charset=utf-8',
+                                    success: function (data) {
+                                        alert();
+                                    },
+                                    error: function () { alert('error'); }
+                                });
+                            });
+                        });
+                    </script>
+
                 </div>
                 <script>
                     $(document).ready(function () {

@@ -40,14 +40,14 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="MedName" placeholder="Medicine name"
+                                    <input type="text" class="form-control" id="mn" name="MedName" placeholder="Medicine name"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Medicine Name is required" />
                                 </div>
 
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="mg" placeholder="Medicine Weight (i.e: 50mg)"
+                                    <input type="text" class="form-control" id="mw" name="mg" placeholder="Medicine Weight (i.e: 50mg)"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Mg is required" />
@@ -56,7 +56,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="Medcompany" placeholder="Medicine Company"
+                                    <input type="text" class="form-control" id="mc" name="Medcompany" placeholder="Medicine Company"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Medicine Company is required" />
@@ -66,13 +66,13 @@
                                 <label class="col-sm-3 control-label"></label>
 
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="quantity" placeholder="Quantity"
+                                    <input type="text" class="form-control" id="qu" name="quantity" placeholder="Quantity"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Quantity is required" />
                                 </div>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <select name="status" class="control" style="background-color:#333;">
+                                    <select name="status" id="ty" class="control" style="background-color:#333;">
                                         <option value=" ">Type:</option>
                                         <option>Syrup</option>
                                         <option>Tablet</option>
@@ -86,14 +86,14 @@
                                 <label class="col-sm-3 control-label"></label>
 
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="quantity" placeholder="Price per syrup"
+                                    <input type="text" class="form-control" id="pps" name="quantity" placeholder="Price per syrup"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Quantity is required" />
                                 </div><label class="col-sm-3 control-label"></label>
 
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="quantity" placeholder="Price per tablet/capsule"
+                                    <input type="text" class="form-control" id="ppt" name="quantity" placeholder="Price per tablet/capsule"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Quantity is required" />
@@ -103,14 +103,14 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <input type="text" class="form-control" name="quantity" placeholder="Price per Box"
+                                    <input type="text" class="form-control" id="ppb" name="quantity" placeholder="Price per Box"
                                            data-fv-row=".col-sm-4"
                                            data-fv-notempty="true"
                                            data-fv-notempty-message="The Quantity is required" />
                                 </div>
 
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <select name="category" class="control" style="background-color:#333;">
+                                    <select name="category" id="ca" class="control" style="background-color:#333;">
                                         <option value=" ">Category:</option>
                                         <option>Pain Killer</option>
                                         <option>Headach</option>
@@ -133,7 +133,7 @@
 
                             <div class="form-group">
                                 <div class="col-xs-9 col-xs-offset-3" style="margin-left:35%;">
-                                    <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                                    <input type="button" class="btn btn-lg  " value="Save" id="submit1" style="background-color:rgba(49, 50, 49, 0.66)" />
                                 </div>
                             </div>
 
@@ -142,6 +142,35 @@
 
                         </fieldset>
                     </form>
+                    <script>
+                        $(document).ready(function () {
+                            $("#submit1").click(function () {
+                                var a = $("#mn").val();
+                                var b = $("#mw").val();
+                                var u = $("#mc").val();
+                                var o = $("#qu").val();
+                                var c = $("#ty").val();
+                                var d = $("#pps").val();
+                                var e = $("#ppt").val();
+                                var f = $("#ppb").val();
+                                var g = $("#ca").val();
+
+
+
+                                $.ajax({
+                                    url: "http://localhost:52257/api/medicines",
+                                    type: "Post",
+                                    data: JSON.stringify({ MedicineName: a, MedicineWeight: b, MedicineCompany: u, PricePerTablet_Capsule: e, Quantity: o, Type: c, PricePerSyrup: d, Category: g, PricePerBox: f }),
+
+                                    contentType: 'application/json; charset=utf-8',
+                                    success: function (data) {
+                                        alert();
+                                    },
+                                    error: function () { alert('error'); }
+                                });
+                            });
+                        });
+                    </script>
                 </div>
 
                 <script>

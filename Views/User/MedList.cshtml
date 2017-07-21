@@ -78,17 +78,12 @@
                     for (var i = 0; i < data.length; i++) {
                         str += "<tr>";
 
-                        str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
-                        str += "<td id='r" + i + "'>" + data[i].MedicineWeight + "</td>";
-                        str += "<td id='r" + i + "'>" + data[i].MedicineCompany + "</td>";
-                     
-                       
-                        str += "<td id='r" + i + "'>" + data[i].Quantity + "</td>";
-                        str += "<td id='r" + i + "'>" + data[i].Price + "</td>";
-                        
-                      
-                        
-                        str += "<td id='r" + i + "'>" + data[i].Type + "</td>";
+                        str += "<td id='r1" + i + "'>" + data[i].MedicineName + "</td>";
+                        str += "<td id='r2" + i + "'>" + data[i].MedicineWeight + "</td>";
+                        str += "<td id='r3" + i + "'>" + data[i].MedicineCompany + "</td>";
+                        str += "<td id='r4" + i + "'>" + data[i].Quantity + "</td>";
+                        str += "<td id='r5" + i + "'>" + data[i].Price + "</td>";
+                        str += "<td id='r6" + i + "'>" + data[i].Type + "</td>";
                         str += "<td>";
                         str += "<a id = 'add' class='btn btn-block dropdown-toggle' type='button' href='#'>Add</a>";
                         str += "</td>";
@@ -104,7 +99,7 @@
         });
 
     </script>
-
+   
     <div class="col-sm-5">
 
 
@@ -260,3 +255,32 @@
 <div style="height:50px;width:100%;margin-top:150px;">
 
 </div>
+<script>
+    $(document).ready(function () {
+        $("#med").on('click', '#add', function () {
+            alert(ok);
+            var code = document.getElementById("r1").value;
+            var a = code; // item code
+
+            var itemName = document.getElementById("r2").value;
+            var b = itemName; // item name
+
+            var cost = document.getElementById("r3").value;
+            var c = cost; // calculate cost
+
+            var quantity = document.getElementById("r4").value;
+            var d = quantity; // calculate quantity of items
+
+            var subtotal = document.getElementById("r5").value;
+            var e = subtotal; // multiplying cost by quantity = subtotal
+
+            var tax = document.getElementById("r6").value;
+            var f = tax; // multiplying subtotal by tax(.7) = amount of tax owed
+
+            alert(a);
+
+        });
+
+    });
+
+</script>

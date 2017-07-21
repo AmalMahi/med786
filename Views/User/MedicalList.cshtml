@@ -15,11 +15,7 @@
         </div>
         <div>
             <div class="collapse navbar-collapse" id="myNav">
-                <ul class="nav navbar-nav">
-                    <li><a href="#section1">Free Delivery</a></li>
-                    <li><a href="#section2">Delivery with Charges</a></li>
-
-                </ul>
+              
                 <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
                     <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
                     <li class="dropdown">
@@ -69,198 +65,103 @@
 </div>
 
 
+<script>
+    $(document).ready(function () {
 
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:52257/api/MedList",
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
 
-
-
-<div id="section1" class="container-fluid">
-    <h1>Free Delivery </h1><br /><br>
-    <!-- Wrapper -->
-    <div id="wrapper">
-        <!-- Main -->
-        <div id="main">
-            <div class="inner">
-
-                <section class="tiles">
-
-                    <article class="style2">
-                        <span class="image">
-                            <img src="~/images/pic09.jpg" />
-                        </span>
-                        <a href="/User/MedList/#section4">
-                            <h2><br />Fazal Din & Sons  - Lahore</h2>
-                            <div class="content">
-                                <p>
-                                    +92-42-37325210 <br />Shahrah-e-Quaid-e-Azam, Lahore, Punjab, Pakistan. <br /> Tel:042-37355413 <br />
-                                    Fax: <br /> Email: <br /> Website
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="style5">
-                        <span class="image">
-                            <img src="~/images/pic05.jpg" />
-                        </span>
-                        <a href="/User/MedList/#section3">
-                            <h2><br />Mushtaq Medical Store - Lahore </h2>
-                            <div class="content">
-                                <p>
-                                    +92-42-37587246 <br /> Ferozepur Road, Ichhra, Lahore, PunjabPakistan. <br /> Tel:042-37587246 <br />
-                                    Fax: <br /> Email: <br /> Website
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="style3">
-                        <span class="image">
-
-                            <img src="~/images/pic10.jpg" />
-                        </span>
-                        <a href="/User/MedList/#section5">
-                            <h2><br />Muzaffar Medical Store - Lahore</h2>
-                            <div class="content">
-                                <p>
-                                    +92-42-37312004  <br /># 7, Imam Din Market, Lohari Gate, LahorePakistan. <br /> Tel:042-37312004  <br />
-                                    Fax: <br /> Email: <br /> Website
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-
-                </section>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="section2" class="container-fluid" style="margin-top:-100px;">
-    <h1>Delivery with Charges</h1><br /><br />
-    <div id="wrapper">
-        <!-- Main -->
-        <div id="main">
-            <div class="inner">
-
-                <section class="tiles">
-                    <article class="style6">
-                        <span class="image">
-                            <img src="~/images/pic06.jpg" alt="" />
-                        </span>
-                        <a href="/User/MedList/#section6">
-                            <h2 style="margin-left:-10px;"><br />D.Watson chemist  - Lahore </h2>
-                            <div class="content">
-                                <p>
-                                    +92-42-35835047 <br />Shop # 5-G, Shan Arcade, Barkat Market,<br /> New Garden Town, Lahore, Punjab, Pakistan. <br /> Tel:042-35835047 <br />
-                                    Fax: <br /> Email: <br /> Website
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="style2">
-                        <span class="image">
-                            <img src="~/images/pic07.jpg" alt="" />
-                        </span>
-                        <a href="/User/MedList/#section7">
-                            <h2 style="margin-left:-10px;"><br />Servaid Pharmacy (Pvt) Ltd - <br />Lahore</h2>
-                            <div class="content">
-                                <p>
-                                    +92-42-35786160 <br /> Main Market Gulberg, Lahore, Punjab, Pakistan. <br />Tel:042-35786160 <br />
-                                    Fax: <br /> Email: <br /> Website
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-                    <article class="style3">
-                        <span class="image">
-                            <img src="~/images/pic08.jpg" alt="" />
-                        </span>
-                        <a href="/User/MedList/#section8">
-                            <h2 style="margin-left:-10px;"><br />Getwell Medicos - Lahore </h2>
-                            <div class="content">
-                                <p>
-                                    +92-42-35417663 <br /># 5/22, Commercial Zone, Karim Block,<br />  Allama Iqbal Town Lahore, Punjab, Pakistan. <br />Tel:042-35417663 <br />
-                                    Fax: <br /> Email: <br /> Website
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-                </section>
-            </div>
-        </div>
-    </div><br />
-    <!--<ul class="nav navbar-nav" style="margin-bottom:60px;">
-         <li>
-             <a href="/User/MedList">D.Watson chemist  - Lahore </a><p>
-                 +92-42-35835047 <br />Shop # 5-G, Shan Arcade, Barkat Market,<br /> New Garden Town, Lahore, Punjab, Pakistan. <br /> Tel:042-35835047 <br />
-                 Fax: <br /> Email: <br /> Website
-             </p>
-         </li>
-         <li>
-             <a href="/User/MedList">Servaid Pharmacy (Pvt) Ltd - Lahore</a>
-             <p>
-                 +92-42-35786160 <br /> Main Market Gulberg, Lahore, Punjab, Pakistan. <br />Tel:042-35786160 <br />
-                 Fax: <br /> Email: <br /> Website
-             </p>
-         </li>
-         <li>
-             <a href="/User/MedList">Getwell Medicos - Lahore </a>
-             <p>
-                 +92-42-35417663 <br /># 5/22, Commercial Zone, Karim Block,<br />  Allama Iqbal Town Lahore, Punjab, Pakistan. <br />Tel:042-35417663 <br />
-                 Fax: <br /> Email: <br /> Website
-             </p>
-         </li>
-
-     </ul>-->
-
-
-</div>
-
-<br /><br />
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
-
-    <div class="hovereffect">
-
-        <img class="img-responsive" src="~/images/del7.jpg" />
-        <div class="overlay">
-
-            <p> Taking medicines regularly is a need of managing medical conditions, it's best not to run out of medicines. </p>
-        </div>
-    </div>
-</div>
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
-    <div class=" hovereffect">
-
-        <img class="img-responsive" src="~/images/del5.jpg" />
-        <div class="overlay">
-            <p>
-                <br />   We are <br />committed to provide safe, reliable and affordable medicines.
-            </p>
+                var str = " ";
+                for (var i = 0; i < data.length; i++) {
+             
+                str += " <div id='wrapper' style ='margin-top:7%; margin-bottom:-90px; margin-left:20% ;'>";
+                str += "<div id='main' style=' width:150%'>";
+                str += "<div class='inner'>";
+                str += "<section class='tiles'>";
+                str += "<article class='style5'>";
+                str += "<span class='image'>";
+                str += "<img src='/images/pic08.jpg'/>";
+                str += "</span>";
+                str += "<a href='/User/MedList'>";
+                str += "<h2><br />"+ data[i].StoreNames +"</h2>";   
+                str += "<div class='content'>";
+                str += "<p> " + data[i].ContactNo + " <br />" + data[i].StoreLocation + "<br /> "+ data[i].E_mail + " </p>";
+                str += "</div>";
+                str += "</a>";
+                str += "</article>";
+                str += "</section>";
+                str += "</div>";
+                str += "</div>";
+                str += "</div>";
+                
+          
+                }
+                $('#med').html(str);
+            },
+            
+            });
+    });
+</script>
+<div class="row">
+    <div class="col-xs-7">
+        <div id="med">
 
         </div>
     </div>
-</div>
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
-    <div class=" hovereffect">
+    <div class="col-xs-5">
+        
 
-        <img class="img-responsive" src="~/images/del3.jpg" />
-        <div class="overlay">
+            <div class="hovereffect" style="margin-top:60px; width:70%">
 
-            <p>
-                Here we not only <br />provide you with a wide range of medicines,we also offer a wide choice<br /> of products.
-            </p>
+                <img class="img-responsive" src="~/images/del7.jpg" />
+                <div class="overlay">
+
+                    <p style="margin-top:20%"> Taking medicines <br />regularly is a need of<br /> managing medical conditions, it's best not to run out of medicines. </p>
+                </div>
+            
+        </div><br/>
+        
+        <div class=" hovereffect" style="margin-top: 40px; width: 70%">
+
+                <img class=" img-responsive" src="~/images/del5.jpg" />
+                <div class="overlay">
+                    <p style="margin-top:13%">
+                        <br />   We are <br />committed to provide safe, reliable and affordable medicines.
+                    </p>
+
+                </div>
+           
+        </div><br />
+        
+        <div class=" hovereffect" style="margin-top: 40px; width: 70%">
+
+                <img class=" img-responsive" src="~/images/del3.jpg" />
+                <div class="overlay">
+
+                    <p style="margin-top:15%">
+                        Here we not only <br />provide you with a wide range <br />of medicines,we also offer a wide choice<br /> of products.
+                    </p>
+                </div>
+          
+        </div><br />
+       
+        <div class=" hovereffect" style="margin-top: 40px; width: 70%">
+
+                <img class=" img-responsive" src="~/images/del2.jpg" />
+                <div class="overlay">
+                    <p style="margin-top:13%">
+                        <br />  Once you're a <br />Med-Deliver's customer, you'll get medicines at your comfort level.
+                    </p>
+
+                </div>
+            
         </div>
     </div>
-</div>
-<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
-    <div class=" hovereffect">
-
-        <img class="img-responsive" src="~/images/del2.jpg" />
-        <div class="overlay">
-            <p>
-                <br />  Once you're a <br />Med-Deliver's customer, you'll get medicines at your comfort level.
-            </p>
-
-        </div>
     </div>
-</div>
 <div style="height:100px;width:100%;margin-top:200px;">
 
 </div><br /><br />

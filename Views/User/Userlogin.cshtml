@@ -2,173 +2,439 @@
     ViewBag.Title = "Userlogin";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
-<nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Order Now</a>
-        </div>
-        <div>
-            <div class="collapse navbar-collapse" id="myNav">
-                
-                <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
-                    <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
-                    <li class="dropdown">
-                        <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                            <li><a href="/User/Profile" style="color:white;">Setting</a></li>
-                            <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
-
-                        </ul>
-                </ul>
+<div id="first">
+    <nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Order Now</a>
             </div>
-        </div>
-    </div>
+            <div>
+                <div class="collapse navbar-collapse" id="myNav">
 
-</nav>
+                    <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
+                        <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
+                        <li class="dropdown">
+                            <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                <li><a href="/User/Profile" style="color:white;">Setting</a></li>
+                                <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
 
-<div class="highlight" style="background-image: url(/images/a.jpg); background-color: white; ">
-    <div class="row" style="margin-left: 20%; margin-right: 20%; color: #505051; font-size: 18px; margin-top: 90px; ">
-        <h1 style="text-align: center; color: #34a58e; font-family: 'Adobe Kaiti Std';font-size:60px;">Upto Flat 50% Off on 20+ Medical Stores!</h1>
-
-    </div>
-    <div class="" style="width:100%;">
-        <div class="form-group">
-            <label class="col-sm-3 control-label"></label>
-            <div class="row">
-                <div class="col-sm-4" style="width: 300px;">
-                    <select name="status" class="control" style="background-color: #333; margin-left: 14%; margin-top: 10px;">
-                        <option value=" ">Add your location</option>
-                        <option>Chouburji</option>
-                        <option>Gulshan e Ravi</option>
-                        <option>Samnabad</option>
-
-                    </select>
-                </div>
-          <div class="col-sm-4" style=" width:300px; ">
-                    <select name="status" class="control" style="background-color: #333; margin-left:14%;margin-top:10px;">
-                        <option value=" ">Search medical store</option>
-                        <option>Clinics</option>
-                        <option>Fazal din</option>
-                        <option>Mahmood</option>
-
-                    </select>
-                </div>
-            </div>
-        </div>
-        <br />
-        
-            
-        <button class="btn btn-lg " type="button" style="width: 250px; margin-left:40%;  background-color: rgba(49, 50, 49, 0.66); "><a href="/User/MedicalList" style="text-decoration: none; color: #fff;">Order now</a></button>
-                
-
-        <div class="col-xs-12"></div>
-    </div>
-</div>
-
-
-<!-- How it Works section -->
-<section class="section how-it-works" id="how-it-works">
-    <div class="container">
-        <div class="row text-center">
-            <div class="how-it-works-heading">
-                <h2 class="section-title" >How It Work's</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 board">
-
-                <div class="board-inner">
-                    <ul class="nav nav-tabs" id="myTab">
-                        @*<div class="liner"></div>*@
-                        <li class="active">
-                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab" title="User Experience">
-                                <span class="round-tabs one">
-                                    <i class="icon icon-profile-male"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" title="Sketch">
-                                <span class="round-tabs two">
-                                    <i class="icon icon-pencil"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#prototyping" aria-controls="prototyping" role="tab" data-toggle="tab" title="Prototyping">
-                                <span class="round-tabs three">
-                                    <i class="icon icon-layers"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#uidesign" aria-controls="uidesign" role="tab" data-toggle="tab" title="UI Design">
-                                <span class="round-tabs four">
-                                    <i class="icon icon-aperture"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#doner" aria-controls="doner" role="tab" data-toggle="tab" title="Development">
-                                <span class="round-tabs five">
-                                    <i class="icon icon-tools-2"></i>
-                                </span>
-                            </a>
-                        </li>
+                            </ul>
                     </ul>
                 </div>
-                <div class="tab-content">
-                    <div class="tab-pane fade in active" id="home">
-                        <h3 class="head text-center" style="margin-left:11%">Sign Up</h3>
-                        <p class="narrow text-center">
-                            Sign up and get registered!!
-                        </p>
-                       
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="highlight" style="background-image: url(/images/a.jpg); background-color: white; ">
+        <div class="row" style="margin-left: 20%; margin-right: 20%; color: #505051; font-size: 18px; margin-top: 90px; ">
+            <h1 style="text-align: center; color: #34a58e; font-family: 'Adobe Kaiti Std';font-size:60px;">Upto Flat 50% Off on 20+ Medical Stores!</h1>
+
+        </div>
+        <div class="" style="width:100%;">
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="row">
+                    <div class="col-sm-4" style="width: 300px;">
+                        <select id="o" name="status" class="control" style="background-color: #333; margin-left: 14%; margin-top: 10px;">
+                            <option value=" ">Add your location</option>
+                            <option>Chouburji</option>
+                            <option>Gulshan e Ravi</option>
+                            <option>Samnabad</option>
+
+                        </select>
                     </div>
-                    <div class="tab-pane fade" id="profile">
-                        <h3 class="head text-center" style="margin-left:11%">Add Location</h3>
-                        <p class="narrow text-center">
-                            Add your current location or the location you want to deliver medicines
-                        </p>
-                        
+                    <div class="col-sm-4" style=" width:300px; ">
+                        <select id="p" name="status" class="control" style="background-color: #333; margin-left:14%;margin-top:10px;">
+                            <option value=" ">Search medical store</option>
+                            <option>Clinics</option>
+                            <option>Fazal din</option>
+                            <option>Mahmood</option>
+
+                        </select>
                     </div>
-                    <div class="tab-pane fade" id="prototyping">
-                        <h3 class="head text-center" style="margin-left:11%">Select medical Store</h3>
-                        <p class="narrow text-center">
-                            Select medical store from whome you want to deliver medicines.
-                        </p>
-                       
+                </div>
+            </div>
+            <br />
+
+
+            <input type="button" onclick="abc()" class="btn btn-lg " style="width: 250px; margin-left:40%;  background-color: rgba(49, 50, 49, 0.66); " value="Select" />
+
+            <div class="col-xs-12"></div>
+        </div>
+    </div>
+
+
+    <!-- How it Works section -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="row text-center">
+                <div class="how-it-works-heading">
+                    <h2 class="section-title">How It Work's</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 board">
+
+                    <div class="board-inner">
+                        <ul class="nav nav-tabs" id="myTab">
+                            @*<div class="liner"></div>*@
+                            <li class="active">
+                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab" title="User Experience">
+                                    <span class="round-tabs one">
+                                        <i class="icon icon-profile-male"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" title="Sketch">
+                                    <span class="round-tabs two">
+                                        <i class="icon icon-pencil"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#prototyping" aria-controls="prototyping" role="tab" data-toggle="tab" title="Prototyping">
+                                    <span class="round-tabs three">
+                                        <i class="icon icon-layers"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#uidesign" aria-controls="uidesign" role="tab" data-toggle="tab" title="UI Design">
+                                    <span class="round-tabs four">
+                                        <i class="icon icon-aperture"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#doner" aria-controls="doner" role="tab" data-toggle="tab" title="Development">
+                                    <span class="round-tabs five">
+                                        <i class="icon icon-tools-2"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="tab-pane fade" id="uidesign">
-                        <h3 class="head text-center" style="margin-left:11%">Search your desire medicines</h3>
-                        <p class="narrow text-center">
-                            Search your desire medicien.
-                        </p>
-                        
-                    </div>
-                    <div class="tab-pane fade" id="doner">
-                        <div class="text-center">
-                            <i class="img-intro icon-checkmark-circle"></i>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <h3 class="head text-center" style="margin-left:11%">Sign Up</h3>
+                            <p class="narrow text-center">
+                                Sign up and get registered!!
+                            </p>
+
                         </div>
-                        <h3 class="head text-center" style="margin-left:11%">Order</h3>
-                        <p class="narrow text-center">
-                            place your order.. and get your medicines at your home comfort
-                        
+                        <div class="tab-pane fade" id="profile">
+                            <h3 class="head text-center" style="margin-left:11%">Add Location</h3>
+                            <p class="narrow text-center">
+                                Add your current location or the location you want to deliver medicines
+                            </p>
+
+                        </div>
+                        <div class="tab-pane fade" id="prototyping">
+                            <h3 class="head text-center" style="margin-left:11%">Select medical Store</h3>
+                            <p class="narrow text-center">
+                                Select medical store from whome you want to deliver medicines.
+                            </p>
+
+                        </div>
+                        <div class="tab-pane fade" id="uidesign">
+                            <h3 class="head text-center" style="margin-left:11%">Search your desire medicines</h3>
+                            <p class="narrow text-center">
+                                Search your desire medicien.
+                            </p>
+
+                        </div>
+                        <div class="tab-pane fade" id="doner">
+                            <div class="text-center">
+                                <i class="img-intro icon-checkmark-circle"></i>
+                            </div>
+                            <h3 class="head text-center" style="margin-left:11%">Order</h3>
+                            <p class="narrow text-center">
+                                place your order.. and get your medicines at your home comfort
+
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
+    </section>
+    <!-- /How it work -->
+    <div style="height:100px;width:100%">
+
     </div>
-</section>
-<!-- /How it work -->
-<div style="height:100px;width:100%">
-
 </div>
+<div id="second">
+    <nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Medicines</a>
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="myNav">
 
+                    <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
+                        <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
+                        <li class="dropdown">
+                            <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                <li><a href="/User/Profile" style="color:white;">Setting</a></li>
+                                <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+
+                            </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <div class="row" style="margin-right:0;">
+
+        <div class="col-sm-7" style="height:auto;">
+
+
+            <table class="table table-inverse" style="margin-top: 10px; margin-left:30px; height: auto; background-color: rgba(41, 43, 43, 0.59); margin-top:25%">
+                <thead>
+                    <tr>
+
+                        <th>Medicine Name</th>
+                        <th>Medicine Weight</th>
+                        <th>Medicine Company</th>
+                        <th>Quantity</th>
+
+                        <th>Price</th>
+
+
+
+                        <th>Type</th>
+                        <th>Add</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody id="med"></tbody>
+
+            </table>
+
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:52257/api/medicines",
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+
+                        var str = " ";
+                        for (var i = 0; i < data.length; i++) {
+                            str += "<tr>";
+
+                            str += "<td id='r1" + i + "'>" + data[i].MedicineName + "</td>";
+                            str += "<td id='r2" + i + "'>" + data[i].MedicineWeight + "</td>";
+                            str += "<td id='r3" + i + "'>" + data[i].MedicineCompany + "</td>";
+                            str += "<td id='r4" + i + "'>" + data[i].Quantity + "</td>";
+                            str += "<td id='r5" + i + "'>" + data[i].Price + "</td>";
+                            str += "<td id='r6" + i + "'>" + data[i].Type + "</td>";
+                            str += "<td>";
+                            str += "<input type='button' onclick='add()' class='btn btn-block dropdown-toggle' value='Add' />";
+                            str += "</td>";
+
+                            str += "</tr>";
+                        }
+                        $('#med').html(str);
+                    },
+
+                    error: function (msg) { alert(msg); }
+                });
+
+            });
+
+        </script>
+
+        <div class="col-sm-5">
+            <div id="page-wrap" style="width:400px">
+                <div id="logo" style="margin-top:100px;">
+
+
+
+                    <img src="~/images/logo.png" alt="logo" style="height:220px; width:220px; margin-top:-50px;" />
+                </div>
+
+
+                <div style="clear:both"></div>
+
+                <div id="customer" style="margin-top:10px;">
+
+                    <table id="meta">
+
+                        <tr>
+                            <td class="meta-head">Date</td>
+                            <td><textarea id="date" style="height:30px;">December 15, 2009</textarea></td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <table id="items"></table>
+
+                <div id="terms">
+
+                    <textarea>Thank You For Using Our Services</textarea>
+                    <button onclick="myFunction()">Print</button>
+                </div>
+
+            </div>
+        </div>
+            <div style="height:50px;width:100%;margin-top:150px;">
+
+            </div>
+
+
+
+
+
+            <script>
+                $("#second").hide();
+
+                // code to read selected table row cell data (values).
+                function abc() {
+                    $("#first").hide();
+                    $("#second").show();
+                    // get the current row
+
+                    var a = $("#o").val();
+                    var b = $("#p").val();
+                    alert(a);
+                    alert(b);
+                }
+            </script>
+            <script>
+                function add() {
+
+                    var currentRow = $(this).closest("tr");
+
+                    var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                    var data = id;
+                    alert(id);
+                    $.ajax({
+                        type: 'GET',
+                        url: "http://localhost:52257/api/medicines/" + data,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+
+
+                            var str = "";
+
+                          
+                            
+                            str += " <tr>";
+                            str += "<th>Medicine Name</th>";
+                            str += "  <th>Type</th>"
+                            str += "  <th>Price</th>";
+                            str += "  <th>Quantity</th>";
+                            str += " <th>Total</th>";
+                            str += " </tr>";
+
+                            str += "<tr class='item-row'>";
+                            str += "  <td class='item-name'><div class='delete-wpr'><textarea style='width:100px'>Medicine</textarea><a class='delete' href='javascript:;' title='Remove row'>X</a></div></td>";
+                            str += " <td class='description' ><textarea style='width:100px'>injection/serup/tablet</textarea></td>";
+                            str += "<td><textarea class='cost' style='width:80px'>$0.00</textarea></td>";
+                            str += " <td><textarea class='qty' style='width:60px'>1</textarea></td>";
+                            str += " <td><span class='price' style='width:30px'>$0.00</span></td>";
+                            str += "</tr>";
+
+
+                            str += "<tr>";
+                            str += " <td colspan='5'><a id='addrow' href='javascript:;' title='Add a row'>Add a row</a></td>";
+                            str += "</tr>";
+
+                            str += "<tr>";
+                            str += "<td colspan='2' class='blank'> </td>";
+                            str += "<td colspan='2' class='total-line'>Subtotal</td>";
+                            str += "<td class='total-value'><div id='subtotal'>$875.00</div></td>";
+                            str += "</tr>";
+                            str += "<tr>";
+                            str += "<td colspan='2' class='blank'> </td>";
+                            str += "<td colspan='2' class='total-line'>Total</td>";
+                            str += "<td class='total-value'><div id='total'>$875.00</div></td>";
+                            str += "</tr>";
+                            str += "<tr>";
+                            str += "<td colspan='2' class='blank'> </td>";
+                            str += "<td colspan='2' class='total-line'>Amount Paid</td>";
+                            str += " <td class='total-value'><textarea id='paid' style='height:30px;'>$0.00</textarea></td>";
+                            str += "</tr>";
+                            str += "<tr>";
+                            str += " <td colspan='2' class='blank'> </td>";
+                            str += " <td colspan='2' class='total-line balance'>Balance Due</td>";
+                            str += " <td class='total-value balance'><div class='due'>$875.00</div></td>";
+                            str += "</tr>";
+
+
+                            $('#items').html(str);
+                        },
+
+                        error: function (msg) { alert(msg); }
+
+
+                    });
+
+
+                }
+
+            </script>
+            <script>
+                function myFunction() {
+                    window.print();
+                }
+            </script>
+
+
+
+
+
+            <script>
+
+                // function azc() {
+                // debugger;
+                // alert: ("ok");
+                //  var id = $("#o").val();
+                // var name = $("#p").val();
+                // var email = $("#q").val();
+                //  var password = $("#r").val();
+                // var contact = $("#s").val();
+
+                // $.ajax({
+                ////  url: "http://localhost:52257/api/Emergency/" + id,
+                // type: "Put",
+                // data: JSON.stringify({ Name: name, Email: email, Passowrd: password, Contact: contact }),
+                //  contentType: 'application/json; charset=utf-8',
+                // success: function (data) {
+
+
+                //  },
+                //  error: function (msg) { alert(msg); }
+                //});
+                // };
+
+            </script>

@@ -12,16 +12,16 @@
     <script src="~/Scripts/main.js"></script>
     <script src="~/Scripts/util.js"></script>
     <script src="~/Scripts/jquery-1.3.2.min.js"></script>
-    <link href="~/Content/clinics.css" rel="stylesheet" />
+    <link href="~/Content/clinics.css" rel="stylesheet" /><!--clinic which view is not included-->
     <script src="~/Scripts/jquery.poptrox.min.js"></script>
     <link href="~/Content/print.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" /><!--invoice-->
     <meta name="viewport" content="width=device-width" />
     <title>Med Deliver</title>
-    <link href="~/Content/main.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" /><!--footer-->
 
-    <link href="~/Content/component.css" rel="stylesheet" />
+    <link href="~/Content/component.css" rel="stylesheet" /><!--models-->
     <script></script>
     <style>
         #close_popup_div {
@@ -380,136 +380,9 @@
 
 
 
-    <style class="cp-pen-styles">
-        .open {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            width: 50px;
-            height: 50px;
-            display: block;
-            cursor: pointer;
-            transition: opacity 0.2s linear;
-        }
+   <style>
 
-            .open:hover {
-                opacity: 0.8;
-            }
-
-            .open span {
-                display: block;
-                float: left;
-                clear: both;
-                height: 4px;
-                width: 40px;
-                border-radius: 40px;
-                background-color: #34a58e;
-                position: absolute;
-                right: 120px;
-                top: 1110%;
-                overflow: hidden;
-                transition: all 0.4s ease;
-            }
-
-                .open span:nth-child(1) {
-                    margin-top: 10px;
-                    z-index: 9;
-                }
-
-                .open span:nth-child(2) {
-                    margin-top: 25px;
-                }
-
-                .open span:nth-child(3) {
-                    margin-top: 40px;
-                }
-
-        .sub-menu {
-            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            height: 0;
-            width: 0;
-            right: 0;
-            top: 0;
-            position: absolute;
-            background-color: rgba(49, 50, 49, 0.7); /*rgba(38, 84, 133, 0.54);*/
-            border-radius: 50%;
-            z-index: 18;
-            overflow: hidden;
-        }
-
-            .sub-menu li {
-                display: block;
-                float: right;
-                clear: both;
-                height: auto;
-                margin-right: -160px;
-                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            }
-
-                .sub-menu li:first-child {
-                    margin-top: 230px;
-                }
-
-
-                .sub-menu li:nth-child(1) {
-                    -webkit-transition-delay: 0.05s;
-                }
-
-                .sub-menu li:nth-child(2) {
-                    -webkit-transition-delay: 0.10s;
-                }
-
-                .sub-menu li:nth-child(3) {
-                    -webkit-transition-delay: 0.15s;
-                }
-
-                .sub-menu li:nth-child(4) {
-                    -webkit-transition-delay: 0.20s;
-                }
-
-                .sub-menu li:nth-child(5) {
-                    -webkit-transition-delay: 0.25s;
-                }
-
-
-
-        .oppenned .sub-menu {
-            opacity: 1;
-            height: 400px;
-            width: 400px;
-        }
-
-        .oppenned span:nth-child(2) {
-            overflow: visible;
-        }
-
-        .oppenned span:nth-child(1),
-        .oppenned span:nth-child(3) {
-            z-index: 100;
-            transform: rotate(45deg);
-        }
-
-        .oppenned span:nth-child(1) {
-            transform: rotate(45deg) translateY(12px) translateX(12px);
-        }
-
-        .oppenned span:nth-child(2) {
-            height: 400px;
-            width: 400px;
-            right: -160px;
-            top: -160px;
-            border-radius: 50%;
-            background-color: rgba(38, 84, 133, 0.54);
-        }
-
-        .oppenned span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-10px) translateX(10px);
-        }
-
-        .oppenned li {
-            margin-right: 168px;
-        }
-
+       
 
 
         .hovereffect {
@@ -607,99 +480,8 @@
     <div style="background-color: rgba(49, 50, 49, 0.97)">
         @RenderBody()
     </div>
-    <!-- Wrapper -->
-    <div id="wrapper">
-
-        <!-- Header -->
-        <div class="footer" style="background-color: rgba(49, 50, 49, 0.98); height: 78px;width:101% ">
-            <h1 style=" margin-top: 2%;"><a href="/Home/Main" style="text-decoration:none;"><strong>Med-Deliver</strong></a></h1>
-            <nav>
-
-                <ul>
-
-
-                    <li><a href="#footer" class="icon fa-arrow-circle-up" style="text-decoration:none;">Contact</a></li>
-                </ul>
-            </nav>
-
-        </div>
-
-
-        <!-- Footer -->
-        <footer id="footer" class="panel">
-            <div class="inner split">
-                <div>
-                    <section>
-                        <h2>ABOUT US</h2>
-                        <p>We are the path between the medical stores and the user, to provide medicines on the door step of user..</p>
-                    </section>
-                    <section>
-                        <h2>Contact Us On ...</h2>
-                        <ul class="icons">
-
-
-                            <li><a href="https://www.facebook.com/" class="icon fa-facebook" style="text-decoration:none; "><span class="label"></span></a></li>
-                            <!--meddeliver83@gmail.com Allahis1-->
-                            <li><a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/?tab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1" class="icon fa-envelope" style="text-decoration:none;"><span class="label"></span></a></li>
-                            <li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com" class="icon fa-yahoo" style="text-decoration:none; "><span class="label"></span></a></li>
-                            <li><a href="https://twitter.com/?lang=en" class="icon fa-twitter" style="text-decoration:none; "><span class="label"></span></a></li>
-
-                        </ul>
-
-
-                    </section>
-                    <p class="copyright" style="color: #a8a8bf">
-                        &copy; 2016 &nbsp;<a href="#" style="color: #a8a8bf; ">Med-Deliver </a>.
-                    </p>
-                </div>
-
-                <div>
-                    <section>
-                        <h2>Feed Back</h2>
-                        <form method="post" action="#">
-                            <div class="field half first">
-                                <input type="text" name="name" id="namef" required placeholder="Name" />
-                            </div>
-                            <div class="field half">
-                                <input type="text" name="email" id="emailf" required placeholder="Email" />
-                            </div>
-                            <div class="field">
-                                <textarea name="message" id="messagef" rows="4" required placeholder="Message"></textarea>
-                            </div>
-                            <ul class="actions">
-                                <li><input type="submit" id="fb" value="Send" class="special" /></li>
-                                <li><input type="reset" value="Reset" /></li>
-                            </ul>
-                        </form>
-
-                    </section>
-                    <script>
-                        $(document).ready(function () {
-                            $("#fb").click(function () {
-                                var a = $("#namef").val();
-                                var b = $("#emailf").val();
-                                var c = $("#messagef").val();
-
-                                $.ajax({
-                                    url: "http://localhost:52257/api/Services",
-                                    type: "Post",
-                                    data: JSON.stringify({ Name: a, E_mail: b, Message: c }),
-
-                                    contentType: 'application/json; charset=utf-8',
-                                    success: function (data) {
-                                        alert();
-                                    },
-                                    error: function () { alert('error'); }
-                                });
-                            });
-                        });
-                    </script>
-
-                </div>
-            </div>
-        </footer>
-
-    </div>
+  
+       
 
 
 
@@ -716,25 +498,27 @@
                 <input type="password" id="pass" placeholder="Password" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
                 <input type="password" id="repass" placeholder="Re-enter Pass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
                 <select id="med" typeof="text" name="status" class="control" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <option value=" ">Medicine Name</option>
-                <option>Panadol</option>
-                <option>Dispirine</option>
-                <option>Antibiotics</option>
-                </select>
-                <input type="number" id="amount" placeholder="Amount" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; " />
-                <input type="text" id="add" placeholder=" Address" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
-                <input type="date" id="date" placeholder="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <br />
-                <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
-                    <label>
-                        <input type="radio" id="gender" name="gender" value="male" /> Male
-                    </label>
-                    <label>
-                        <input type="radio" id="gender" name="gender" value="female" /> Female
-                    </label>
-                </div>
-                <input type="button" class="btn btn-lg  " value="Send" id="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
-            </form>
+                    <option value=" ">Medicine Name</option>
+                    <option>Panadol</option>
+                    <option>Dispirine</option>
+                    <option>Antibiotics</option>
+
+                    </select>
+                    <input type="number" id="amount" placeholder="Amount" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; " />
+                    <input type="text" id="add" placeholder=" Address" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                    <br />
+                    <input type="date" id="date" placeholder="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                    <br />
+                    <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                        <label>
+                            <input type="radio" id="gender" name="gender" value="male" /> Male
+                        </label>
+                        <label>
+                            <input type="radio" id="gender" name="gender" value="female" /> Female
+                        </label>
+                    </div>
+                    <input type="button" class="btn btn-lg  " value="Send" id="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
+</form>
             <div class="md-close" id="close_popup_div"><p>x</p></div>
         </div>
     </div>

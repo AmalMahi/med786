@@ -481,7 +481,103 @@
         @RenderBody()
     </div>
   
-       
+    <div id="wrapper">
+
+        <!-- Header -->
+        <div class="footer" style="background-color: rgba(49, 50, 49, 0.98); height: 78px;width:101% ">
+            <h1 style=" margin-top: 2%;"><a href="/Home/Main" style="text-decoration:none;"><strong>Med-Deliver</strong></a></h1>
+           
+            <nav>
+
+                <ul>
+
+
+                    <li><a href="#footer" class="icon fa-arrow-circle-up" style="text-decoration:none;">Contact</a></li>
+
+                </ul>
+               
+               
+
+            </nav>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer" class="panel">
+            <div class="inner split">
+                <div>
+                    <section>
+                        <h2>ABOUT US</h2>
+                        <p>We are the path between the medical stores and the user, to provide medicines on the door step of user..</p>
+                    </section>
+                    <section>
+                        <h2>Contact Us On ...</h2>
+                        <ul class="icons">
+
+
+
+
+                            <li><a href="https://www.facebook.com/" class="icon fa-facebook" style="text-decoration:none; "><span class="label"></span></a></li>
+                            <!--meddeliver83@gmail.com Allahis1-->
+                            <li><a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/?tab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1" class="icon fa-envelope" style="text-decoration:none;"><span class="label"></span></a></li>
+                            <li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com" class="icon fa-yahoo" style="text-decoration:none; "><span class="label"></span></a></li>
+                            <li><a href="https://twitter.com/?lang=en" class="icon fa-twitter" style="text-decoration:none; "><span class="label"></span></a></li>
+
+                        </ul>
+
+
+                    </section>
+                    <p class="copyright" style="color: #a8a8bf">
+                        &copy; 2016 &nbsp;<a href="#" style="color: #a8a8bf; ">Med-Deliver </a>.
+                    </p>
+                </div>
+
+                <div>
+                    <section>
+                        <h2>Feed Back</h2>
+                        <form method="post" action="#">
+                            <div class="field half first">
+                                <input type="text" name="name" id="namef" required placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="text" name="email" id="emailf" required placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="messagef" rows="4" required placeholder="Message"></textarea>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="button" id="fb" value="Send" class="special" /></li>
+                                <li><input type="reset" value="Reset" /></li>
+                            </ul>
+                        </form>
+
+                    </section>
+                    <script>
+                        $(document).ready(function () {
+                            $("#fb").click(function () {
+                                var a = $("#namef").val();
+                                var b = $("#emailf").val();
+                                var c = $("#messagef").val();
+
+                                $.ajax({
+                                    url: "http://localhost:52257/api/Services",
+                                    type: "Post",
+                                    data: JSON.stringify({ Name: a, E_mail: b, Message: c }),
+
+                                    contentType: 'application/json; charset=utf-8',
+                                    success: function (data) {
+                                        alert();
+                                    },
+                                    error: function () { alert('error'); }
+                                });
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </footer>
+
+    </div>
 
 
 

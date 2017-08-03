@@ -167,8 +167,27 @@
         </div>
     </section>
     <!-- /How it work -->
-   
+
 </div>
+<script>
+
+    $("#second").hide();
+
+    // code to read selected table row cell data (values).
+    function abc() {
+
+        $("#first").hide();
+
+        $("#second").show();
+        // get the current row
+
+        var a = $("#o").val();
+        var b = $("#p").val();
+
+    }
+
+</script>
+
 <div id="second">
     <nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
         <div class="container-fluid">
@@ -204,19 +223,14 @@
         <div class="col-sm-7" style="height:auto;">
 
 
-            <table class="table table-inverse" style="margin-top: 10px; margin-left:30px; height: auto; background-color: rgba(41, 43, 43, 0.59); margin-top:25%">
+            <table id="qaz" class="table table-inverse" style="margin-top: 10px; margin-left:30px; height: auto; background-color: rgba(41, 43, 43, 0.59); margin-top:25%">
                 <thead>
                     <tr>
 
                         <th>Medicine Name</th>
                         <th>Medicine Weight</th>
                         <th>Medicine Company</th>
-                        <th>Quantity</th>
-
                         <th>Price</th>
-
-
-
                         <th>Type</th>
                         <th>Add</th>
 
@@ -245,17 +259,12 @@
                         var str = " ";
                         for (var i = 0; i < data.length; i++) {
                             str += "<tr>";
-
-                            str += "<td id='r1" + i + "'>" + data[i].MedicineName + "</td>";
-                            str += "<td id='r2" + i + "'>" + data[i].MedicineWeight + "</td>";
-                            str += "<td id='r3" + i + "'>" + data[i].MedicineCompany + "</td>";
-                            str += "<td id='r4" + i + "'>" + data[i].Quantity + "</td>";
-                            str += "<td id='r5" + i + "'>" + data[i].Price + "</td>";
-                            str += "<td id='r6" + i + "'>" + data[i].Type + "</td>";
-                            str += "<td>";
-                            str += "<input type='button' onclick='add()' class='btn btn-block dropdown-toggle' value='Add' />";
-                            str += "</td>";
-
+                            str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
+                            str += "<td id='r" + i + "'>" + data[i].MedicineWeight + "</td>";
+                            str += "<td id='r" + i + "'>" + data[i].MedicineCompany + "</td>";
+                            str += "<td id='r" + i + "'>" + data[i].Price + "</td>";
+                            str += "<td id='r" + i + "'>" + data[i].Type + "</td>";
+                            str += "<td><a href='#' id='zaidi' onclick='xyz()' >Add</a></td>";
                             str += "</tr>";
                         }
                         $('#med').html(str);
@@ -266,6 +275,83 @@
 
             });
 
+        </script>
+        <script>
+table = document.getElementById("qaz");
+            var rows = table.rows;
+            for (var i = 1; i < rows.length; i++) {
+                rows[i].cells[2].onclick = function (e) {
+                    rowid = e.target.previousElementSibling.previousElementSibling.textContent;
+                    alert(rowid);
+                };
+            }</script>
+        <script>
+
+
+            function xyz() {
+
+                var table = document.getElementById("qaz");
+                var rows = table.rows;
+                alert("add");
+                for (var i = 1; i < rows.length; i++) {
+
+                    rows[i].onclick = (function (e) {
+                        var rowid = (this.cells[0].innerHTML);
+                        var j = 0;
+                        var td = e.target;
+                        while ((td = td.previousElementSibling) != null)
+                            j++;
+                        alert(rows[0].cells[j].innerHTML);
+                    });
+                }
+                var currentRow = $(this).closest("tr");
+
+                var id = currentRow.find("td:eq(0)"); // get current row 1st TD value
+
+                var data = id;
+                alert(data);
+
+
+                $.ajax({
+                    type: 'GET',
+                    url: "http://localhost:52257/api/Medicines/" + data,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+
+                        var str = "";
+
+                        str += "<form action='#' method='post'>";
+                        str += "<input type='text' id='o'  value='" + data.MedicineName + "'/>";
+                        str += "<input type='text' id='p'  value='" + data.MedicineWeight + "'/>";
+                        str += "<input type='text' id='q'  value='" + data.MedicineCompany + "'/>";
+                        str += "<input type='int' id='s'  value='Quantity'/>";
+                        str += "<input type='email' id='t'  value='E-mail'/>";
+                        str += "<input type='text' id='u'  value='Address'/>";
+                        str += "<input type='int' id='v'  value='" + data.Price + "'/>";
+                        str += "<input type='text' id='w'  value='" + data.Type + "'/>";
+                        str += "<input type='int' id='x'  value='Total Price'/>";
+                        str += "<input type='button' onclick='azc()'  value='Order' />";
+                        str += "</form>";
+
+
+                        $('#items').html(str);
+                    },
+
+                    error: function (msg) { alert(msg); }
+
+
+                });
+
+
+            };
+
+
+        </script>
+        <script>
+            function myFunction() {
+                window.print();
+            }
         </script>
 
         <div class="col-sm-5">
@@ -304,135 +390,39 @@
             </div>
         </div>
     </div>
-     
 
 
 
-    </div>
 
-            <script>
-                $("#second").hide();
-
-                // code to read selected table row cell data (values).
-                function abc() {
-                    $("#first").hide();
-                    $("#second").show();
-                    // get the current row
-
-                    var a = $("#o").val();
-                    var b = $("#p").val();
-                    alert(a);
-                    alert(b);
-                }
-            </script>
-            <script>
-                function add() {
-
-                    var currentRow = $(this).closest("tr");
-
-                    var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-
-                    var data = id;
-                    alert(id);
-                    $.ajax({
-                        type: 'GET',
-                        url: "http://localhost:52257/api/medicines/" + data,
-                        dataType: 'json',
-                        success: function (data) {
-                            console.log(data);
-
-
-                            var str = "";
-
-                          
-                            
-                            str += " <tr>";
-                            str += "<th>Medicine Name</th>";
-                            str += "  <th>Type</th>"
-                            str += "  <th>Price</th>";
-                            str += "  <th>Quantity</th>";
-                            str += " <th>Total</th>";
-                            str += " </tr>";
-
-                            str += "<tr class='item-row'>";
-                            str += "  <td class='item-name'><div class='delete-wpr'><textarea style='width:100px'>Medicine</textarea><a class='delete' href='javascript:;' title='Remove row'>X</a></div></td>";
-                            str += " <td class='description' ><textarea style='width:100px'>injection/serup/tablet</textarea></td>";
-                            str += "<td><textarea class='cost' style='width:80px'>$0.00</textarea></td>";
-                            str += " <td><textarea class='qty' style='width:60px'>1</textarea></td>";
-                            str += " <td><span class='price' style='width:30px'>$0.00</span></td>";
-                            str += "</tr>";
-
-
-                            str += "<tr>";
-                            str += " <td colspan='5'><a id='addrow' href='javascript:;' title='Add a row'>Add a row</a></td>";
-                            str += "</tr>";
-
-                            str += "<tr>";
-                            str += "<td colspan='2' class='blank'> </td>";
-                            str += "<td colspan='2' class='total-line'>Subtotal</td>";
-                            str += "<td class='total-value'><div id='subtotal'>$875.00</div></td>";
-                            str += "</tr>";
-                            str += "<tr>";
-                            str += "<td colspan='2' class='blank'> </td>";
-                            str += "<td colspan='2' class='total-line'>Total</td>";
-                            str += "<td class='total-value'><div id='total'>$875.00</div></td>";
-                            str += "</tr>";
-                            str += "<tr>";
-                            str += "<td colspan='2' class='blank'> </td>";
-                            str += "<td colspan='2' class='total-line'>Amount Paid</td>";
-                            str += " <td class='total-value'><textarea id='paid' style='height:30px;'>$0.00</textarea></td>";
-                            str += "</tr>";
-                            str += "<tr>";
-                            str += " <td colspan='2' class='blank'> </td>";
-                            str += " <td colspan='2' class='total-line balance'>Balance Due</td>";
-                            str += " <td class='total-value balance'><div class='due'>$875.00</div></td>";
-                            str += "</tr>";
-
-
-                            $('#items').html(str);
-                        },
-
-                        error: function (msg) { alert(msg); }
-
-
-                    });
-
-
-                }
-
-            </script>
-            <script>
-                function myFunction() {
-                    window.print();
-                }
-            </script>
+</div>
 
 
 
 
 
-            <script>
 
-                // function azc() {
-                // debugger;
-                // alert: ("ok");
-                //  var id = $("#o").val();
-                // var name = $("#p").val();
-                // var email = $("#q").val();
-                //  var password = $("#r").val();
-                // var contact = $("#s").val();
+<script>
 
-                // $.ajax({
-                ////  url: "http://localhost:52257/api/Emergency/" + id,
-                // type: "Put",
-                // data: JSON.stringify({ Name: name, Email: email, Passowrd: password, Contact: contact }),
-                //  contentType: 'application/json; charset=utf-8',
-                // success: function (data) {
+    // function azc() {
+    // debugger;
+    // alert: ("ok");
+    //  var id = $("#o").val();
+    // var name = $("#p").val();
+    // var email = $("#q").val();
+    //  var password = $("#r").val();
+    // var contact = $("#s").val();
+
+    // $.ajax({
+    ////  url: "http://localhost:52257/api/Emergency/" + id,
+    // type: "Put",
+    // data: JSON.stringify({ Name: name, Email: email, Passowrd: password, Contact: contact }),
+    //  contentType: 'application/json; charset=utf-8',
+    // success: function (data) {
 
 
-                //  },
-                //  error: function (msg) { alert(msg); }
-                //});
-                // };
+    //  },
+    //  error: function (msg) { alert(msg); }
+    //});
+    // };
 
-            </script>
+</script>

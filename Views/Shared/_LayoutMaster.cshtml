@@ -13,9 +13,9 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
     <title>Med Deliver</title>
-    <link href="~/Content/main.css" rel="stylesheet" /><!--footer-->
+    <link href="~/Content/main.css" rel="stylesheet" />
 
-    <link href="~/Content/component.css" rel="stylesheet" /><!--models-->
+    <link href="~/Content/component.css" rel="stylesheet" />
 
     <style>
         #close_popup_div {
@@ -281,11 +281,6 @@
                     <span>
                         <ul class="sub-menu ">
 
-
-
-                            <!--
-                            -->
-
                             <li>
                                 <b style=" font-family: gabriola; color: rgb(9, 245, 197); font-size: 25px; text-decoration: none;margin-left:40px">Get Information</b><br /><br />
                                 <a href="skype:meddeliver83">
@@ -396,39 +391,51 @@
         </footer>
 
     </div>
-
-    <div class="md-modal md-effect-18" id="modal-18">
-        <div class="md-content5">
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp; <p style="margin-left:5%">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Have An &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account&nbsp;&nbsp;</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;<button class="md-trigger" data-modal="modal-13" style=" height: 35px; border-radius: 20px; text-align: center; margin-left:10%;">Sgin In</button><br /><br />
-            &nbsp;&nbsp;&nbsp;&nbsp;<p style="margin-left:5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not HaveAccount:</p>
-            &nbsp;&nbsp;&nbsp;&nbsp;  <button class="md-trigger" data-modal="modal-14" style=" height: 35px; margin-top: 5px; border-radius: 20px; text-align: center; margin-left: 10%;">Sign Up</button>&nbsp;&nbsp;&nbsp;&nbsp;<br /><br /><br /><br />
-            <div class="md-close" id="close_popup_div"><p>x</p></div>
-
-        </div>
-    </div>
-
-    <script src="~/Scripts/classie.js"></script>
-    <script src="~/Scripts/modalEffects.js"></script>
-
-    <script>
-        // this is important for IEs
-        var polyfilter_scriptpath = '/js/';
-    </script>
-
     <div class="md-modal md-effect-13" id="modal-13">
         <div class="md-content">
-
-            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 37%; font-size: 200%">LogIn</h1>
-            <input type="email" placeholder=" E-mail Address" style="height: 40px; width: 74%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 13%;" /><br />
-            <input type="password" placeholder="Password" style="font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; height: 40px; width: 74%; margin-right: 5px; margin-left: 13%; margin-top: 10px; " /><br /><br />
-            <a href="#" onmouseover="this.style.color='#94b8b8'" onmouseout="this.style.color='#fff'" style=" font-family: 'Adobe Kaiti Std';color:whitesmoke; text-decoration: none; margin-left: 16%; ">Forget Password?</a><br /><br />
-            <button class="btn btn-lg " type="button" style=" margin-left: 34%; width: auto; height: 40px;  font-family: 'Adobe Kaiti Std'; font-size: 130%; margin-bottom: 20px;"><a href="/User/Userlogin" onmouseover="this.style.color='#94b8b8'" onmouseout="this.style.color='#fff'" style="color: #fff; text-decoration: none; ">Log In</a></button>
+            <form method="post" action="#">
+                <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 37%; font-size: 200%">LogIn</h1>
+                <input type="text" id="fnn" placeholder=" User Name" style="height: 40px; width: 74%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 13%;" /><br />
+                <input type="password" id="a" placeholder="Password" style="font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; height: 40px; width: 74%; margin-right: 5px; margin-left: 13%; margin-top: 10px; " /><br /><br />
+                <a href="#" onmouseover="this.style.color='#94b8b8'" onmouseout="this.style.color='#fff'" style=" font-family: 'Adobe Kaiti Std';color:whitesmoke; text-decoration: none; margin-left: 16%; ">Forget Password?</a><br /><br />
+                <input type="button" class="btn btn-lg  " value="LogIn" id="login" style="margin-left: 28%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
+            </form>
             <div class="md-close" id="close_popup_div"><p>x</p></div>
 
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $("#login").click(function () {
+                var a = $("#fnn").val();
+                var b = $("#a").val();
+
+                $.ajax({
+                    url: "http://localhost:52257/api/Login",
+                    type: "Post",
+                    data: JSON.stringify({ User_Name: a, Password: b }),
+
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (response) {
+                        var result1 = response.Result;
+                        var code1 = response.Code;
+                        var id1 = response.id;
+                        alert(code1);
+                        if (code1 == 01) {
+                            window.location.href = "/Admin/UserRecord";
+                        }
+                        else if (code1 == 02) {
+                            window.location.href = "/MedicalStore/UserStore";
+                        }
+                        else if (code1 == 03) {
+                            window.location.href = "/User/Userlogin";
+                        }
+                    },
+                    error: function () { alert('error'); }
+                });
+            });
+        });
+    </script>
 
     <script src="~/Scripts/classie.js"></script>
     <script src="~/Scripts/modalEffects.js"></script>
@@ -459,7 +466,6 @@
              <div id="close_popup_div" title="Close" onclick="ClosePopupMenuu()">
                  <p style="color:white;">
                      X
-
                  </p>
              </div>
          </div>
@@ -489,7 +495,7 @@
                 <input type="password" name="Password" placeholder="Password" id="pass1" required style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
                 <input type="password" name="Password" placeholder="Re-enter Password" required id="repass1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
                 <input type="date" name="D_O_B" placeholder="date" id="d1" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <input type="text" name="Role" placeholder="Role:User/Admin/MedicalStore" id="r" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="text" name="Role" placeholder="Role:User/Admin/Medical" id="r" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
                 <br />
 
                 <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
@@ -609,6 +615,25 @@
 
 
 
+
+    <div class="md-modal md-effect-18" id="modal-18">
+        <div class="md-content5">
+            <br />
+            <p style="margin-left:5%">If u Have An Account...</p>
+            <button class="md-trigger" data-modal="modal-13" style=" height: 35px; border-radius: 20px; text-align: center; margin-left:10%;">Sgin In</button><br /><p style="margin-left:5%">Otherwise...</p>
+            <button class="md-trigger" data-modal="modal-14" style=" height: 35px; margin-top: 5px; border-radius: 20px; text-align: center; margin-left: 10%;">Sgin Up</button><br /><br />
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
 
     <div class="md-modal md-effect-eo" id="modal-eo">
         <div class="md-contenteo">

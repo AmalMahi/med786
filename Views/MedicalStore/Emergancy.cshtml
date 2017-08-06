@@ -10,7 +10,7 @@
     <div class="col-xs-2"></div>
     <div class="col-xs-10" style="width: 75%; background-color: rgba(49, 50, 49, 0.97);margin-right:0">
         <h1>Medical Store<span class="icon fa-angle-double-left"></span>Emergency Order</h1>
-       <!-- <ul>
+     <ul></ul>  <!-- <ul>
             <li style="color: rgba(49, 50, 49, 0.97)">
                 <input type="text" placeholder="Search By UserName" id="uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
                 <button><span class="icon fa-search"></span></button>
@@ -233,9 +233,110 @@
                         });
                     });
                 </script>
+
+                <script>
+                    $(document).ready(function () {
+
+                        // code to read selected table row cell data (values).
+                        $("#emer").on('click', '#update', function () {
+                            $('#we').hide();
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                            var data = id;
+
+
+
+                            $.ajax({
+                                type: 'GET',
+                                url: "http://localhost:52257/api/Emergency" + data,
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data);
+
+
+                                    var str = "";
+
+                                 str += "<form action='#' method='post'>";
+                                    str += "<input type='int' id='o' disabled  value='" + data.Id + "' />"
+                                   
+                                    str += "<input type='text' id='u' disabled   value='" + data.FirstName + "'/>"
+                                    str += "<input type='text' id='a' disabled  value='" + data.LastName + "'/>"
+                                   
+                                    str += "<input type='email' id='c' disabled value='" + data.E_mail + "'/>"
+                                    str += "<input type='text' id='h' disabled  value='" + data.D_O_B + "'/>"
+                                    
+                                    str += "<input type='tel' id='e' disabled value='" + data.ContactNo + "'/>"
+                                    str += "<input type='tel' id='f' disabled  value='" + data.AltNo + "'/>"
+                                    str += "<input type='int' id='g' disabled   value='" + data.Amount + "'/>"
+                                    str += "<input type='text' id='k' disabled  value='" + data.Medicines + "'/>"
+
+                                    str += "<input type='text' id='l' disabled value='" + data.Address + "'/>"
+                                    str += "<select id='s'>"
+                                    str += " <option >" + data.Status + "</option>"
+                                    str += " <option value='Pending'>Pending</option>"
+                                    str += " <option value='Recieved'>Recieved</option>"
+                                    str += " <option value='Cancel'>Cancel</option>"
+                                    str += "</select>";
+                                    str += "<input type='text' id='i' disabled  value='" + data.Gender + "'/>"
+                                    str += "<input type='password' id='j' disabled  value='" + data.Password + "'/>"       
+                                    str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
+                                    str += "<a href='/MeddicalStore/Emergancy' type='button' class='btn btn-lg ' type='button' value='Back'/>"
+                                    str += "</form>";
+                                    $('#int').html(str);
+                                },
+                                error: function (msg) { alert(msg); }
+                            });
+                        });
+                    });
+                </script>
+
+                <script>
+
+                    function azc() {
+                        // debugger;
+
+                        var id = $("#o").val();
+                        var fname = $("#u").val();
+                        var lname = $("#a").val();   
+                        var email = $("#c").val();
+                        var dob = $("#h").val();  
+                        var contact = $("#e").val();
+                        var alt = $("#f").val();
+                        var amount = $("#g").val();
+                        var med = $("#k").val();
+                        var address = $("#l").val();
+                        var status = $("#s").val();
+                        var gndr = $("#i").val();
+                        var pass = $("#j").val();
+                      
+                       
+
+                        $.ajax({
+                            url: "http://localhost:52257/api/Emergency" + id,
+                            type: "Put",
+                            data: JSON.stringify({ Id: id, FirstName: fname, LastName: lname, E_mail: email, D_O_B: dob, ContactNo: contact, AltNo: alt, Amount: amount,Medicines: med,Address: address,  Status: status, Gender: gndr, Password: pass }),
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                window.location.href = "/MedicalStore/Emergancy";
+                            },
+                            error: function (msg) { alert(msg); }
+                        });
+                    };
+
+                </script>
+
+
+
+
+
+
+
                 <div id="home" class="tab-pane fade in active">
                     <div style="overflow:scroll; width:87%; height:250px; ">
-                        <div class="row">
+                        <div class="row" id="we">
                             <div class="col-xs-12">
                                 <table class="table table-fixed" style="margin-top: 10px; width: 1500px; height: auto; background-color: black">
                                     <thead>
@@ -262,8 +363,10 @@
                                 </table>
                             </div>
                         </div>
+                        <div id="int"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

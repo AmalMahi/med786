@@ -12,7 +12,7 @@
 <script>
     // code to read selected table row cell data (values).
     function abc() {
-       
+
 
         $.ajax({
             type: 'GET',
@@ -34,14 +34,14 @@
                         str += "</tr>";
                     }
                     $('#med').html(str);
-                    
+
                     $("#first").hide();
-                    
+
                     $("#second").show();
-                    
+
                     table = document.getElementById("qaz");
                     var rows = table.rows;
-                    
+
                     for (var i = 1; i < rows.length; i++) {
 
                         rows[i].onclick = (function (e) {
@@ -63,7 +63,7 @@
                             document.getElementById("UserName").setAttribute('value', data);
                             var data2 = localStorage.getItem("name");
                             document.getElementById("Account2").setAttribute('value', data2);
-                           
+
                         });
                     }
 
@@ -102,7 +102,7 @@
                     <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
                         <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
                         <li class="dropdown">
-                            <a href="#"   onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:30px; margin-left:10px" disabled id="Account"/>  </a>
+                            <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:30px; margin-left:10px" disabled id="Account" />  </a>
                             <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
                                 <li><a href="/User/Profile" style="color:white;">Setting</a></li>
                                 <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
@@ -272,13 +272,13 @@
                         <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
                         <li class="dropdown">
                             <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:30px; margin-left:10px" disabled id="Account2" />  </a>
-                            
-                                <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                    <li><a href="/User/Profile" style="color:white;">Setting</a></li>
-                                    <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
 
-                                </ul>
+                            <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                <li><a href="/User/Profile" style="color:white;">Setting</a></li>
+                                <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+
                             </ul>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -350,7 +350,7 @@
                     Location : <input type='text' id='Location' disabled value='Location' />
                     MedicalStore : <input type='text' id='MedStore' disabled value='MedicalStore' />
                     Medicine Name : <input type='text' disabled id='MedName' value="Name " />
-                    Medicine Weight : <input type='tel' disabled id='Medweight' value="Weight" />
+                    Medicine Weight : <input type='text' disabled id='Medweight' value="Weight" />
                     Type : <input type='text' id='Type' disabled value="Type" />
                     Amount : <input type='tel' id='Amount' value="Amount" />
                     Price : <input type='tel' id='Price' disabled value=" Price" />
@@ -369,14 +369,13 @@
                             var o = $("#Medweight").val();
                             var c = $("#Type").val();
                             var g = $("#Amount").val();
-                            // var d = $("#Price").val();
                             var e = $("#Email").val();
                             var f = $("#Address").val();
                             var h = $("#contact").val();
                             $.ajax({
                                 url: "http://localhost:52257/api/Order",
                                 type: "Post",
-                                data: JSON.stringify({ UserName : y, Location: a, MedicalStoreName: b, MedicineName: u, E_mail: e, Medicine_Weight: o, Type: c, ContactNo: h, AmountOfMedicine: g, Address: f }),
+                                data: JSON.stringify({ UserName: y, Location: a, MedicalStoreName: b, MedicineName: u, E_mail: e, MedicineWeight: o, Type: c, ContactNo: h, AmountOfMedicine: g, Address: f }),
 
                                 contentType: 'application/json; charset=utf-8',
                                 success: function (data) {
@@ -395,7 +394,7 @@
                                         contentType: 'application/json; charset=utf-8',
                                         success: function (data) {
                                             alert("Successful");
-                                            
+
                                         },
                                         error: function () { alert('error'); }
                                     });

@@ -9,17 +9,17 @@
     <div class="col-xs-2"></div>
     <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
         <h1>Admin Panel<span class="icon fa-angle-double-left"></span>Medicine List</h1>
-       <ul>
-          <!--   <li style="color: black">
-                <input type="text" placeholder="Search By Medicine" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+        <ul>
+            <!--   <li style="color: black">
+                  <input type="text" placeholder="Search By Medicine" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
 
 
-                <input type="text" placeholder="Search By Category " style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                  <input type="text" placeholder="Search By Category " style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
 
-                <input type="text" placeholder="Search By Medicine Company" style="height: 40px; width: 26%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
-                <button id="sea" type="button"><span class="icon fa-search"></span></button>
+                  <input type="text" placeholder="Search By Medicine Company" style="height: 40px; width: 26%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                  <button id="sea" type="button"><span class="icon fa-search"></span></button>
 
-            </li>>-->
+              </li>>-->
         </ul>
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Add New</a></li>
@@ -80,7 +80,7 @@
                                            data-fv-notempty-message="The Quantity is required" />
                                 </div>
                                 <div class="col-sm-4" style="margin-top:3px;">
-                                    <select name="status" id="ty" class="control" style="background-color:#333;">
+                                    <select name="type" id="ty" class="control" style="background-color:#333;">
                                         <option value=" ">Type:</option>
                                         <option>Syrup</option>
                                         <option>Tablet</option>
@@ -94,7 +94,15 @@
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <select name="status" id="st" class="control" style="background-color:#333;">
+                                        <option value=" ">Status:</option>
+                                        <option value="Harmful">Harmful</option>
+                                        <option value="Save">Save</option>
 
+
+                                    </select>
+                                </div>
 
                             </div>
                             <div class="form-group">
@@ -129,13 +137,13 @@
                                 var o = $("#qu").val();
                                 var c = $("#ty").val();
                                 var d = $("#pps").val();
-
+                                var e = $("#st").val();
 
 
                                 $.ajax({
                                     url: "http://localhost:52257/api/medicines",
                                     type: "Post",
-                                    data: JSON.stringify({ MedicineName: a, MedicineWeight: b, MedicineCompany: u, Quantity: o, Type: c, Price: d, }),
+                                    data: JSON.stringify({ MedicineName: a, MedicineWeight: b, MedicineCompany: u, Quantity: o, Type: c, Price: d, Status: e }),
 
                                     contentType: 'application/json; charset=utf-8',
                                     success: function (data) {
@@ -168,7 +176,7 @@
                                     str += "<td id='r" + i + "'>" + data[i].Quantity + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].Price + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].Type + "</td>";
-
+                                    str += "<td id='r" + i + "'>" + data[i].Status + "</td>";
                                     str += "<td>";
                                     str += "<div class='dropdown'>";
                                     str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
@@ -212,9 +220,100 @@
                         });
                     });
                 </script>
+
+                <script>
+                    $(document).ready(function () {
+
+                        // code to read selected table row cell data (values).
+                        $("#med").on('click', '#update', function () {
+                            $('#we').hide();
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                            var data = id;
+
+
+
+                            $.ajax({
+                                type: 'GET',
+                                url: "http://localhost:52257/api/Medicines/" + data,
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data);
+
+
+                                    var str = "";
+
+                                    str += "<form action='#' method='post'>";
+                                    str += "<input type='int' id='o'  value='" + data.Id + "' />"
+
+                                    str += "<input type='text' id='u'    value='" + data.MedicineName + "'/>"
+                                    str += "<input type='text' id='a' value='" + data.MedicineWeight + "'/>"
+
+                                    str += "<input type='text' id='c'  value='" + data.MedicineCompany + "'/>"
+                                    str += "<input type='int' id='h'   value='" + data.Quantity + "'/>"
+
+                                    str += "<input type='int' id='e' value='" + data.Price + "'/>"
+
+
+                                    str += "<input type='text' id='l' value='" + data.Type + "'/>"
+                                    str += "<select id='s'>"
+                                    str += " <option >" + data.Status + "</option>"
+                                    str += " <option value='Harm'>Harm</option>"
+                                    str += " <option value='Save'>Save</option>"
+                                    str += "</select>";
+                                    str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
+                                    str += "<a href='/Admin/MedicinesList' type='button' class='btn btn-lg ' type='button' value='Back'/>"
+                                    str += "</form>";
+                                    $('#int').html(str);
+                                },
+                                error: function (msg) { alert(msg); }
+                            });
+                        });
+                    });
+                </script>
+
+                <script>
+
+                    function azc() {
+                        // debugger;
+
+                        var id = $("#o").val();
+                        var mdname = $("#u").val();
+                        var mdweight = $("#a").val();
+                        var mdcompany = $("#c").val();
+                        var quantity = $("#h").val();
+                        var price = $("#e").val();
+
+                        var type = $("#l").val();
+                        var status = $("#s").val();
+
+
+
+
+                        $.ajax({
+                            url: "http://localhost:52257/api/Medicines/" + id,
+                            type: "Put",
+                            data: JSON.stringify({ Id: id, MedicineName: mdname, MedicineWeight: mdweight, MedicineCompany: mdcompany, Quantity: quantity, Price: price, Type: type, Status: status, }),
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                window.location.href = "/Admin/MedicinesList";
+                            },
+                            error: function (msg) { alert(msg); }
+                        });
+                    };
+
+                </script>
+
+
+
+
+
                 <div id="menu1" class="tab-pane fade">
                     <div style="overflow:scroll; width:87%; height:250px;">
-                        <div class="row ">
+                        <div class="row " id="we">
                             <div class="col-xs-12">
                                 <table class="table table-inverse" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59);">
                                     <thead>
@@ -225,9 +324,8 @@
                                             <th>Medicine Company</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
-
                                             <th>Type</th>
-
+                                            <th>Status</th>
                                             <th>Operation</th>
 
                                         </tr>
@@ -238,6 +336,7 @@
                                 </table>
                             </div>
                         </div>
+                        <div id="int"></div>
                     </div>
                 </div>
             </div>

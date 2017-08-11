@@ -241,9 +241,95 @@
                 </script>
 
 
+                <script>
+                    $(document).ready(function () {
+
+                        // code to read selected table row cell data (values).
+                        $("#med").on('click', '#update', function () {
+                            $('#we').hide();
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                            var data = id;
+
+
+
+                            $.ajax({
+                                type: 'GET',
+                                url: "http://localhost:52257/api/MedList/" + data,
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data);
+
+
+                                    var str = "";
+
+                                    str += "<form action='#' method='post'>";
+                                    str += "<input type='int' id='o'  value='" + data.Id + "' />"
+
+                                    str += "<input type='text' id='a'    value='" + data.StoreNames + "'/>"
+                                    str += "<input type='text' id='b' value='" + data.OwnerName + "'/>"
+
+                                    str += "<input type='text' id='c'  value='" + data.LicenseNumber + "'/>"
+                                    str += "<input type='int' id='d'   value='" + data.LicenseOwnerName + "'/>"
+
+                                    str += "<input type='int' id='e' value='" + data.E_mail + "'/>"
+                                    str += "<input type='text' id='f' value='" + data.TimeAvailability + "'/>"
+                                    str += "<input type='text' id='g' value='" + data.ContactNo + "'/>"
+                                    str += "<input type='text' id='h' value='" + data.OrderDuration + "'/>"
+                                    str += "<input type='text' id='i' value='" + data.StoreLocation + "'/>"
+                                    str += "<input type='text' id='j' value='" + data.DeliveryLocation + "'/>"
+                                   
+                                    str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
+                                    str += "<a href='/Admin/MedicalStoresList' type='button' class='btn btn-lg ' type='button' value='Back'/>"
+                                    str += "</form>";
+                                    $('#int').html(str);
+                                },
+                                error: function (msg) { alert(msg); }
+                            });
+                        });
+                    });
+                </script>
+
+                <script>
+
+                    function azc() {
+                        // debugger;
+
+                        var id = $("#o").val();
+                        var stname = $("#a").val();
+                        var oname = $("#b").val();
+                        var lnbr = $("#c").val();
+                        var lon = $("#d").val();
+                        var email = $("#e").val();
+
+                        var ta = $("#f").val();
+                        var contact = $("#g").val();
+                        var od = $("#h").val();
+                        var sl = $("#i").val();
+                        var dl = $("#j").val();
+
+                        $.ajax({
+                            url: "http://localhost:52257/api/MedList/" + id,
+                            type: "Put",
+                            data: JSON.stringify({ Id: id, StoreNames: stname, OwnerName: oname,  LicenseNumber: lnbr, LicenseOwnerName: lon, E_mail: email, TimeAvailability: ta,ContactNo: contact,OrderDuration:od,StoreLocation:sl,DeliveryLocation:dl,  }),
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                window.location.href = "/Admin/MedicalStoresList";
+                            },
+                            error: function (msg) { alert(msg); }
+                        });
+                    };
+
+                </script>
+
+
+
                 <div id="menu1" class="tab-pane fade bottombar">
                     <div style="overflow:scroll; width:87%; height:250px;">
-                        <div class="row ">
+                        <div class="row " id="we">
                             <div class="col-xs-12">
                                 <table class="table table-fixed" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59);">
                                     <thead>
@@ -267,6 +353,7 @@
                                 </table>
                             </div>
                         </div>
+                        <div id="int"></div>
                     </div>
                 </div>
             </div>

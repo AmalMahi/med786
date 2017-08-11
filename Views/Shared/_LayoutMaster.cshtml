@@ -392,347 +392,24 @@
 
     </div>
     <div class="md-modal md-effect-18" id="modal-18">
-        <div class="md-content5" >
+        <div class="md-content5">
 
             <div style="height:540px;width:500px;">
 
                 <h2 class="major"><br />Order</h2>
                 <div style="background-image: url(/images/order.jpg); border-radius: 4px; height: 440px; width: 95%; margin-right: 1rem; margin-left: 1rem; background-color: rgba(255, 255, 255, 0.66); ">
-                    <div><p style="margin-left:5%">If u Have An Account...</p>
-                    <button class="md-trigger" data-modal="modal-13" style=" height: 35px; border-radius: 20px; text-align: center; margin-left:10%;">Sign In</button>
-                    <br />
-                    <p style="margin-left:5%">Otherwise...</p>
-                    <button class="md-trigger" data-modal="modal-14" style=" height: 35px; margin-top: 5px; border-radius: 20px; text-align: center; margin-left: 10%;">Sign Up</button><br /><br />
+                    <div>
+                        <p style="margin-left:5%">If u Have An Account...</p>
+                        <button class="md-trigger" data-modal="modal-13" style=" height: 35px; border-radius: 20px; text-align: center; margin-left:10%;">Sign In</button>
+                        <br />
+                        <p style="margin-left:5%">Otherwise...</p>
+                        <button class="md-trigger" data-modal="modal-14" style=" height: 35px; margin-top: 5px; border-radius: 20px; text-align: center; margin-left: 10%;">Sign Up</button><br /><br />
 
+                    </div>
+                    <div class="md-close" id="close_popup_div"><p>x</p></div>
                 </div>
-                 <div class="md-close" id="close_popup_div"><p>x</p></div>
             </div>
         </div>
-    </div>
-
-    <script src="~/Scripts/classie.js"></script>
-    <script src="~/Scripts/modalEffects.js"></script>
-
-    <script>
-        // this is important for IEs
-        var polyfilter_scriptpath = '/js/';
-    </script>
-
-
-    <div class="md-modal md-effect-13" id="modal-13">
-        <div class="md-content" style="width: 100%; margin-left: -72px; ">
-            <form method="post" action="#" name="myformm">
-                <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 37%; font-size: 200%">LogIn</h1>
-                <input type="text" id="fnn" name="User_Name" placeholder=" User Name" required style="height: 40px; width: 74%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 13%;" /><br />
-                <input type="password" id="a" name="Password" placeholder="Password" required style="font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; height: 40px; width: 74%; margin-right: 5px; margin-left: 13%; margin-top: 10px; " /><br /><br />
-                <a href="#" onmouseover="this.style.color='#94b8b8'" onmouseout="this.style.color='#fff'" style=" font-family: 'Adobe Kaiti Std';color:whitesmoke; text-decoration: none; margin-left: 16%; ">Forget Password?</a><br /><br />
-                <input type="button" class="btn btn-lg  " value="LogIn" id="login" style="margin-left: 28%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
-            </form>
-            <div class="md-close" id="close_popup_div"><p>x</p></div>
-
-        </div>
-    </div>
-    <script>
-        $(document).ready(function () {
-            $("#login").click(function () {
-                var x21 = document.forms["myformm"]["User_Name"].value;
-                var x22 = document.forms["myformm"]["Password"].value;
-                if (x21 == "") {
-                    alert("User Name must be filled out");
-                    return false;
-                }
-                else if (x22 == "") {
-                    alert("Password must be filled out");
-                    return false;
-                }
-                else {
-                    var a = $("#fnn").val();
-                    var b = $("#a").val();
-
-                    $.ajax({
-                        url: "http://localhost:52257/api/Login",
-                        type: "Post",
-                        data: JSON.stringify({ User_Name: a, Password: b }),
-
-                        contentType: 'application/json; charset=utf-8',
-                        success: function (response) {
-                            var result1 = response.Result;
-                            var code1 = response.Code;
-                            var id1 = response.id;
-                            alert(result1);
-                            if (code1 == 01) {
-                                window.location.href = "/Admin/UserRecord";
-                            }
-                            else if (code1 == 02) {
-                                window.location.href = "/MedicalStore/UserStore";
-                            }
-                            else if (code1 == 03) {
-                                window.location.href = "/User/Userlogin";
-                            }
-                        },
-                        error: function () { alert('Fill Requirments'); }
-                    });
-                }
-            });
-        });
-    </script>
-
-    <script src="~/Scripts/classie.js"></script>
-    <script src="~/Scripts/modalEffects.js"></script>
-
-    <script>
-        // this is important for IEs
-        var polyfilter_scriptpath = '/js/';
-    </script>
-
-    <!-- <div id="popup_bgg">
-
-         <div id="popup_mainn_div">
-             <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Sign Up</b></h1>
-             <input type="text" placeholder="First Name" id="fname" style="height: 40px; width: 40%; font-family:Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px;margin-left:8%; " />
-             <input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 40%;  font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px;; " /><br />
-             <input type="tel" placeholder="Phone Number" id="num1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-             <input type="tel" placeholder="Alt Phone Number" id="num2" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-             <input type="email" placeholder=" E-mail Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
-             <input type="password" placeholder="Password" id="pass" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
-             <input type="password" placeholder="Re-enter Password" id="repass" style="height: 40px; width: 40%;   font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-             <input type="date" placeholder="date" id="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-             <br />
-             <p style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 10px; margin-top: 5px; ">
-                 <input type="radio" id="male" style=" margin-top: 10px; margin-left: 38%;" />&nbsp;Male
-                 <input type="radio" id="female" style="margin-left: 5%; " />&nbsp;Female
-             </p>
-             <button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Sign Up</button>
-             <div id="close_popup_div" title="Close" onclick="ClosePopupMenuu()">
-                 <p style="color:white;">
-                     X
-                 </p>
-             </div>
-         </div>
-     </div>
-     <script type="text/javascript">
-         var popuppDiv = document.getElementById("popup_bgg");
-         function OpenPopupMenuu() {
-             popuppDiv.style.display = "block";
-         }
-         function ClosePopupMenuu() {
-             popuppDiv.style.display = "none";
-         }
-     </script>-->
-    <div class="md-modal md-effect-14" id="modal-14">
-        <div class="md-contentt" style="width: 150%; margin-left: -72px; margin-top: -29px; ";">
-
-            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Sign Up</b></h1>
-            <form action="#" name="myform">
-
-                <input type="text" name="First_Name" placeholder="First Name" id="fn" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <input type="text" name="Last_Name" placeholder="Last Name" id="ln" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-                <input type="text" name="User_Name" placeholder="User Name" id="un" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <input type="text" name="Occupation" placeholder="Occupation" id="ocu" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
-                <input type="tel" name="Contact_No" placeholder="Phone Number" id="n12" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <input type="tel" name="Alt_No" placeholder="Alt Phone Number" id="nalt" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-                <input type="email" name="Email" placeholder=" E-mail Address" id="m1" required style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
-                <input type="password" name="Password" placeholder="Password" id="pass1" required style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
-                <input type="password" name="Password1" placeholder="Re-enter Password" required id="repass1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-                <input type="date" name="D_O_B" placeholder="date" id="d1" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <input type="text" name="Role" placeholder="Role:User/Medical" id="r" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                <br />
-
-                <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
-                    <label>
-                        <input type="radio" id="g1" name="Gender" value="male" required /> Male
-                    </label>
-
-                    <label>
-                        <input type="radio" id="g1" name="Gender" value="female" required /> Female
-                    </label>
-                </div>
-
-                <input type="button" class="btn btn-lg  " value="Send" id="submit1" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
-            </form>
-            <div class="md-close" id="close_popup_div"><p>x</p></div>
-
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function () {
-            $("#submit1").click(function () {
-                var x = document.forms["myform"]["First_Name"].value;
-                var x1 = document.forms["myform"]["Last_Name"].value;
-                var x2 = document.forms["myform"]["User_Name"].value;
-                var x3 = document.forms["myform"]["Occupation"].value;
-                var x4 = document.forms["myform"]["Contact_No"].value;
-                var x5 = document.forms["myform"]["Alt_No"].value;
-                var x6 = document.forms["myform"]["Email"].value;
-                var x7 = document.forms["myform"]["Password"].value;
-                var x8 = document.forms["myform"]["Password1"].value;
-                var x9 = document.forms["myform"]["D_O_B"].value;
-                var x10 = document.forms["myform"]["Role"].value;
-                var x11 = document.forms["myform"]["Gender"].value;
-                if (x == "") {
-                    alert("First Name must be filled out");
-                    return false;
-                }
-                else if (x1 == "") {
-                    alert("Last Name must be filled out");
-                    return false;
-                }
-                else if (x2 == "") {
-                    alert("User Name must be filled out");
-                    return false;
-                }
-                else if (x3 == "") {
-                    alert("Occupation must be filled out");
-                    return false;
-                }
-                else if (x4 == "") {
-                    alert("Contact No must be filled out");
-                    return false;
-                }
-                else if (x4 > 9999999999) {
-                    alert("Add Valid Number ");
-                    return false;
-                }
-                else if (x5 == "") {
-                    alert("Alternative Contact No must be filled out");
-                    return false;
-                }
-                else if (x5 > 9999999999) {
-                    alert("Add Valid Number ");
-                    return false;
-                }
-                else if (x6 == "") {
-                    alert("Email must be filled out");
-                    return false;
-                }
-                else if (x7 == "") {
-                    alert("Password must be filled out");
-                    return false;
-                }
-                else if (x8 == "") {
-                    alert("Re Enter Password must be filled out");
-                    return false;
-                }
-                else if (x7 != x8) {
-                    alert("Enter Same password  must be filled out");
-                    return false;
-                }
-                else if (x9 == "") {
-                    alert("Date Of Birth must be filled out");
-                    return false;
-                }
-                else if (x10 == "") {
-                    alert("Role be filled out");
-                    return false;
-                }
-                else if (x11 == "") {
-                    alert("Gender must be filled out");
-                    return false;
-                }
-                else {
-                    var a = $("#fn").val();
-                    var b = $("#ln").val();
-                    var u = $("#un").val();
-                    var o = $("#ocu").val();
-                    var c = $("#n12").val();
-                    var d = $("#nalt").val();
-                    var e = $("#m1").val();
-                    var f = $("#pass1").val();
-                    var g = $("#d1").val();
-                    var i = $("#g1").val();
-                    var j = $("#r").val();
-
-                    $.ajax({
-                        url: "http://localhost:52257/api/UserRecord",
-                        type: "Post",
-                        data: JSON.stringify({ First_Name: a, Last_Name: b, User_Name: u, Email: e, Occupation: o, Contact_No: c, Alt_No: d, Gender: i, D_O_B: g, Password: f, Role: j }),
-
-                        contentType: 'application/json; charset=utf-8',
-                        success: function (data) {
-                            alert("Successful");
-                        },
-                        error: function () { alert('error'); }
-                    });
-                }
-            });
-        });
-    </script>
-
-
-
-    <script src="~/Scripts/classie.js"></script>
-    <script src="~/Scripts/modalEffects.js"></script>
-
-    <script>
-        // this is important for IEs
-        var polyfilter_scriptpath = '/js/';
-    </script>
-
-
-    <div class="md-modal md-effect-15" id="modal-15">
-        <div class="md-content2" style="width: 150%; margin-left: -82px; margin-top: 5px; " >
-
-            <h2 class="major"><br />Services</h2>
-            <img src="/images/ser2.jpg" style="border-radius: 4px; height: 150px; width: 93%; margin-left: 2.0rem; " />
-            <p class="major" style="text-align: justify;font-size:17.5px">
-
-                <ul style="margin-left: 2%; margin-right: 2%;">
-                    <li> Our application is about the delivery of medicines.</li>
-
-                    <li>
-                        Medicines will be delivered to you at preferred addresses. Our application also include the list of medicines that are provided by the nearest medical store.
-                    </li>
-
-                    <li>
-                        It's also include a function named
-                        <a class="major md-trigger" data-modal="modal-eo">EMERGENCY ORDER</a>...
-                        Through that service it will deliver you the medicine in most possible time duration as soon as possible.
-
-                    </li>
-                    <li>
-                        We will deliver medicines in the medical stores of the following areas:<br />
-
-                        <button style="width:30%;height:35px;margin-top:2%">Chaburji</button>
-                        <button style="width: 36%; height: 35px; margin-left: 0.3%; ">Gulshan Ravi</button>
-
-                        <button style="width: 30%; height: 35px; margin-left: 0.3%; ">Samnabad</button>
-
-                    </li>
-                </ul>
-
-              
-            
-            <div class ="md-close" id="close_popup_div"><p>x</p></div>
-       
-
-    </div>
-    </div>
-
-    <script src="~/Scripts/classie.js"></script>
-    <script src="~/Scripts/modalEffects.js"></script>
-
-    <script>
-        // this is important for IEs
-        var polyfilter_scriptpath = '/js/';
-    </script>
-
-   
-        <div class="md-modal md-effect-16" id="modal-16">
-            <div class="md-content3" style="width: 150%; margin-left: -90px; margin-top: 36px; ">
-
-                <h2 class="major"><br />About</h2>
-                <h3 style="margin-left: 3%">Here We Are:</h3>
-                <img src="/images/About.jpg" style="border-radius: 4px;height:150px;width:97%;  margin-left:1rem;background-color:rgba(255, 255, 255, 0.66);">
-                <p class="major" style="font-size: 17.5px; text-align: justify; margin-left: 4%; margin-right: 4%;">
-                    Pakistan has a very vibrant and forward looking Pharma Industry. It is a novel concept of PHARMACY-ON-WHEELS that brings genuine medicines at the best prices to the comfort of your home. Therefore, it is an online medicine delivery system with a mission to provide integrated pharmacy services with convenience and quality seamlessly across the nation. With a payment facility of Cash-on-Delivery.
-                    Just log on to MED-DELIVER, place your order online and have your medicines that we delivered to you without leaving the comfort of your home.
-                    <br /><br />
-                </p>
-                <div class="md-close" id="close_popup_div"><p>x</p></div>
-            </div>
-            </div>
-      
 
         <script src="~/Scripts/classie.js"></script>
         <script src="~/Scripts/modalEffects.js"></script>
@@ -743,62 +420,14 @@
         </script>
 
 
-
-
-
-
-
-      
-        <div class="md-modal md-effect-eo" id="modal-eo">
-            <div class="md-contenteo" style="width: 150%; margin-left: -72px; margin-top: -29px; ">
-
-                <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 30%; font-size: 200%;"><b>Emergency Order</b></h1>
-                <form action="#">
-                    <input type="text" id="fname" placeholder="First Name" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                    <input type="text" id="lname" placeholder="Last Name" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
-                    <input type="tel" id="num1" placeholder="Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                    <input type="tel" id="num2" placeholder="Alt Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-                    <input type="email" id="mail" placeholder=" E-mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
-                    <input type="password" id="pass" placeholder="Password" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
-                    <input type="password" id="repass" placeholder="Re-enter Pass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-
-                    <select id="med" typeof="text" name="status" class="control" style="height: 40px; color: black; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                    <option value=" ">Medicine Name</option>
-                    <option>Panadol</option>
-                    <option>Dispirine</option>
-                    <option>Antibiotics</option>
-
-                    </select>
-
-
-                    <!--<div id="med" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                     <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
-                                    Medicine Name
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li style="background-color: rgba(255, 255, 255, 0.66)"><a href="#">Panadol</a></li>
-                                    <li style ="background-color: rgba(255, 255, 255, 0.66)"><a href="#">Dispirine</a></li>
-                                    <li style="background-color: rgba(255, 255, 255, 0.66)"><a href="#">Antibiotics</a></li>
-                                </ul>
-                            </div             -->
-
-
-                    <input type="number" id="amount" placeholder="Amount" style="height: 40px; color:black; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; " />
-                    <input type="text" id="add" placeholder=" Address" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
-                    <input type="date" id="date" placeholder="date" style="height: 40px; color: black; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                    <br />
-                    <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
-                        <label>
-                            <input type="radio" id="gender" name="gender" value="male" /> Male
-                        </label>
-
-                        <label>
-                            <input type="radio" id="gender" name="gender" value="female" /> Female
-                        </label>
-                    </div>
-
-                    <input type="button" class="btn btn-lg  " value="Send" id="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
+        <div class="md-modal md-effect-13" id="modal-13">
+            <div class="md-content" style="width: 100%; margin-left: -72px; ">
+                <form method="post" action="#" name="myformm">
+                    <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 37%; font-size: 200%">LogIn</h1>
+                    <input type="text" id="fnn" name="User_Name" placeholder=" User Name" required style="height: 40px; width: 74%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 13%;" /><br />
+                    <input type="password" id="a" name="Password" placeholder="Password" required style="font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; height: 40px; width: 74%; margin-right: 5px; margin-left: 13%; margin-top: 10px; " /><br /><br />
+                    <a href="#" onmouseover="this.style.color='#94b8b8'" onmouseout="this.style.color='#fff'" style=" font-family: 'Adobe Kaiti Std';color:whitesmoke; text-decoration: none; margin-left: 16%; ">Forget Password?</a><br /><br />
+                    <input type="button" class="btn btn-lg  " value="LogIn" id="login" style="margin-left: 28%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
                 </form>
                 <div class="md-close" id="close_popup_div"><p>x</p></div>
 
@@ -806,30 +435,61 @@
         </div>
         <script>
             $(document).ready(function () {
-                $("#submit").click(function () {
-                    var a = $("#fname").val();
-                    var b = $("#lname").val();
-                    var c = $("#num1").val();
-                    var d = $("#num2").val();
-                    var e = $("#mail").val();
-                    var f = $("#pass").val();
-                    var g = $("#amount").val();
-                    var h = $("#date").val();
-                    var i = $("#gender").val();
-                    var j = $("#med").val();
-                    var k = $("#add").val();
+                $("#login").click(function () {
+                    var x21 = document.forms["myformm"]["User_Name"].value;
+                    var x22 = document.forms["myformm"]["Password"].value;
+                    if (x21 == "") {
+                        alert("User Name must be filled out");
+                        return false;
+                    }
+                    else if (x22 == "") {
+                        alert("Password must be filled out");
+                        return false;
+                    }
+                    else {
+                        var a = $("#fnn").val();
+                        var b = $("#a").val();
 
-                    $.ajax({
-                        url: "http://localhost:52257/api/Emergency",
-                        type: "Post",
-                        data: JSON.stringify({ FirstName: a, LastName: b, E_mail: e, D_O_B: h, ContactNo: c, AltNo: d, Amount: g, Medicines: j, Address: k, Gender: i, Password: f }),
+                        $.ajax({
+                            url: "http://localhost:52257/api/Login",//?username="+data
+                            type: "Post",
+                            data: JSON.stringify({ User_Name: a, Password: b }),
 
-                        contentType: 'application/json; charset=utf-8',
-                        success: function (data) {
-                            alert();
-                        },
-                        error: function () { alert('error'); }
-                    });
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (response) {
+                                var result1 = response.Result;
+                                var code1 = response.Code;
+                                var id1 = response.id;
+                                alert(result1);
+                                if (code1 == 01) {
+                                    localStorage.setItem("name", a);
+
+                                    // Retrieve
+                                    var data = localStorage.getItem("name");
+                                    alert(data);
+
+                                    window.location.href = "/Admin/UserRecord";
+                                }
+                                else if (code1 == 02) {
+                                    localStorage.setItem("name", a);
+
+                                    // Retrieve
+                                    var data = localStorage.getItem("name");
+                                    alert(data);
+                                    window.location.href = "/MedicalStore/UserStore";
+                                }
+                                else if (code1 == 03) {
+                                    localStorage.setItem("name", a);
+
+                                    // Retrieve
+                                    var data = localStorage.getItem("name");
+                                    alert(data);
+                                    window.location.href = "/User/Userlogin";
+                                }
+                            },
+                            error: function () { alert('Fill Requirments'); }
+                        });
+                    }
                 });
             });
         </script>
@@ -837,11 +497,379 @@
         <script src="~/Scripts/classie.js"></script>
         <script src="~/Scripts/modalEffects.js"></script>
 
+        <script>
+            // this is important for IEs
+            var polyfilter_scriptpath = '/js/';
+        </script>
+
+        <!-- <div id="popup_bgg">
+
+             <div id="popup_mainn_div">
+                 <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Sign Up</b></h1>
+                 <input type="text" placeholder="First Name" id="fname" style="height: 40px; width: 40%; font-family:Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px;margin-left:8%; " />
+                 <input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 40%;  font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px;; " /><br />
+                 <input type="tel" placeholder="Phone Number" id="num1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                 <input type="tel" placeholder="Alt Phone Number" id="num2" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                 <input type="email" placeholder=" E-mail Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+                 <input type="password" placeholder="Password" id="pass" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+                 <input type="password" placeholder="Re-enter Password" id="repass" style="height: 40px; width: 40%;   font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                 <input type="date" placeholder="date" id="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                 <br />
+                 <p style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 10px; margin-top: 5px; ">
+                     <input type="radio" id="male" style=" margin-top: 10px; margin-left: 38%;" />&nbsp;Male
+                     <input type="radio" id="female" style="margin-left: 5%; " />&nbsp;Female
+                 </p>
+                 <button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Sign Up</button>
+                 <div id="close_popup_div" title="Close" onclick="ClosePopupMenuu()">
+                     <p style="color:white;">
+                         X
+                     </p>
+                 </div>
+             </div>
+         </div>
+         <script type="text/javascript">
+             var popuppDiv = document.getElementById("popup_bgg");
+             function OpenPopupMenuu() {
+                 popuppDiv.style.display = "block";
+             }
+             function ClosePopupMenuu() {
+                 popuppDiv.style.display = "none";
+             }
+         </script>-->
+        <div class="md-modal md-effect-14" id="modal-14">
+            <div class="md-contentt" style="width: 150%; margin-left: -72px; margin-top: -29px; " ;">
+
+                <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Sign Up</b></h1>
+                <form action="#" name="myform">
+
+                    <input type="text" name="First_Name" placeholder="First Name" id="fn" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                    <input type="text" name="Last_Name" placeholder="Last Name" id="ln" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                    <input type="text" name="User_Name" placeholder="User Name" id="un" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                    <input type="text" name="Occupation" placeholder="Occupation" id="ocu" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+                    <input type="tel" name="Contact_No" placeholder="Phone Number" id="n12" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                    <input type="tel" name="Alt_No" placeholder="Alt Phone Number" id="nalt" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                    <input type="email" name="Email" placeholder=" E-mail Address" id="m1" required style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+                    <input type="password" name="Password" placeholder="Password" id="pass1" required style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+                    <input type="password" name="Password1" placeholder="Re-enter Password" required id="repass1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                    <input type="date" name="D_O_B" placeholder="date" id="d1" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                    <input type="text" name="Role" placeholder="Role:User/Medical" id="r" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                    <br />
+
+                    <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                        <label>
+                            <input type="radio" id="g1" name="Gender" value="male" required /> Male
+                        </label>
+
+                        <label>
+                            <input type="radio" id="g1" name="Gender" value="female" required /> Female
+                        </label>
+                    </div>
+
+                    <input type="button" class="btn btn-lg  " value="Send" id="submit1" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
+                </form>
+                <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $("#submit1").click(function () {
+                    var x = document.forms["myform"]["First_Name"].value;
+                    var x1 = document.forms["myform"]["Last_Name"].value;
+                    var x2 = document.forms["myform"]["User_Name"].value;
+                    var x3 = document.forms["myform"]["Occupation"].value;
+                    var x4 = document.forms["myform"]["Contact_No"].value;
+                    var x5 = document.forms["myform"]["Alt_No"].value;
+                    var x6 = document.forms["myform"]["Email"].value;
+                    var x7 = document.forms["myform"]["Password"].value;
+                    var x8 = document.forms["myform"]["Password1"].value;
+                    var x9 = document.forms["myform"]["D_O_B"].value;
+                    var x10 = document.forms["myform"]["Role"].value;
+                    var x11 = document.forms["myform"]["Gender"].value;
+                    if (x == "") {
+                        alert("First Name must be filled out");
+                        return false;
+                    }
+                    else if (x1 == "") {
+                        alert("Last Name must be filled out");
+                        return false;
+                    }
+                    else if (x2 == "") {
+                        alert("User Name must be filled out");
+                        return false;
+                    }
+                    else if (x3 == "") {
+                        alert("Occupation must be filled out");
+                        return false;
+                    }
+                    else if (x4 == "") {
+                        alert("Contact No must be filled out");
+                        return false;
+                    }
+                    else if (x4 > 9999999999) {
+                        alert("Add Valid Number ");
+                        return false;
+                    }
+                    else if (x5 == "") {
+                        alert("Alternative Contact No must be filled out");
+                        return false;
+                    }
+                    else if (x5 > 9999999999) {
+                        alert("Add Valid Number ");
+                        return false;
+                    }
+                    else if (x6 == "") {
+                        alert("Email must be filled out");
+                        return false;
+                    }
+                    else if (x7 == "") {
+                        alert("Password must be filled out");
+                        return false;
+                    }
+                    else if (x8 == "") {
+                        alert("Re Enter Password must be filled out");
+                        return false;
+                    }
+                    else if (x7 != x8) {
+                        alert("Enter Same password  must be filled out");
+                        return false;
+                    }
+                    else if (x9 == "") {
+                        alert("Date Of Birth must be filled out");
+                        return false;
+                    }
+                    else if (x10 == "") {
+                        alert("Role be filled out");
+                        return false;
+                    }
+                    else if (x11 == "") {
+                        alert("Gender must be filled out");
+                        return false;
+                    }
+                    else {
+                        var a = $("#fn").val();
+                        var b = $("#ln").val();
+                        var u = $("#un").val();
+                        var o = $("#ocu").val();
+                        var c = $("#n12").val();
+                        var d = $("#nalt").val();
+                        var e = $("#m1").val();
+                        var f = $("#pass1").val();
+                        var g = $("#d1").val();
+                        var i = $("#g1").val();
+                        var j = $("#r").val();
+
+                        $.ajax({
+                            url: "http://localhost:52257/api/UserRecord",
+                            type: "Post",
+                            data: JSON.stringify({ First_Name: a, Last_Name: b, User_Name: u, Email: e, Occupation: o, Contact_No: c, Alt_No: d, Gender: i, D_O_B: g, Password: f, Role: j }),
+
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                alert("Successful");
+                            },
+                            error: function () { alert('error'); }
+                        });
+                    }
+                });
+            });
+        </script>
+
+
+
+        <script src="~/Scripts/classie.js"></script>
+        <script src="~/Scripts/modalEffects.js"></script>
 
         <script>
             // this is important for IEs
             var polyfilter_scriptpath = '/js/';
         </script>
+
+
+        <div class="md-modal md-effect-15" id="modal-15">
+            <div class="md-content2" style="width: 150%; margin-left: -82px; margin-top: 5px; ">
+
+                <h2 class="major"><br />Services</h2>
+                <img src="/images/ser2.jpg" style="border-radius: 4px; height: 150px; width: 93%; margin-left: 2.0rem; " />
+                <p class="major" style="text-align: justify;font-size:17.5px">
+
+                    <ul style="margin-left: 2%; margin-right: 2%;">
+                        <li> Our application is about the delivery of medicines.</li>
+
+                        <li>
+                            Medicines will be delivered to you at preferred addresses. Our application also include the list of medicines that are provided by the nearest medical store.
+                        </li>
+
+                        <li>
+                            It's also include a function named
+                            <a class="major md-trigger" data-modal="modal-eo">EMERGENCY ORDER</a>...
+                            Through that service it will deliver you the medicine in most possible time duration as soon as possible.
+
+                        </li>
+                        <li>
+                            We will deliver medicines in the medical stores of the following areas:<br />
+
+                            <button style="width:30%;height:35px;margin-top:2%">Chaburji</button>
+                            <button style="width: 36%; height: 35px; margin-left: 0.3%; ">Gulshan Ravi</button>
+
+                            <button style="width: 30%; height: 35px; margin-left: 0.3%; ">Samnabad</button>
+
+                        </li>
+                    </ul>
+
+
+
+                    <div class="md-close" id="close_popup_div">
+                <p>x</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+
+    <div class="md-modal md-effect-16" id="modal-16">
+        <div class="md-content3" style="width: 150%; margin-left: -90px; margin-top: 36px; ">
+
+            <h2 class="major"><br />About</h2>
+            <h3 style="margin-left: 3%">Here We Are:</h3>
+            <img src="/images/About.jpg" style="border-radius: 4px;height:150px;width:97%;  margin-left:1rem;background-color:rgba(255, 255, 255, 0.66);">
+            <p class="major" style="font-size: 17.5px; text-align: justify; margin-left: 4%; margin-right: 4%;">
+                Pakistan has a very vibrant and forward looking Pharma Industry. It is a novel concept of PHARMACY-ON-WHEELS that brings genuine medicines at the best prices to the comfort of your home. Therefore, it is an online medicine delivery system with a mission to provide integrated pharmacy services with convenience and quality seamlessly across the nation. With a payment facility of Cash-on-Delivery.
+                Just log on to MED-DELIVER, place your order online and have your medicines that we delivered to you without leaving the comfort of your home.
+                <br /><br />
+            </p>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+        </div>
+    </div>
+
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+
+
+
+
+
+
+
+    <div class="md-modal md-effect-eo" id="modal-eo">
+        <div class="md-contenteo" style="width: 150%; margin-left: -72px; margin-top: -29px; ">
+
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 30%; font-size: 200%;"><b>Emergency Order</b></h1>
+            <form action="#">
+                <input type="text" id="fname" placeholder="First Name" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="text" id="lname" placeholder="Last Name" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+                <input type="tel" id="num1" placeholder="Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="tel" id="num2" placeholder="Alt Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                <input type="email" id="mail" placeholder=" E-mail" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <select id="medname" typeof="text" name="status2" class="control" style="height: 40px; color: black; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " />
+                <option value=" ">MedicalStore Name</option>
+                <option>Fazal Din & Sons</option>
+                <option>Mushtaq Medical Store</option>
+                <option>Muzzafar Medical Store</option>
+                <option>Servaid Pharmacy (Pvt) Ltd</option>
+                </select><br/>
+                <input type="password" id="pass" placeholder="Password" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+                <input type="password" id="repass" placeholder="Re-enter Pass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+
+                <select id="med"  typeof="text" name="status" class="control" style="height: 40px; color: black; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <option value=" " >Medicine Name</option>
+                <option>Biotroxone (Injection) 250 mg</option>
+                <option>Feci (Injection) 500 mg</option>
+                <option>Sulgen (Injection) 1 gm</option>
+                <option>Genexime (Injection) 250 mg</option>
+
+                <option>Biotroxone (Injection) 500 mg</option>
+                <option>Mixcef (Capsule) 400 mg</option>
+                <option>Lok (Tablet) 5 mg</option>
+                <option>Blitz (Tablet) 250 mg</option>
+
+                <option>Biotroxone (Injection) 1 mg</option>
+
+                </select>
+                <input type="number" id="amount" placeholder="Amount" style="height: 40px; color:black; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; " />
+                <input type="text" id="add" placeholder=" Address" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+               <select id="loc" typeof="text" name="status3" class="control" style="height: 40px; color: black; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;  " />
+                <option value=" ">Location</option>
+                <option>Samanabad</option>
+                <option>Gulshan Ravi</option>
+                <option>Chaburji</option>
+                
+                </select>
+                <input type="date" id="date" placeholder="date" style="height: 40px; color: black; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <br />
+                <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                    <label>
+                        <input type="radio" id="gender" name="gender" value="male" /> Male
+                    </label>
+
+                    <label>
+                        <input type="radio" id="gender" name="gender" value="female" /> Female
+                    </label>
+                </div>
+
+                <input type="button" class="btn btn-lg  " value="Send" id="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
+            </form>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                var a = $("#fname").val();
+                var b = $("#lname").val();
+                var c = $("#num1").val();
+                var d = $("#num2").val();
+                var e = $("#mail").val();
+                var p = $("#medname").val();
+                var f = $("#pass").val();
+                var g = $("#amount").val();
+                var h = $("#date").val();
+                var i = $("#gender").val();
+                var j = $("#med").val();
+                var k = $("#add").val();
+                var m = $("#loc").val();
+
+                $.ajax({
+                    url: "http://localhost:52257/api/Emergency",
+                    type: "Post",
+                    data: JSON.stringify({ FirstName: a, LastName: b, E_mail: e, MedicalStoreName : p, D_O_B: h, ContactNo: c, AltNo: d, Amount: g, Medicines: j, Address: k,Location:m , Gender: i, Password: f, }),
+
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        alert();
+                    },
+                    error: function () { alert('error'); }
+                });
+            });
+        });
+    </script>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
 
 </body>
 

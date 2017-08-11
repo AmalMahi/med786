@@ -480,13 +480,13 @@
     <div style="background-color: rgba(49, 50, 49, 0.97)">
         @RenderBody()
     </div>
-  
+
     <div id="wrapper">
 
         <!-- Header -->
         <div class="footer" style="background-color: rgba(49, 50, 49, 0.98); height: 78px;width:101% ">
             <h1 style=" margin-top: 2%;"><a href="/Home/Main" style="text-decoration:none;"><strong>Med-Deliver</strong></a></h1>
-           
+
             <nav>
 
                 <ul>
@@ -495,8 +495,8 @@
                     <li><a href="#footer" class="icon fa-arrow-circle-up" style="text-decoration:none;">Contact</a></li>
 
                 </ul>
-               
-               
+
+
 
             </nav>
 
@@ -590,35 +590,59 @@
                 <input type="text" id="lname" placeholder="Last Name" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
                 <input type="tel" id="num1" placeholder="Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
                 <input type="tel" id="num2" placeholder="Alt Phone Number" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-                <input type="email" id="mail" placeholder=" E-mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+                <input type="email" id="mail" placeholder=" E-mail" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <select id="medname" typeof="text" name="status2" class="control" style="height: 40px; color: black; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " />
+                <option value=" ">MedicalStore Name</option>
+                <option>Fazal Din & Sons</option>
+                <option>Mushtaq Medical Store</option>
+                <option>Muzzafar Medical Store</option>
+                <option>Servaid Pharmacy (Pvt) Ltd</option>
+                </select><br />
                 <input type="password" id="pass" placeholder="Password" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
                 <input type="password" id="repass" placeholder="Re-enter Pass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
-                <select id="med" typeof="text" name="status" class="control" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                    <option value=" ">Medicine Name</option>
-                    <option>Panadol</option>
-                    <option>Dispirine</option>
-                    <option>Antibiotics</option>
 
-                    </select>
-                    <input type="number" id="amount" placeholder="Amount" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; " />
-                    <input type="text" id="add" placeholder=" Address" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                    <br />
-                    <input type="date" id="date" placeholder="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
-                    <br />
-                    <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
-                        <label>
-                            <input type="radio" id="gender" name="gender" value="male" /> Male
-                        </label>
-                        <label>
-                            <input type="radio" id="gender" name="gender" value="female" /> Female
-                        </label>
-                    </div>
-                    <input type="button" class="btn btn-lg  " value="Send" id="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
-</form>
+                <select id="med" typeof="text" name="status" class="control" style="height: 40px; color: black; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <option value=" ">Medicine Name</option>
+                <option>Biotroxone (Injection) 250 mg</option>
+                <option>Feci (Injection) 500 mg</option>
+                <option>Sulgen (Injection) 1 gm</option>
+                <option>Genexime (Injection) 250 mg</option>
+
+                <option>Biotroxone (Injection) 500 mg</option>
+                <option>Mixcef (Capsule) 400 mg</option>
+                <option>Lok (Tablet) 5 mg</option>
+                <option>Blitz (Tablet) 250 mg</option>
+
+                <option>Biotroxone (Injection) 1 mg</option>
+
+                </select>
+                <input type="number" id="amount" placeholder="Amount" style="height: 40px; color:black; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; " />
+                <input type="text" id="add" placeholder=" Address" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <select id="loc" typeof="text" name="status3" class="control" style="height: 40px; color: black; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;  " />
+                <option value=" ">Location</option>
+                <option>Samanabad</option>
+                <option>Gulshan Ravi</option>
+                <option>Chaburji</option>
+
+                </select>
+                <input type="date" id="date" placeholder="date" style="height: 40px; color: black; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <br />
+                <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                    <label>
+                        <input type="radio" id="gender" name="gender" value="male" /> Male
+                    </label>
+
+                    <label>
+                        <input type="radio" id="gender" name="gender" value="female" /> Female
+                    </label>
+                </div>
+
+                <input type="button" class="btn btn-lg  " value="Send" id="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; " />
+            </form>
             <div class="md-close" id="close_popup_div"><p>x</p></div>
+
         </div>
     </div>
-
     <script>
         $(document).ready(function () {
             $("#submit").click(function () {
@@ -627,17 +651,19 @@
                 var c = $("#num1").val();
                 var d = $("#num2").val();
                 var e = $("#mail").val();
+                var p = $("#medname").val();
                 var f = $("#pass").val();
                 var g = $("#amount").val();
                 var h = $("#date").val();
                 var i = $("#gender").val();
                 var j = $("#med").val();
                 var k = $("#add").val();
+                var m = $("#loc").val();
 
                 $.ajax({
                     url: "http://localhost:52257/api/Emergency",
                     type: "Post",
-                    data: JSON.stringify({ FirstName: a, LastName: b, E_mail: e, D_O_B: h, ContactNo: c, AltNo: d, Amount: g, Medicines: j, Address: k, Gender: i, Password: f }),
+                    data: JSON.stringify({ FirstName: a, LastName: b, E_mail: e, MedicalStoreName: p, D_O_B: h, ContactNo: c, AltNo: d, Amount: g, Medicines: j, Address: k, Location: m, Gender: i, Password: f, }),
 
                     contentType: 'application/json; charset=utf-8',
                     success: function (data) {
@@ -649,6 +675,7 @@
         });
     </script>
 
+
     <script src="~/Scripts/classie.js"></script>
     <script src="~/Scripts/modalEffects.js"></script>
     <script>
@@ -656,4 +683,5 @@
         var polyfilter_scriptpath = '/js/';
     </script>
 </body>
+
 </html>

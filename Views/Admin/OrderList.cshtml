@@ -10,7 +10,8 @@
     <div class="col-xs-2"></div>
     <div class="col-xs-10" style="width: 75%; background-color: rgba(49, 50, 49, 0.97);margin-right:0">
         <h1>Admin Panel<span class="icon fa-angle-double-left"></span>Order List</h1>
-   <ul></ul>    <!--<ul>
+        <ul></ul>
+        <!--<ul>
             <input type="text" placeholder="Search By UserName" id="uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
             <button><span class="icon fa-search"></span></button>
 
@@ -19,7 +20,7 @@
 
             <input type="text" placeholder="Search By Medicine " id="medname" style="height: 40px; width: 24%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
             <button><span class="icon fa-search"></span></button>
-        </ul>--> 
+        </ul>-->
         <ul class="nav nav-tabs">
             <!--<li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Form</a></li>-->
             <li><a data-toggle="tab" href="#menu1" style="color: gray;">Data</a></li>
@@ -186,20 +187,23 @@
                                 var str = " ";
                                 for (var i = 0; i < data.length; i++) {
                                     str += "<tr>";
-                                    str += "<td id='r" + i + "'>" + data[i].Id + "</td>"
-
+                                    str += "<td id='r" + i + "'>" + data[i].Id + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].UserName + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].FirstName + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].LastName + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
+
                                     str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].ContactNo + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].AltNo + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].AmountOfMedicicne + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].Amount + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].OrderNumber + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Status + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Loaction + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].MedicalStoreName + "</td>";
+                                   
+                                    str += "<td id='r" + i + "'>" + data[i].MedicineWeight + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Type+ "</td>";
+                                   
+                                   
+                                    
                                     str += "<td>";
                                     str += "<div class='dropdown'>";
                                     str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
@@ -253,16 +257,18 @@
                                         <tr>
                                             <th>#</th>
                                             <th>User Name</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
                                             <th>Medicine Name</th>
                                             <th>E-mail</th>
                                             <th>Address</th>
                                             <th>Contact No</th>
-                                            <th>Alt NO</th>
                                             <th>Amount Of Medicicne</th>
-                                            <th>Order Number</th>
+                                            <th>Status</th>
+                                            <th>Location</th>
                                             <th>MedicalStoreName</th>
+                                            <th>MedicineWEight</th> 
+                                            <th>Type</th>
+                                       
+                                           
                                             <th>Operation</th>
                                         </tr>
                                     </thead>

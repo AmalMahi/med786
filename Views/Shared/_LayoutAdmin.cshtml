@@ -296,6 +296,124 @@
                 font-family: sans-serif;
             }
     </style>
+    @*<script>
+        $(document).ready(function () {
+            var data2 = localStorage.getItem("name");
+            document.getElementById("Account2").setAttribute('value', data2);
+            alert(data2);
+        });
+    </script>*@
+    <script>
+
+
+
+        function get() {
+            
+            var data = localStorage.getItem("name");
+            document.getElementById("Account2").setAttribute('value', data);
+            alert(data);
+            $.ajax({
+                type: 'GET',
+                url: "http://localhost:52257/api/Profile?username=/" + data,
+                
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    alert(data);
+                    var str = " ";
+                    str += "<form action='#' method='post'>";
+                    str += "<tr>";
+
+                    str += "<td colspan='2'>";
+                    str += "<img src='/images/profile.png' class='img-circle' style='width:26%;height:200px;margin-left:10%;margin-top:20px;'/><br />";
+                    str += "<button type='submit' style='background-color: rgba(49, 50, 49, 0.66); border-radius: 20px; margin-left: 16%; '>Change</button>";
+                    str += "</td>";
+                    str += "<tr>";
+                    str += "<tr>";
+                    str += " <td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px;'>First Name</td>";
+                    str += "<input type='text' id='d' disabled   value='" + First_Name + "'/>"
+                    str += "<tr>";
+                    str += "<tr>";
+
+                    str += " <td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Last Name</td>";
+                    str += "<input type='text' id='d' disabled   value='" + data.Last_Name + "'/>"
+                    str += "</tr>";
+                    str += "<tr>";
+
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>E-mail</td>";
+                    str += "<input type='text' id='d' disabled   value='" + data.E_mail + "'/>"
+                    str += "</tr>";
+                    str += "<tr>";
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Password</td>";
+                    str += "<input type='text' id='d' disabled   value='" + data.Password + "'/>"
+                    str += "</tr>";
+                    str += "tr>";
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Occupation</td>";
+                    str + "<input type='text' id='d' disabled   value='" + data.Occupation + "'/>"
+                    str += "</tr>";
+                    str += "<tr>";
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Contact No</td>";
+                    str += "<input type='text' id='d' disabled   value='" + data.Contact_No + "'/>"
+                    str += "</tr>";
+                    str += "<tr>";
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Alt Contact No</td>";
+                    str + "<input type='text' id='d' disabled   value='" + data.Alt_No + "'/>"
+                    str += "</tr>";
+                    str += "<tr>";
+
+
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '\>Date of Birth</td>";
+                    str + "<input type='text' id='d' disabled   value='" + data.D_O_B + "'/>"
+                    str += "</tr>";
+
+                    str += "<tr>";
+
+
+                    str += " <td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Gender</td>";
+
+                    str += "<div class='radio' style='color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; '>";
+
+                    str += "  <label>  <input type='radio' id='g1' name='Gender' value='male' required /> Male</label>";
+
+                    str += " <label> <input type='radio' id='g1' name='Gender' value='female' required /> Female</label>";
+
+                    str += " </div>"
+                    str += "</tr>";
+                    str += "<tr>";
+
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>User Name</td>";
+                    str + "<input type='text' id='d' disabled   value='" + data.User_Name + "'/>"
+                    str += "<tr>";
+                    str += "<tr>";
+
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Address</td>";
+                    str += "<input type='text' id='d' disabled   value='" + data.Address + "'/>"
+                    str += "</tr>";
+                    str += "<tr>";
+
+
+
+
+                    str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
+
+                    str += " </tr>";
+                    str += "</form>";
+                    $('#pro').html(str);
+                },
+
+                error: function (msg) { alert(msg); }
+
+            });
+        }
+
+    </script>
 
 </head>
 
@@ -313,14 +431,16 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgba(49, 50, 49, 0.8)">
                 <li class="dropdown">
-                    <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+
+                    <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:25px; margin-left:10px" disabled id="Account2" />  </a>
                     <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
 
-                        <li><a href="/Admin/AdminProfile" style="color:white;">Setting</a></li>
+                        <li><a onclick="get()" style="color:white;">Setting</a></li>
                         <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
-
+                        
                     </ul>
             </ul>
+       
         </div>
     </div>
 
@@ -420,7 +540,7 @@
              <br />-->
         </div>
     </div>
-
+   
     <div>
         @RenderBody()
     </div>

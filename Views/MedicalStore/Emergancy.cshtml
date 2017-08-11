@@ -22,154 +22,15 @@
         </ul>
         <div class="container">
             <div class="tab-content">
-                <!-- <div id="home" class="tab-pane fade in active ">
-                            <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top:10px;width:92%;background-color:black">
-                                <fieldset>
-
-
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="text" class="form-control" name="firstName" placeholder="First name"
-                                                   data-fv-row=".col-sm-4"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The first name is required" />
-                                        </div>
-
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="text" class="form-control" name="lastName" placeholder="Last name"
-                                                   data-fv-row=".col-sm-4"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The last name is required" />
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="text" class="form-control" name="email" placeholder="E-mail"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The email address is required" />
-                                        </div>
-
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="tel" class="form-control" name="order" placeholder="Order Number"
-                                                   data-fv-row=".col-sm-4"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Order Number is required" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="tel" class="form-control" name="email" placeholder="Contact Number"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Contact Number is required" />
-                                        </div>
-
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="tel" class="form-control" name="password" placeholder="Alternative Number"
-                                                   data-fv-row=".col-sm-4"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Contact Number is required" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="password" class="form-control" name="order amount" placeholder="Amount"
-                                                   data-fv-row=".col-sm-4"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Amount is required" />
-                                        </div>
-                                        <div class="col-sm-4" style="margin-top:3px; ">
-                                            <input type="text" class="form-control" name="medicinename" placeholder="Medicine Name"
-                                                   data-fv-row=".col-sm-4"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Medicine name is required" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:3px;">
-                                            <input type="date" class="form-control" name="date" placeholder="Date of Birth"
-                                                   data-fv-notempty="true"
-                                                   data-fv-notempty-message="The Date of birth is required" />
-                                        </div>
-                                        <label class="col-sm-3 control-label"></label>
-                                        <div class="col-sm-4" style="margin-top:1px;">
-                                            <textarea class="form-control" name="message" id="message" placeholder="Permanent Address" rows="6" style="background-color:#333;"
-                                                      data-fv-notempty="true"
-                                                      data-fv-notempty-message="The Address is required"></textarea>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label "></label>
-                                        <div class="col-sm-4" style="margin-top:-100px; ">
-                                            <select name="status" class="control" style="background-color:#333;">
-                                                <option value=" ">Status:</option>
-                                                <option>Pending</option>
-                                                <option>Delivered</option>
-                                                <option>Cancel</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-6 col-sm-offset-3" style="margin-top:-5%;">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" name="agree" value="agree"
-                                                           data-fv-notempty="true"
-                                                           data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="col-xs-9 col-xs-offset-3" style="margin-left:50%;">
-                                            <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
-                                        </div>
-                                    </div>
-
-
-                                    <script>
-                                        // Check the captcha
-                                        function checkCaptcha(value, validator, $field) {
-                                            var items = $('#captchaOperation').html().split(' '),
-                                                sum = parseInt(items[0]) + parseInt(items[2]);
-                                            return value == sum;
-                                        }
-
-                                        $(document).ready(function () {
-                                            // Generate a simple captcha
-                                            function randomNumber(min, max) {
-                                                return Math.floor(Math.random() * (max - min + 1) + min);
-                                            }
-                                            $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
-
-                                            $('#basicBootstrapForm').formValidation();
-                                        });
-                                    </script>
-
-                                </fieldset>
-                            </form>
-                        </div>
-
-                -->
+            
                 <script>
 
 
                     $(document).ready(function () {
-
+                        var data = localStorage.getItem("name");
                         $.ajax({
                             type: 'GET',
-                            url: "http://localhost:52257/api/Emergency",
+                            url: "http://localhost:52257/api/Emergency?username="+data,
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -190,6 +51,8 @@
                                     str += "<td id='r" + i + "'>" + data[i].Status + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].Gender + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].Password + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].MedicalStoreName + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Location + "</td>";
                                     str += "<td>";
                                     str += "<div class='dropdown'>";
                                     str += "<button class='btn btn-block dropdown-toggle' type='button' data-toggle='dropdown'>Operation</button>";
@@ -251,7 +114,7 @@
 
                             $.ajax({
                                 type: 'GET',
-                                url: "http://localhost:52257/api/Emergency" + data,
+                                url: "http://localhost:52257/api/Emergency/" + data,
                                 dataType: 'json',
                                 success: function (data) {
                                     console.log(data);
@@ -281,7 +144,10 @@
                                     str += " <option value='Cancel'>Cancel</option>"
                                     str += "</select>";
                                     str += "<input type='text' id='i' disabled  value='" + data.Gender + "'/>"
-                                    str += "<input type='password' id='j' disabled  value='" + data.Password + "'/>"       
+                                    str += "<input type='password' id='j' disabled  value='" + data.Password + "'/>"
+                                    str += "<input type='password' id='m' disabled  value='" + data.MedicalStoreName + "'/>"
+                                    str += "<input type='password' id='p' disabled  value='" + data.Location + "'/>"
+
                                     str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
                                     str += "<a href='/MeddicalStore/Emergancy' type='button' class='btn btn-lg ' type='button' value='Back'/>"
                                     str += "</form>";
@@ -311,13 +177,15 @@
                         var status = $("#s").val();
                         var gndr = $("#i").val();
                         var pass = $("#j").val();
+                        var medstname = $("#m").val();
+                        var loc = $("#p").val();
                       
                        
 
                         $.ajax({
-                            url: "http://localhost:52257/api/Emergency" + id,
+                            url: "http://localhost:52257/api/Emergency/" + id,
                             type: "Put",
-                            data: JSON.stringify({ Id: id, FirstName: fname, LastName: lname, E_mail: email, D_O_B: dob, ContactNo: contact, AltNo: alt, Amount: amount,Medicines: med,Address: address,  Status: status, Gender: gndr, Password: pass }),
+                            data: JSON.stringify({ Id: id, FirstName: fname, LastName: lname, E_mail: email, D_O_B: dob, ContactNo: contact, AltNo: alt, Amount: amount,Medicines: med,Address: address,  Status: status, Gender: gndr, Password: pass, MedicalStoreName:m, Location:p }),
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
                                 window.location.href = "/MedicalStore/Emergancy";
@@ -351,9 +219,12 @@
                                             <th>Amount Of Medicine</th>
                                             <th>Medicine Name</th>
                                             <th>Address</th>
+
                                             <th>Status</th>
                                             <th>Gender</th>
                                             <th>Password</th>
+                                            <th>Medical Store Name</th>
+                                            <th>Location</th>
                                             <th>Operation</th>
                                         </tr>
 

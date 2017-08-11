@@ -2,6 +2,89 @@
     ViewBag.Title = "Userlogin";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+<script>
+    $(document).ready(function () {
+        var data1 = localStorage.getItem("name");
+        document.getElementById("Account").setAttribute('value', data1);
+        $("#second").hide();
+    });
+</script>
+<script>
+    // code to read selected table row cell data (values).
+    function abc() {
+       
+
+        $.ajax({
+            type: 'GET',
+            url: "http://localhost:52257/api/medicines",
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data != null && data != "") {
+
+                    var str = " ";
+                    for (var i = 0; i < data.length; i++) {
+                        str += "<tr>";
+                        str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
+                        str += "<td id='r" + i + "'>" + data[i].MedicineWeight + "</td>";
+                        str += "<td id='r" + i + "'>" + data[i].MedicineCompany + "</td>";
+                        str += "<td id='r" + i + "'>" + data[i].Price + "</td>";
+                        str += "<td id='r" + i + "'>" + data[i].Type + "</td>";
+                        str += "<td><a id='zaidi' onclick='xyz()' >Add</a></td>";
+                        str += "</tr>";
+                    }
+                    $('#med').html(str);
+                    
+                    $("#first").hide();
+                    
+                    $("#second").show();
+                    
+                    table = document.getElementById("qaz");
+                    var rows = table.rows;
+                    
+                    for (var i = 1; i < rows.length; i++) {
+
+                        rows[i].onclick = (function (e) {
+                            var rowid = (this.cells[0].innerHTML);
+                            document.getElementById("MedName").setAttribute('value', rowid);
+                            var rowweight = (this.cells[1].innerHTML);
+                            document.getElementById("Medweight").setAttribute('value', rowweight);
+                            var rowprice = (this.cells[3].innerHTML);
+                            document.getElementById("Price").setAttribute('value', rowprice);
+                            var rowtype = (this.cells[4].innerHTML);
+                            document.getElementById("Type").setAttribute('value', rowtype);
+                            var a = $("#o").val();
+                            document.getElementById("Location").setAttribute('value', a);
+                            var b = $("#p").val();
+                            document.getElementById("MedStore").setAttribute('value', b);
+                            var y = $("#date").val();
+                            document.getElementById("date").setAttribute('value', y);
+                            var data = localStorage.getItem("name");
+                            document.getElementById("UserName").setAttribute('value', data);
+                            var data2 = localStorage.getItem("name");
+                            document.getElementById("Account2").setAttribute('value', data2);
+                           
+                        });
+                    }
+
+                }
+                else {
+                    alert("Error");
+                }
+            },
+
+            error: function (msg) { alert(msg); }
+
+        });
+
+
+        // get the current row
+
+
+
+    }
+
+</script>
 <div id="first">
     <nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
         <div class="container-fluid">
@@ -19,7 +102,7 @@
                     <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
                         <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
                         <li class="dropdown">
-                            <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                            <a href="#"   onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:30px; margin-left:10px" disabled id="Account"/>  </a>
                             <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
                                 <li><a href="/User/Profile" style="color:white;">Setting</a></li>
                                 <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
@@ -44,19 +127,19 @@
                     <div class="col-sm-4" style="width: 300px;">
                         <select id="o" name="status" class="control" style="background-color: #333; margin-left: 14%; margin-top: 10px;">
                             <option value=" ">Add your location</option>
-                            <option>Chouburji</option>
-                            <option>Gulshan e Ravi</option>
-                            <option>Samnabad</option>
+                            <option>Chaburji</option>
+                            <option>Gulshan Ravi</option>
+                            <option>Samanabad</option>
 
                         </select>
                     </div>
                     <div class="col-sm-4" style=" width:300px; ">
                         <select id="p" name="status" class="control" style="background-color: #333; margin-left:14%;margin-top:10px;">
                             <option value=" ">Search medical store</option>
-                            <option>Clinics</option>
-                            <option>Fazal din</option>
-                            <option>Mahmood</option>
-
+                            <option>Fazal Din & Sons</option>
+                            <option>Mushtaq Medical Store</option>
+                            <option>Servaid Pharmacy (Pvt) Ltd</option>
+                            <option>Muzzafar Medical Store</option>
                         </select>
                     </div>
                 </div>
@@ -169,24 +252,7 @@
     <!-- /How it work -->
 
 </div>
-<script>
 
-    $("#second").hide();
-
-    // code to read selected table row cell data (values).
-    function abc() {
-
-        $("#first").hide();
-
-        $("#second").show();
-        // get the current row
-
-        var a = $("#o").val();
-        var b = $("#p").val();
-
-    }
-
-</script>
 
 <div id="second">
     <nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
@@ -205,13 +271,14 @@
                     <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
                         <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
                         <li class="dropdown">
-                            <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
-                                <li><a href="/User/Profile" style="color:white;">Setting</a></li>
-                                <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+                            <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:30px; margin-left:10px" disabled id="Account2" />  </a>
+                            
+                                <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                    <li><a href="/User/Profile" style="color:white;">Setting</a></li>
+                                    <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
 
+                                </ul>
                             </ul>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -246,108 +313,8 @@
         </div>
 
 
-        <script>
-            $(document).ready(function () {
-
-                $.ajax({
-                    type: 'GET',
-                    url: "http://localhost:52257/api/medicines",
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-
-                        var str = " ";
-                        for (var i = 0; i < data.length; i++) {
-                            str += "<tr>";
-                            str += "<td id='r" + i + "'>" + data[i].MedicineName + "</td>";
-                            str += "<td id='r" + i + "'>" + data[i].MedicineWeight + "</td>";
-                            str += "<td id='r" + i + "'>" + data[i].MedicineCompany + "</td>";
-                            str += "<td id='r" + i + "'>" + data[i].Price + "</td>";
-                            str += "<td id='r" + i + "'>" + data[i].Type + "</td>";
-                            str += "<td><a href='#' id='zaidi' onclick='xyz()' >Add</a></td>";
-                            str += "</tr>";
-                        }
-                        $('#med').html(str);
-                    },
-
-                    error: function (msg) { alert(msg); }
-                });
-
-            });
-
-        </script>
-        <script>
-table = document.getElementById("qaz");
-            var rows = table.rows;
-            for (var i = 1; i < rows.length; i++) {
-                rows[i].cells[2].onclick = function (e) {
-                    rowid = e.target.previousElementSibling.previousElementSibling.textContent;
-                    alert(rowid);
-                };
-            }</script>
-        <script>
 
 
-            function xyz() {
-
-                var table = document.getElementById("qaz");
-                var rows = table.rows;
-                alert("add");
-                for (var i = 1; i < rows.length; i++) {
-
-                    rows[i].onclick = (function (e) {
-                        var rowid = (this.cells[0].innerHTML);
-                        var j = 0;
-                        var td = e.target;
-                        while ((td = td.previousElementSibling) != null)
-                            j++;
-                        alert(rows[0].cells[j].innerHTML);
-                    });
-                }
-                var currentRow = $(this).closest("tr");
-
-                var id = currentRow.find("td:eq(0)"); // get current row 1st TD value
-
-                var data = id;
-                alert(data);
-
-
-                $.ajax({
-                    type: 'GET',
-                    url: "http://localhost:52257/api/Medicines/" + data,
-                    dataType: 'json',
-                    success: function (data) {
-                        console.log(data);
-
-                        var str = "";
-
-                        str += "<form action='#' method='post'>";
-                        str += "<input type='text' id='o'  value='" + data.MedicineName + "'/>";
-                        str += "<input type='text' id='p'  value='" + data.MedicineWeight + "'/>";
-                        str += "<input type='text' id='q'  value='" + data.MedicineCompany + "'/>";
-                        str += "<input type='int' id='s'  value='Quantity'/>";
-                        str += "<input type='email' id='t'  value='E-mail'/>";
-                        str += "<input type='text' id='u'  value='Address'/>";
-                        str += "<input type='int' id='v'  value='" + data.Price + "'/>";
-                        str += "<input type='text' id='w'  value='" + data.Type + "'/>";
-                        str += "<input type='int' id='x'  value='Total Price'/>";
-                        str += "<input type='button' onclick='azc()'  value='Order' />";
-                        str += "</form>";
-
-
-                        $('#items').html(str);
-                    },
-
-                    error: function (msg) { alert(msg); }
-
-
-                });
-
-
-            };
-
-
-        </script>
         <script>
             function myFunction() {
                 window.print();
@@ -378,8 +345,69 @@ table = document.getElementById("qaz");
                     </table>
 
                 </div>
+                <form method="post">
+                    User Name : <input type='text' id='UserName' disabled value='UserName' />
+                    Location : <input type='text' id='Location' disabled value='Location' />
+                    MedicalStore : <input type='text' id='MedStore' disabled value='MedicalStore' />
+                    Medicine Name : <input type='text' disabled id='MedName' value="Name " />
+                    Medicine Weight : <input type='tel' disabled id='Medweight' value="Weight" />
+                    Type : <input type='text' id='Type' disabled value="Type" />
+                    Amount : <input type='tel' id='Amount' value="Amount" />
+                    Price : <input type='tel' id='Price' disabled value=" Price" />
+                    Email : <input type='email' id='Email' value="E-mail" />
+                    Address : <input type='text' id='Address' value=" Address" />
+                    Contact No : <input type='tel' id='contact' value=" Contact No" /><br />
+                    <input type="button" class="btn btn-lg  " value="Order" id="submit2" />
+                </form>
+                <script>
+                    $(document).ready(function () {
+                        $("#submit2").click(function () {
+                            var y = $("#UserName").val();
+                            var a = $("#Location").val();
+                            var b = $("#MedStore").val();
+                            var u = $("#MedName").val();
+                            var o = $("#Medweight").val();
+                            var c = $("#Type").val();
+                            var g = $("#Amount").val();
+                            // var d = $("#Price").val();
+                            var e = $("#Email").val();
+                            var f = $("#Address").val();
+                            var h = $("#contact").val();
+                            $.ajax({
+                                url: "http://localhost:52257/api/Order",
+                                type: "Post",
+                                data: JSON.stringify({ UserName : y, Location: a, MedicalStoreName: b, MedicineName: u, E_mail: e, Medicine_Weight: o, Type: c, ContactNo: h, AmountOfMedicine: g, Address: f }),
 
-                <table id="items"></table>
+                                contentType: 'application/json; charset=utf-8',
+                                success: function (data) {
+                                    alert("Successful");
+                                    var y = $("#UserName").val();
+                                    var u = $("#MedName").val();
+                                    var g = $("#Amount").val();
+                                    var d = $("#Price").val();
+                                    var e = $("#Price").val();
+                                    var h = $("#date").val();
+                                    $.ajax({
+                                        url: "http://localhost:52257/api/Invoice",
+                                        type: "Post",
+                                        data: JSON.stringify({ UserName: y, MedicineName: u, AmountOfMedicine: g, TotalPrice: e, PricePerOne: e, Date: h }),
+
+                                        contentType: 'application/json; charset=utf-8',
+                                        success: function (data) {
+                                            alert("Successful");
+                                            
+                                        },
+                                        error: function () { alert('error'); }
+                                    });
+
+                                },
+                                error: function () { alert('error'); }
+                            });
+
+                        });
+                    });
+                </script>
+
 
                 <div id="terms">
 
@@ -392,9 +420,9 @@ table = document.getElementById("qaz");
     </div>
 
 
-
-
 </div>
+
+
 
 
 
@@ -403,26 +431,6 @@ table = document.getElementById("qaz");
 
 <script>
 
-    // function azc() {
-    // debugger;
-    // alert: ("ok");
-    //  var id = $("#o").val();
-    // var name = $("#p").val();
-    // var email = $("#q").val();
-    //  var password = $("#r").val();
-    // var contact = $("#s").val();
 
-    // $.ajax({
-    ////  url: "http://localhost:52257/api/Emergency/" + id,
-    // type: "Put",
-    // data: JSON.stringify({ Name: name, Email: email, Passowrd: password, Contact: contact }),
-    //  contentType: 'application/json; charset=utf-8',
-    // success: function (data) {
-
-
-    //  },
-    //  error: function (msg) { alert(msg); }
-    //});
-    // };
 
 </script>

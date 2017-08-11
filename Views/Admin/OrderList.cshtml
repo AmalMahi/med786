@@ -27,7 +27,7 @@
 
                         $.ajax({
                             type: 'GET',
-                            url: "http://localhost:52257/api/Order",
+                            url: "http://med786.apphb.com/api/Order",
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -84,7 +84,7 @@
                             var data = id;
 
                             $.ajax({
-                                url: "http://localhost:52257/api/Order/" + data,
+                                url: "http://med786.apphb.com/api/Order/" + data,
                                 type: "Delete",
                                 success: function (data) {
 
@@ -96,9 +96,107 @@
                     });
                 </script>
 
+
+                <script>
+                    $(document).ready(function () {
+
+                        // code to read selected table row cell data (values).
+                        $("#emer").on('click', '#update', function () {
+                            $('#we').hide();
+                            // get the current row
+                            var currentRow = $(this).closest("tr");
+
+                            var id = currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+
+                            var data = id;
+
+
+
+                            $.ajax({
+                                type: 'GET',
+                                url: "http://med786.apphb.com/api/Order/" + data,
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data);
+
+
+                                    var str = "";
+
+                                    str += "<form action='#' method='post'>";
+                                    str += "<input type='int' id='o' disabled  value='" + data.Id + "' />"
+                                    str += "<input type='text' id='a' disabled   value='" + data.UserName + "'/>"
+                                    str += "<input type='text' id='b' disabled  value='" + data.MedicineName + "'/>"
+                                    str += "<input type='email' id='c' disabled value='" + data.E_mail + "'/>"
+                                    str += "<input type='text' id='d' disabled   value='" + data.Address + "'/>"
+                                    str += "<input type='tel' id='e' disabled value='" + data.ContactNo + "'/>"
+                                    str += "<input type='int' id='f' disabled   value='" + data.AmountOfMedicicne + "'/>"
+                                    str += "<select id='s'>"
+                                    str += " <option >" + data.Status + "</option>"
+                                    str += " <option value='Pending'>Pending</option>"
+                                    str += " <option value='Recieved'>Recieved</option>"
+                                    str += " <option value='Cancel'>Cancel</option>"
+                                    str += "</select>";
+                                    str += "<input type='text' id='m' disabled  value='" + data.Location + "'/>"
+                                    str += "<input type='text' id='k' disabled  value='" + data.MedicalStoreName + "'/>"
+                                    str += "<input type='text' id='j' disabled value='" + data.MedicineWeight + "'/>"
+                                    str += "<input type='text' id='l' disabled value='" + data.Type + "'/>"
+                                    str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
+                                    str += "<a href='/MeddicalStore/UserStore' type='button' class='btn btn-lg ' type='button' value='Back'/>"
+                                    str += "</form>";
+
+                                    $('#int').html(str);
+                                },
+
+                                error: function (msg) { alert(msg); }
+
+
+                            });
+                        });
+                    });
+
+
+
+                </script>
+
+                <script>
+
+                    function azc() {
+                        // debugger;
+
+                        var id = $("#o").val();
+                        var uname = $("#a").val();
+                        var email = $("#c").val();
+                        var contact = $("#e").val();
+                        var amount = $("#f").val();
+                        var status = $("#s").val();
+                        var location = $("#m").val();
+                        var medstorename = $("#k").val();
+                        var medweight = $("#j").val();
+                        var type = $("#l").val();
+                        var medname = $("#b").val();
+                        var add = $("#d").val();
+
+                        $.ajax({
+                            url: "http://med786.apphb.com/api/Order/" + id,
+                            type: "Put",
+                            data: JSON.stringify({ Id: id, UserName: uname, E_mail: email, ContactNo: contact, AmountOfMedicicne: amount, Status: status, Location: location, MedicalStoreName: medstorename, MedicineWeight: medweight, Type: type, MedicineName: medname, Address: add }),
+                            contentType: 'application/json; charset=utf-8',
+                            success: function (data) {
+                                window.location.href = "/MedicalStore/UserStore";
+                            },
+                            error: function (msg) { alert(msg); }
+                        });
+                    };
+
+                </script>
+
+
+
+
+
                 <div id="menu1" class="tab-pane fade in active">
                     <div style="overflow:scroll; width:87%; height:250px;">
-                        <div class="row ">
+                        <div class="row " id="we">
                             <div class="col-xs-12">
                                 <table class="table table-inverse" style="margin-top:10px;width:1500px; height:auto; background-color:black">
                                     <thead>
@@ -124,6 +222,7 @@
                                 </table>
                             </div>
                         </div>
+                        <div id="int"></div>
                     </div>
                 </div>
             </div>

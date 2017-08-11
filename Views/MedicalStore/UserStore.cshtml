@@ -24,7 +24,7 @@
                        
                         $.ajax({
                             type: 'GET',
-                            url: "http://localhost:52257/api/Order?username=" + data,
+                            url: "http://med786.apphb.com/api/Order?username=" + data,
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -82,7 +82,7 @@
 
                             $.ajax({
                                 type: 'GET',
-                                url: "http://localhost:52257/api/Order/" + data,
+                                url: "http://med786.apphb.com/api/Order/" + data,
                                 dataType: 'json',
                                 success: function (data) {
                                     console.log(data);
@@ -145,7 +145,7 @@
                         var add = $("#d").val();
 
                         $.ajax({
-                            url: "http://localhost:52257/api/Order/" + id,
+                            url: "http://med786.apphb.com/api/Order/" + id,
                             type: "Put",
                             data: JSON.stringify({ Id: id, UserName: uname, E_mail: email, ContactNo: contact, AmountOfMedicicne: amount, Status: status, Location:location , MedicalStoreName:medstorename , MedicineWeight:medweight ,  Type:type ,MedicineName: medname, Address: add }),
                             contentType: 'application/json; charset=utf-8',
@@ -169,7 +169,7 @@
                             var data = id;
 
                             $.ajax({
-                                url: "http://localhost:52257/api/Order/" + data,
+                                url: "http://med786.apphb.com/api/Order/" + data,
                                 type: "Delete",
                                 success: function (data) {
 

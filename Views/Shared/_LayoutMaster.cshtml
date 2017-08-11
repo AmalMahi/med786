@@ -309,7 +309,7 @@
                                 var c = $("#messagef").val();
 
                                 $.ajax({
-                                    url: "http://localhost:52257/api/Services",
+                                    url: "http://med786.apphb.com/api/Services",
                                     type: "Post",
                                     data: JSON.stringify({ Name: a, E_mail: b, Message: c }),
 
@@ -387,7 +387,7 @@
                         var b = $("#a").val();
 
                         $.ajax({
-                            url: "http://localhost:52257/api/Login",//?username="+data
+                            url: "http://med786.apphb.com/api/Login",//?username="+data
                             type: "Post",
                             data: JSON.stringify({ User_Name: a, Password: b }),
 
@@ -563,7 +563,7 @@
                         var j = $("#r").val();
 
                         $.ajax({
-                            url: "http://localhost:52257/api/UserRecord",
+                            url: "http://med786.apphb.com/api/UserRecord",
                             type: "Post",
                             data: JSON.stringify({ First_Name: a, Last_Name: b, User_Name: u, Email: e, Occupation: o, Contact_No: c, Alt_No: d, Gender: i, D_O_B: g, Password: f, Role: j }),
 
@@ -750,7 +750,7 @@
                 var m = $("#loc").val();
 
                 $.ajax({
-                    url: "http://localhost:52257/api/Emergency",
+                    url: "http://med786.apphb.com/api/Emergency",
                     type: "Post",
                     data: JSON.stringify({ FirstName: a, LastName: b, E_mail: e, MedicalStoreName : p, D_O_B: h, ContactNo: c, AltNo: d, Amount: g, Medicines: j, Address: k,Location:m , Gender: i, Password: f, }),
 

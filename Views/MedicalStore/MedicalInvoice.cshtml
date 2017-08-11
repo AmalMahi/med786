@@ -25,7 +25,7 @@
 
                         $.ajax({
                             type: 'GET',
-                            url: "http://localhost:52257/api/Invoice",
+                            url: "http://med786.apphb.com/api/Invoice",
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -70,7 +70,7 @@
                             var data = id;
 
                             $.ajax({
-                                url: "http://localhost:52257/api/Invoice/" + data,
+                                url: "http://med786.apphb.com/api/Invoice/" + data,
                                 type: "Delete",
                                 success: function (data) {
 

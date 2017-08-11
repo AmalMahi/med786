@@ -16,7 +16,7 @@
 
         $.ajax({
             type: 'GET',
-            url: "http://localhost:52257/api/medicines",
+            url: "http://med786.apphb.com/api/medicines",
             dataType: 'json',
             success: function (data) {
                 console.log(data);
@@ -373,7 +373,7 @@
                             var f = $("#Address").val();
                             var h = $("#contact").val();
                             $.ajax({
-                                url: "http://localhost:52257/api/Order",
+                                url: "http://med786.apphb.com/api/Order",
                                 type: "Post",
                                 data: JSON.stringify({ UserName: y, Location: a, MedicalStoreName: b, MedicineName: u, E_mail: e, MedicineWeight: o, Type: c, ContactNo: h, AmountOfMedicine: g, Address: f }),
 
@@ -387,7 +387,7 @@
                                     var e = $("#Price").val();
                                     var h = $("#date").val();
                                     $.ajax({
-                                        url: "http://localhost:52257/api/Invoice",
+                                        url: "http://med786.apphb.com/api/Invoice",
                                         type: "Post",
                                         data: JSON.stringify({ UserName: y, MedicineName: u, AmountOfMedicine: g, TotalPrice: e, PricePerOne: e, Date: h }),
 

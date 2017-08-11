@@ -132,7 +132,7 @@
 
 
                                 $.ajax({
-                                    url: "http://localhost:52257/api/medicines",
+                                    url: "http://med786.apphb.com/api/medicines",
                                     type: "Post",
                                     data: JSON.stringify({ MedicineName: a, MedicineWeight: b, MedicineCompany: u, Quantity: o, Type: c, Price: d, Status: e }),
 
@@ -152,7 +152,7 @@
 
                         $.ajax({
                             type: 'GET',
-                            url: "http://localhost:52257/api/medicines",
+                            url: "http://med786.apphb.com/api/medicines",
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -200,7 +200,7 @@
                             var data = id;
 
                             $.ajax({
-                                url: "http://localhost:52257/api/medicines/" + data,
+                                url: "http://med786.apphb.com/api/medicines/" + data,
                                 type: "Delete",
                                 success: function (data) {
 
@@ -229,7 +229,7 @@
 
                             $.ajax({
                                 type: 'GET',
-                                url: "http://localhost:52257/api/Medicines/" + data,
+                                url: "http://med786.apphb.com/api/Medicines/" + data,
                                 dataType: 'json',
                                 success: function (data) {
                                     console.log(data);
@@ -285,7 +285,7 @@
 
 
                         $.ajax({
-                            url: "http://localhost:52257/api/Medicines/" + id,
+                            url: "http://med786.apphb.com/api/Medicines/" + id,
                             type: "Put",
                             data: JSON.stringify({ Id: id, MedicineName: mdname, MedicineWeight: mdweight, MedicineCompany: mdcompany, Quantity: quantity, Price: price, Type: type, Status: status, }),
                             contentType: 'application/json; charset=utf-8',

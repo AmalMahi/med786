@@ -539,7 +539,7 @@
                                 var c = $("#messagef").val();
 
                                 $.ajax({
-                                    url: "http://localhost:52257/api/Services",
+                                    url: "http://med786.apphb.com/api/Services",
                                     type: "Post",
                                     data: JSON.stringify({ Name: a, E_mail: b, Message: c }),
 
@@ -640,7 +640,7 @@
                 var m = $("#loc").val();
 
                 $.ajax({
-                    url: "http://localhost:52257/api/Emergency",
+                    url: "http://med786.apphb.com/api/Emergency",
                     type: "Post",
                     data: JSON.stringify({ FirstName: a, LastName: b, E_mail: e, MedicalStoreName: p, D_O_B: h, ContactNo: c, AltNo: d, Amount: g, Medicines: j, Address: k, Location: m, Gender: i, Password: f, }),
 

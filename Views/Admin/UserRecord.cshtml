@@ -78,7 +78,7 @@
 
                         $.ajax({
                             type: 'GET',
-                            url: "http://localhost:52257/api/UserRecord",
+                            url: "http://med786.apphb.com/api/UserRecord",
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -130,7 +130,7 @@
                             var data = id;
 
                             $.ajax({
-                                url: "http://localhost:52257/api/UserRecord/" + data,
+                                url: "http://med786.apphb.com/api/UserRecord/" + data,
                                 type: "Delete",
                                 success: function (data) {
 

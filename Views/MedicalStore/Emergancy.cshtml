@@ -26,7 +26,7 @@
                         var data = localStorage.getItem("name");
                         $.ajax({
                             type: 'GET',
-                            url: "http://localhost:52257/api/Emergency?username="+data,
+                            url: "http://med786.apphb.com/api/Emergency?username=" + data,
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
@@ -81,7 +81,7 @@
                             var data = id;
 
                             $.ajax({
-                                url: "http://localhost:52257/api/Emergency/" + data,
+                                url: "http://med786.apphb.com/api/Emergency/" + data,
                                 type: "Delete",
                                 success: function (data) {
 
@@ -179,7 +179,7 @@
                        
 
                         $.ajax({
-                            url: "http://localhost:52257/api/Emergency/" + id,
+                            url: "http://med786.apphb.com/api/Emergency/" + id,
                             type: "Put",
                             data: JSON.stringify({ Id: id, FirstName: fname, LastName: lname, E_mail: email, D_O_B: dob, ContactNo: contact, AltNo: alt, Amount: amount,Medicines: med,Address: address,  Status: status, Gender: gndr, Password: pass, MedicalStoreName:m, Location:p }),
                             contentType: 'application/json; charset=utf-8',

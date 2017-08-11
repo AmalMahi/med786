@@ -305,106 +305,115 @@
         </script>*@
     <script>
 
-
-
-        function get() {
-
+        $(document).ready(function () {
+            $("#pro").hide();
             var data = localStorage.getItem("name");
             document.getElementById("Account2").setAttribute('value', data);
+
+
+        });
+    </script>
+    <script>
+
+        function get() {
+            $("#main").hide();
+            $("#pro").show();
+            var data = localStorage.getItem("name");
+
             alert(data);
             $.ajax({
                 type: 'GET',
-                url: "http://localhost:52257/api/Profile?username=/" + data,
+                url: "http://localhost:52257/api/Profile?username=" + data,
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
                     alert(data);
                     var str = " ";
                     str += "<form action='#' method='post'>";
+
+                    str += "<tr>";
+                    str += "<td colspan='2'>";
+                    str += "<img src='/images/profile.png' class='img-circle' style='width:26%;height:200px;margin-left:10%;margin-top:20px;'/><br />"; str += "</td>";
                     str += "<tr>";
 
-                    str += "<td colspan='2'>";
-                    str += "<img src='/images/profile.png' class='img-circle' style='width:26%;height:200px;margin-left:10%;margin-top:20px;'/><br />";
-                    str += "<button type='submit' style='background-color: rgba(49, 50, 49, 0.66); border-radius: 20px; margin-left: 16%; '>Change</button>";
-                    str += "</td>";
+
                     str += "<tr>";
+                    str += " <td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px;'>ID</td>";
+                    str += "<td><input type='text' id='id'  disabled   value='" + data[0].Id + "'/></td>"
+                    str += "<tr>";
+
                     str += "<tr>";
                     str += " <td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px;'>First Name</td>";
-                    str += "<input type='text' id='d' disabled   value='" + First_Name + "'/>"
-                    str += "<tr>";
+                    str += "<td><input type='text' id='a'    value='" + data[0].First_Name + "'/></td>"
                     str += "<tr>";
 
+                    str += "<tr>";
                     str += " <td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Last Name</td>";
-                    str += "<input type='text' id='d' disabled   value='" + data.Last_Name + "'/>"
+                    str += "<td><input type='text' id='b'   value='" + data[0].Last_Name + "'/></td>"
                     str += "</tr>";
+
+
                     str += "<tr>";
-
-
                     str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>E-mail</td>";
-                    str += "<input type='text' id='d' disabled   value='" + data.E_mail + "'/>"
+                    str += "<td><input type='email' id='c'    value='" + data[0].Email + "'/></td>"
                     str += "</tr>";
-                    str += "<tr>";
 
+                    str += "<tr>";
                     str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Password</td>";
-                    str += "<input type='text' id='d' disabled   value='" + data.Password + "'/>"
+                    str += "<td><input type='Password' id='d'    value='" + data[0].Password + "'/></td>"
                     str += "</tr>";
-                    str += "tr>";
 
+                    str += "<tr>";
                     str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Occupation</td>";
-                    str + "<input type='text' id='d' disabled   value='" + data.Occupation + "'/>"
+                    str + "<td><input type='text' id='e'   value='" + data[0].Occupation + "'/></td>"
                     str += "</tr>";
-                    str += "<tr>";
 
+                    str += "<tr>";
                     str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Contact No</td>";
-                    str += "<input type='text' id='d' disabled   value='" + data.Contact_No + "'/>"
+                    str += "<td><input type='tel' id='f'   value='" + data[0].Contact_No + "'/></td>"
                     str += "</tr>";
-                    str += "<tr>";
 
+                    str += "<tr>";
                     str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Alt Contact No</td>";
-                    str + "<input type='text' id='d' disabled   value='" + data.Alt_No + "'/>"
+                    str + "<td><input type='tel' id='g'   value='" + data[0].Alt_No + "'/></td>"
                     str += "</tr>";
+
+
+
                     str += "<tr>";
-
-
-
                     str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '\>Date of Birth</td>";
-                    str + "<input type='text' id='d' disabled   value='" + data.D_O_B + "'/>"
+                    str + "<td><input type='date' id='h'    value='" + data[0].D_O_B + "'/></td>"
                     str += "</tr>";
 
+
+
                     str += "<tr>";
-
-
                     str += " <td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Gender</td>";
-
-                    str += "<div class='radio' style='color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; '>";
-
-                    str += "  <label>  <input type='radio' id='g1' name='Gender' value='male' required /> Male</label>";
-
-                    str += " <label> <input type='radio' id='g1' name='Gender' value='female' required /> Female</label>";
-
-                    str += " </div>"
+                    str += "<td><div class='radio' style='color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; '>";
+                    str += "  <label>  <input type='radio' id='i' name='Gender' value='male' required /> Male</label>";
+                    str += " <label> <input type='radio' id='i' name='Gender' value='female' required /> Female</label>";
+                    str += " </div></td>";
                     str += "</tr>";
+
+
                     str += "<tr>";
-
-
                     str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>User Name</td>";
-                    str + "<input type='text' id='d' disabled   value='" + data.User_Name + "'/>"
-                    str += "<tr>";
-                    str += "<tr>";
-
-                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Address</td>";
-                    str += "<input type='text' id='d' disabled   value='" + data.Address + "'/>"
+                    str + "<td><input type='text' id='j'   value='" + data[0].User_Name + "'/></td>"
                     str += "</tr>";
+
                     str += "<tr>";
+                    str += "<td style='text-align: center; color: white; height: 50px; font-family: Gabriola; font-size: 25px; '>Address</td>";
+                    str += "<td><input type='text' id='k'    value='" + data[0].Address + "'/></td>"
+                    str += "</tr>";
 
 
 
 
-                    str += "<input type='button' class='btn btn-lg ' onclick='azc()' type='button' value='Save'/>"
-
+                    str += "<tr>";
+                    str += "<br/><input type='button' class='btn btn-lg ' onclick='azc()' type='button' style='margin-left: 120%;' value='Save'/><br/>"
                     str += " </tr>";
                     str += "</form>";
-                    $('#pro').html(str);
+                    $('#proo').html(str);
                 },
 
                 error: function (msg) { alert(msg); }
@@ -413,135 +422,203 @@
         }
 
     </script>
+    <script>
+
+        function azc() {
+            // debugger;
+
+            var id = $("#id").val();
+            var fname = $("#a").val();
+            var lname = $("#b").val();
+            var email = $("#c").val();
+            var pas = $("#d").val();
+            var occu = $("#e").val();
+            var contact = $("#f").val();
+            var alt = $("#g").val();
+            var dob = $("#h").val();
+            var gender = $("#i").val();
+            var uname = $("#j").val();
+            var add = $("#k").val();
+
+
+
+            $.ajax({
+                url: "http://localhost:52257/api/UserRecord/" + id,
+                type: "Put",
+                data: JSON.stringify({ Id: id, FirstName: fname, LastName: lname, E_mail: email, D_O_B: dob, ContactNo: contact, AltNo: alt, Address: add, Gender: gendr, Password: pas, Occupation: occu, User_Name: uname }),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    window.location.href = "/Admin/UserRecord";
+                },
+                error: function (msg) { alert(msg); }
+            });
+        };
+
+    </script>
+
+
 
 </head>
 
 <body style="background-color: rgba(41, 43, 43, 0.25);">
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(49, 50, 49, 0.97); border-color: rgba(49, 50, 49, 0.94); height: 65px; border-radius: 0; ">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <img src="~/images/logo.png" height="325" width="325" style="margin-top:-40%" />
-            <!-- <p class="navbar-brand" style="font-family: Gabriola; font-size: 30px; font-size: 40px; text-transform: uppercase; color: #34a58e;margin-top:10px; text-shadow: rgba(12, 12, 12, 0.5) 0 0 15px, rgba(34, 0, 218, 0.5) 0 0 10px; ">Med<span class="glyphicon glyphicon-plus" style="color: firebrick; font-size: 25px;"></span>Deliver </p>-->
+    <div id="pro">
+        <div class="row">
+            <div class="col-xs-12" style="height:80px; width:100%"></div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgba(49, 50, 49, 0.8)">
-                <li class="dropdown">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-10" style="width: 75%; background-color: rgba(49, 50, 49, 0.97);margin-right:0">
+                <h1>Profile</h1>
+                <ul class="nav nav-tabs"></ul>
+                <div class="container">
+                    <div class="tab-content">
 
-                    <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:25px; margin-left:10px" disabled id="Account2" />  </a>
-                    <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                        <div class="row">
 
-                        <li><a onclick="get()" style="color:white;">Setting</a></li>
-                        <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+                            <div class="col-xs-12">
+                                <table style="margin-top: 10px; width: 86%; background-color: black">
+                                    <thead> </thead>
 
-                    </ul>
-            </ul>
-
-        </div>
-    </div>
-
-    <div id="slideout">
-        <h3>Admin Panel</h3>
-        <div id="slideout_inner">
-            <br /><br /><br /><br /><br /><br /><br /><br />
-            <!--<div class="form-group">
-
-                <select name="status" class="control" style="background-color:#333;">
-                    <option value=" ">Main Record</option>
-                    <option>Medicines List</option>
-                    <option>Medical Stores List</option>
-                </select>
+                                    <tbody id="proo"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-
-                <select name="status" class="control" style="background-color:#333;">
-                    <option value=" ">Backend Record</option>
-                    <option>User Record</option>
-                    <option>Order List</option>
-                    <option>Medicines List</option>
-                    <option>Medical Stores List</option>
-
-                </select>
-            </div>-->
-            <div id="main" role="main">
-                <ul id="menu2" class="menu">
-                    <li tabindex="0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
-                        <b>Main Record</b>
-                        <ul class="submenu blind">
-                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
-                                <a href="/Admin/MedicinesList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Medicine</a>
-                            </li>
-                            <li style="width: 170px; height: auto; margin-left: 4px; background-color: #8AACAC; color: white; font-size: 15px; ">
-                                <a href="/Admin/MedicalStoresList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">Medical Stores</a>
-                            </li>
-
-                        </ul>
-                    </li>
-                </ul>
-            </div><br />
-            <div id="main" role="main">
-                <ul id="menu3" class="menu">
-                    <li tabindex="0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
-                        Back Record
-                        <ul class="submenu blind">
-                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
-                                <a href="/Admin/UserRecord" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;User Record</a>
-                            </li>
-                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
-                                <a href="/Admin/EmergencyOrder" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Emergency</a>
-                            </li>
-                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #567A7A; color: white;  font-size: 15px; ">
-                                <a href="/Admin/OrderInvoices" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Invoices</a>
-                            </li>
-                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: rgb(70, 103, 103); color: white;  font-size: 15px; ">
-                                <a href="/Admin/ContactFeedback" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;FeedBack</a>
-                            </li>
-                        </ul>
-
-                    </li>
-                </ul>
-            </div><br /><br /><br /><br />
-            <div id="main" role="main">
-                <ul id="menu3" class="menu">
-                    <li tabindex=" 0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
-                        <a href="/Admin/OrderList">Order List</a>
-                        <!--  <ul class="submenu blind">
-                              <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
-                                  <a href="/Admin/PendingOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Pending </a>
-                              </li>
-                              <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #567A7A; color: white; font-size: 15px; ">
-                                  <a href="/Admin/RecievedOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Recieved </a>
-                              </li>
-                              <li style="width: 170px; height: 25px; margin-left: 4px; background-color: rgb(70, 103, 103); color: white;  font-size: 15px; ">
-                                  <a href="/Admin/CancelOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Cancel</a>
-                              </li>
-
-
-                          </ul>-->
-                    </li>
-                </ul>
-            </div><br />
-
-            <!--<a href="/Admin/UserRecord" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Users Record</a>
-             <br />
-             <br />
-             <a href="/Admin/OrderList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Orders List</a>
-             <br />
-             <br />
-             <a href="/Admin/MedicinesList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Medicines List</a>
-             <br />
-             <br />
-             <a href="/Admin/MedicalStoresList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Medical Stores List</a>
-             <br />
-             <br />-->
         </div>
-    </div>
+        <div style="height:100px;width:100%">
 
-    <div>
-        @RenderBody()
+        </div>
+
+    </div>
+    <div id="main">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(49, 50, 49, 0.97); border-color: rgba(49, 50, 49, 0.94); height: 65px; border-radius: 0; ">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/images/logo.png" height="325" width="325" style="margin-top:-40%" />
+                <!-- <p class="navbar-brand" style="font-family: Gabriola; font-size: 30px; font-size: 40px; text-transform: uppercase; color: #34a58e;margin-top:10px; text-shadow: rgba(12, 12, 12, 0.5) 0 0 15px, rgba(34, 0, 218, 0.5) 0 0 10px; ">Med<span class="glyphicon glyphicon-plus" style="color: firebrick; font-size: 25px;"></span>Deliver </p>-->
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgba(49, 50, 49, 0.8)">
+                    <li class="dropdown">
+
+                        <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span><input type="text" style="background-color:black; width:120px; height:25px; margin-left:10px" disabled id="Account2" />  </a>
+                        <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+
+                            <li><a onclick="get()" style="color:white;">Setting</a></li>
+                            <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+
+                        </ul>
+                </ul>
+
+            </div>
+        </div>
+
+        <div id="slideout">
+            <h3>Admin Panel</h3>
+            <div id="slideout_inner">
+                <br /><br /><br /><br /><br /><br /><br /><br />
+                <!--<div class="form-group">
+
+                    <select name="status" class="control" style="background-color:#333;">
+                        <option value=" ">Main Record</option>
+                        <option>Medicines List</option>
+                        <option>Medical Stores List</option>
+                    </select>
+                </div>
+                <div class="form-group">
+
+                    <select name="status" class="control" style="background-color:#333;">
+                        <option value=" ">Backend Record</option>
+                        <option>User Record</option>
+                        <option>Order List</option>
+                        <option>Medicines List</option>
+                        <option>Medical Stores List</option>
+
+                    </select>
+                </div>-->
+                <div id="main" role="main">
+                    <ul id="menu2" class="menu">
+                        <li tabindex="0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
+                            <b>Main Record</b>
+                            <ul class="submenu blind">
+                                <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                    <a href="/Admin/MedicinesList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Medicine</a>
+                                </li>
+                                <li style="width: 170px; height: auto; margin-left: 4px; background-color: #8AACAC; color: white; font-size: 15px; ">
+                                    <a href="/Admin/MedicalStoresList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">Medical Stores</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div><br />
+                <div id="main" role="main">
+                    <ul id="menu3" class="menu">
+                        <li tabindex="0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
+                            Back Record
+                            <ul class="submenu blind">
+                                <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                    <a href="/Admin/UserRecord" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;User Record</a>
+                                </li>
+                                <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                    <a href="/Admin/EmergencyOrder" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Emergency</a>
+                                </li>
+                                <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #567A7A; color: white;  font-size: 15px; ">
+                                    <a href="/Admin/OrderInvoices" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Invoices</a>
+                                </li>
+                                <li style="width: 170px; height: 25px; margin-left: 4px; background-color: rgb(70, 103, 103); color: white;  font-size: 15px; ">
+                                    <a href="/Admin/ContactFeedback" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;FeedBack</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </div><br /><br /><br /><br />
+                <div id="main" role="main">
+                    <ul id="menu3" class="menu">
+                        <li tabindex=" 0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
+                            <a href="/Admin/OrderList">Order List</a>
+                            <!--  <ul class="submenu blind">
+                                  <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                      <a href="/Admin/PendingOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Pending </a>
+                                  </li>
+                                  <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #567A7A; color: white; font-size: 15px; ">
+                                      <a href="/Admin/RecievedOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Recieved </a>
+                                  </li>
+                                  <li style="width: 170px; height: 25px; margin-left: 4px; background-color: rgb(70, 103, 103); color: white;  font-size: 15px; ">
+                                      <a href="/Admin/CancelOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Cancel</a>
+                                  </li>
+
+
+                              </ul>-->
+                        </li>
+                    </ul>
+                </div><br />
+
+                <!--<a href="/Admin/UserRecord" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Users Record</a>
+                 <br />
+                 <br />
+                 <a href="/Admin/OrderList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Orders List</a>
+                 <br />
+                 <br />
+                 <a href="/Admin/MedicinesList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Medicines List</a>
+                 <br />
+                 <br />
+                 <a href="/Admin/MedicalStoresList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Medical Stores List</a>
+                 <br />
+                 <br />-->
+            </div>
+        </div>
+
+        <div>
+            @RenderBody()
+        </div>
     </div>
     <!-- Wrapper -->
     <div class="md-modal md-effect-28" id="modal-28">

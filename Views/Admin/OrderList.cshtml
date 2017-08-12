@@ -42,9 +42,9 @@
                                     str += "<td id='r" + i + "'>" + data[i].E_mail + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].Address + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].ContactNo + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].AmountOfMedicicne + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].AmountOfMedicine + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].Status + "</td>";
-                                    str += "<td id='r" + i + "'>" + data[i].Loaction + "</td>";
+                                    str += "<td id='r" + i + "'>" + data[i].Location + "</td>";
                                     str += "<td id='r" + i + "'>" + data[i].MedicalStoreName + "</td>";
                                    
                                     str += "<td id='r" + i + "'>" + data[i].MedicineWeight + "</td>";
@@ -129,7 +129,7 @@
                                     str += "<input type='email' id='c' disabled value='" + data.E_mail + "'/>"
                                     str += "<input type='text' id='d' disabled   value='" + data.Address + "'/>"
                                     str += "<input type='tel' id='e' disabled value='" + data.ContactNo + "'/>"
-                                    str += "<input type='int' id='f' disabled   value='" + data.AmountOfMedicicne + "'/>"
+                                    str += "<input type='int' id='f' disabled   value='" + data.AmountOfMedicine + "'/>"
                                     str += "<select id='s'>"
                                     str += " <option >" + data.Status + "</option>"
                                     str += " <option value='Pending'>Pending</option>"
@@ -179,7 +179,7 @@
                         $.ajax({
                             url: "http://med786.apphb.com/api/Order/" + id,
                             type: "Put",
-                            data: JSON.stringify({ Id: id, UserName: uname, E_mail: email, ContactNo: contact, AmountOfMedicicne: amount, Status: status, Location: location, MedicalStoreName: medstorename, MedicineWeight: medweight, Type: type, MedicineName: medname, Address: add }),
+                            data: JSON.stringify({ Id: id, UserName: uname, E_mail: email, ContactNo: contact, AmountOfMedicine: amount, Status: status, Location: location, MedicalStoreName: medstorename, MedicineWeight: medweight, Type: type, MedicineName: medname, Address: add }),
                             contentType: 'application/json; charset=utf-8',
                             success: function (data) {
                                 window.location.href = "/MedicalStore/UserStore";
